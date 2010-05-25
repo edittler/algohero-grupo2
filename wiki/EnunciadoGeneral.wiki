@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Enunciado General del trabajo práctico.
 
 = Introduction =
 
