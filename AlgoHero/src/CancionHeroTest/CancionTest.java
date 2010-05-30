@@ -1,10 +1,12 @@
+package CancionHeroTest;
 import CancionHero.*;
+import CancionHero.Tono.Do;
 import CancionHeroTest.*;
 
 @TestCase
 public class CancionTest {
 
-	@Test
+	/* @Test 
 	public void crearCancionCumpleFeliz(){
 		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
 		CumpleFeliz.setTempo(90);
@@ -39,5 +41,5 @@ public class CancionTest {
 		CumpleFeliz.agregarCompas(unCompas);
 		
 	}
-	
+	*/
 }
