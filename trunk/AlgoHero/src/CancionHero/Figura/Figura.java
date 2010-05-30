@@ -1,15 +1,21 @@
 package CancionHero.Figura;
 
-public abstract class Figura {
+import CancionHero.ElementoDeCompas;
 
-	private float cantidadNegras;
+public class Figura extends ElementoDeCompas {
 
-	protected void setCantidadNegras(float cantidadNegras) {
-		this.cantidadNegras = cantidadNegras;
-	}
-
-	public float getDuracion() {
-		return cantidadNegras;
+	private double Duracion;//Medida en negras
+	
+	public Figura(double duracion){
+		setDuracion(duracion);
 	}
 	
+	public double getDuracion() {
+		return Duracion;
+	}
+	
+	protected void setDuracion(double duracion) {
+		Duracion = duracion;
+	}
+
 }

@@ -33,6 +33,11 @@ public class Cancion {
 		return tempo;
 	}
 
+	public void agregarCompas(Compas unCompas) {
+		this.compaces.add(unCompas);
+		
+	}
+
 	
 
 }

@@ -1,12 +1,12 @@
 package CancionHeroTest;
 import CancionHero.*;
-import CancionHero.Tono.Do;
-import CancionHeroTest.*;
+import CancionHero.Figura.*;
+import CancionHero.Nota.*;
+import junit.framework.TestCase;
 
-@TestCase
-public class CancionTest {
 
-	/* @Test 
+public class CancionTest extends TestCase{
+
 	public void crearCancionCumpleFeliz(){
 		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
 		CumpleFeliz.setTempo(90);
@@ -18,7 +18,7 @@ public class CancionTest {
 		Nota unaNota = new Nota(new Do(), new Corchea());
 		unCompas.agregarElemento(unaNota);
 		
-		unCompas.agregarElemento(new Silencio(new Semicorchea()))
+		unCompas.agregarElemento(new Silencio(new Semicorchea()));
 		
 		unaNota = new Nota(new Do(), new Semicorchea());
 		unCompas.agregarElemento(unaNota);
@@ -41,5 +41,5 @@ public class CancionTest {
 		CumpleFeliz.agregarCompas(unCompas);
 		
 	}
-	*/
+	
 }
