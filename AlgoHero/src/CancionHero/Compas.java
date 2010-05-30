@@ -8,6 +8,17 @@ public class Compas {
 	private int denominador; // representa una figura
 	private ArrayList<ElementoDeCompas> elementos; // almacena notas, silencios o acordes
 	
+	// Construcctor por default asigna 4/4
+	public Compas(){
+		this.setNumerador(4);
+		this.setDenominador(4);
+	}
+		
+	public Compas(int numerador, int denominador) {
+		this.setNumerador(numerador);
+		this.setDenominador(denominador);
+	}
+
 	public void setNumerador(int numerador) {
 		this.numerador = numerador;
 	}
@@ -26,6 +37,11 @@ public class Compas {
 
 	public ArrayList<ElementoDeCompas> getElementos() {
 		return elementos;
+	}
+
+	public void agregarElemento(ElementoDeCompas elemento) {
+		this.elementos.add(elemento);
+	
 	}
 	
 }
