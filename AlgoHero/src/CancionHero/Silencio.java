@@ -1,10 +1,25 @@
 package CancionHero;
 
+import CancionHero.Figura.*;
+
 public class Silencio extends ElementoDeCompas {
 
-	public float getDuracion() {
-		// TODO Auto-generated method stub
-		return 0;
+	private Figura figura;
+	
+	public Silencio(Figura unaFigura) {
+		this.figura=unaFigura;
+	}
+
+	public double getDuracion() {
+		return this.getFigura().getDuracion();
+	}
+
+	public void setFigura(Figura figura) {
+		this.figura = figura;
+	}
+
+	public Figura getFigura() {
+		return figura;
 	}
 
 }
