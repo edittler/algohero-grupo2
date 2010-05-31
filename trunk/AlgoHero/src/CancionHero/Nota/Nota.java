@@ -8,6 +8,7 @@ public class Nota extends ElementoDeCompas {
 	private Tono tono;
 	private Figura figura;
 	
+	// Constructor por defecto crea una nota Do Negra
 	public Nota(){
 		this.setTono(new Do());
 		this.setFigura(new Negra());
@@ -18,6 +19,7 @@ public class Nota extends ElementoDeCompas {
 		this.setFigura(unaFigura);
 	}
 	
+	// Devuelve la duracion de la negra medida en figuras negras
 	public double getDuracion() {
 		return this.getFigura().getDuracion();
 	}
