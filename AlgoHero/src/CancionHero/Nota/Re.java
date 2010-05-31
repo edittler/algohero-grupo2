@@ -5,6 +5,6 @@ import Constantes.Constantes;
 public class Re extends Tono {
 
 	public Re(){
-		super(Constantes.frecuenciaRe);
+		super(Constantes.FRECUENCIA_RE);
 	}
 }

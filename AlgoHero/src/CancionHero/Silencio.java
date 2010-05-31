@@ -5,9 +5,9 @@ import CancionHero.Figura.*;
 public class Silencio extends ElementoDeCompas {
 
 	private Figura figura;
-	
+
 	public Silencio(Figura unaFigura) {
-		this.figura=unaFigura;
+		this.figura = unaFigura;
 	}
 
 	public double getDuracion() {

@@ -10,6 +10,7 @@ public class Figura extends ElementoDeCompas {
 		setDuracion(duracion);
 	}
 	
+	// devuelve la duracion medida en negras
 	public double getDuracion() {
 		return duracion;
 	}

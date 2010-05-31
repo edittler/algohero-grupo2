@@ -5,7 +5,7 @@ import Constantes.Constantes;
 public class Blanca extends Figura {
 
 	public Blanca(){
-		super(Constantes.Blanca);
+		super(Constantes.BLANCA);
 	}
 	              
 }

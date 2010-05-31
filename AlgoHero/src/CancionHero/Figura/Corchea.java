@@ -5,6 +5,6 @@ import Constantes.Constantes;
 public class Corchea extends Figura {
 
 	public Corchea(){
-		super(Constantes.Corchea);
+		super(Constantes.CORCHEA);
 	}
 }

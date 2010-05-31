@@ -5,7 +5,7 @@ import Constantes.Constantes;
 public class SolSostenido extends Tono {
 
 	public SolSostenido(){
-		super(Constantes.frecuenciaSolSostenido);
+		super(Constantes.FRECUENCIA_SOL_SOSTENIDO);
 	}
 	
 }
