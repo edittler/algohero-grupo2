@@ -4,18 +4,18 @@ import CancionHero.ElementoDeCompas;
 
 public class Figura extends ElementoDeCompas {
 
-	private double Duracion;//Medida en negras
+	private double duracion;//Medida en negras
 	
 	public Figura(double duracion){
 		setDuracion(duracion);
 	}
 	
 	public double getDuracion() {
-		return Duracion;
+		return this.duracion;
 	}
 	
 	protected void setDuracion(double duracion) {
-		Duracion = duracion;
+		this.duracion = duracion;
 	}
 
 }
