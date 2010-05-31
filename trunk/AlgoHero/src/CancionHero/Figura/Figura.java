@@ -1,8 +1,6 @@
 package CancionHero.Figura;
 
-import CancionHero.ElementoDeCompas;
-
-public class Figura extends ElementoDeCompas {
+public abstract class Figura {
 
 	private double duracion;//Medida en negras
 	
