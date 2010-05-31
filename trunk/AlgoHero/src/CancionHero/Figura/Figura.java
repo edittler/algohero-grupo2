@@ -11,7 +11,7 @@ public class Figura extends ElementoDeCompas {
 	}
 	
 	public double getDuracion() {
-		return this.duracion;
+		return duracion;
 	}
 	
 	protected void setDuracion(double duracion) {
