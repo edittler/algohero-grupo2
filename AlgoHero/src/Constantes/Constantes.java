@@ -17,6 +17,9 @@ public class Constantes {
 	public final static float FRECUENCIA_LA_SOSTENIDO= 466;
 	public final static float FRECUENCIA_SI= 493;
 	
+	//Cantidad de notas utilizadas en el modelo
+	public final static int CANTIDAD_NOTAS=12;
+	
 	//Relacion de cada figura respecto de la Negra [Figura/Negra]
 	//Duracion en negras
 	

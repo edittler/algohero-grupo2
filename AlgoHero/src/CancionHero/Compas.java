@@ -13,6 +13,7 @@ public class Compas {
 	public Compas() {
 		this.setNumerador(4);
 		this.setDenominador(4);
+		this.elementos = new ArrayList<ElementoDeCompas>();
 	}
 
 	public Compas(int numerador, int denominador) {
@@ -22,7 +23,7 @@ public class Compas {
 				
 	}
 
-	public void setNumerador(int numerador) {
+	private void setNumerador(int numerador) {
 		this.numerador = numerador;
 	}
 
@@ -30,13 +31,14 @@ public class Compas {
 		return numerador;
 	}
 
-	public void setDenominador(int denominador) {
+	private void setDenominador(int denominador) {
 		this.denominador = denominador;
 	}
 
 	public int getDenominador() {
 		return denominador;
 	}
+	
 
 	public ArrayList<ElementoDeCompas> getElementos() {
 		return elementos;
