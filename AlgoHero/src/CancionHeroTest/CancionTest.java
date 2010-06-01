@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 
 public class CancionTest extends TestCase{
 
-	public void crearCancionCumpleFeliz(){
+	public void testCrearCancionCumpleFeliz(){
 		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
 		CumpleFeliz.setTempo(90);
 		
@@ -39,6 +39,11 @@ public class CancionTest extends TestCase{
 	
 		//finalizamos la creacion del segundo compas, lo agregamos a la cancion
 		CumpleFeliz.agregarCompas(unCompas);
+		
+	    assertTrue("Nombre Falso",CumpleFeliz.getNombre().equals("CumpleFeliz") );
+	    assertEquals(CumpleFeliz.getTempo(), 90); //Prueba que el tempo sea correcto
+	    
+		
 		
 	}
 	
