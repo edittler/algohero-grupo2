@@ -18,6 +18,8 @@ public class Compas {
 	public Compas(int numerador, int denominador) {
 		this.setNumerador(numerador);
 		this.setDenominador(denominador);
+		this.elementos = new ArrayList<ElementoDeCompas>();
+				
 	}
 
 	public void setNumerador(int numerador) {
