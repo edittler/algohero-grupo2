@@ -1,12 +1,17 @@
 package CancionHeroTest;
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 import CancionHero.*;
 import CancionHero.Figura.*;
 import CancionHero.Nota.*;
+import CancionHero.Tecla.*;
+import Constantes.Constantes;
 import junit.framework.TestCase;
-
 
 public class CancionTest extends TestCase{
 
+	@Test
 	public void testCrearCancionCumpleFeliz(){
 		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
 		CumpleFeliz.setTempo(90);
@@ -43,8 +48,23 @@ public class CancionTest extends TestCase{
 	    assertTrue("Nombre Falso",CumpleFeliz.getNombre().equals("CumpleFeliz") );
 	    assertEquals(CumpleFeliz.getTempo(), 90); //Prueba que el tempo sea correcto
 	    
-		
-		
+	    //cargo el mapeo automatico y pruebo si cargo correctamente las notas
+	    // en sus correspondientes teclas. Antes debo crear la combinacion de teclas
+	    
+	    ArrayList<Tecla> teclas = new ArrayList<Tecla>();
+	    teclas.add(new A());
+	    teclas.add(new S());
+	    teclas.add(new J());
+	    teclas.add(new K());
+	    
+	    CumpleFeliz.mapearTeclas(teclas);
+	    
+	    Hashtable<Tono, Tecla> unMapeo = CumpleFeliz.getMapeo();
+	    Tecla unaTecla = unMapeo.get(new Do());
+	    //assertEquals(unaTecla.getCodigoASCII(),Constantes.CODIGO_ASCII_A);
+	   
+	    
 	}
+	
 	
 }

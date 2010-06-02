@@ -1,6 +1,11 @@
 package CancionHero;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+import CancionHero.Nota.*;
+import CancionHero.Tecla.*;
 
 public class Compas {
 
@@ -48,5 +53,19 @@ public class Compas {
 		this.elementos.add(elemento);
 
 	}
-
+	
+	public void mapear(Hashtable<Tono,Tecla> mapeo, Iterator<Tecla> itTeclas){
+		
+		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
+		
+		while (itElementos.hasNext()){
+			
+			/* Le pido a las notas del compas que se mapeen.
+			 */
+			
+			ElementoDeCompas unElemento = itElementos.next();
+			unElemento.mapear(mapeo, itTeclas);
+		}
+	}
+ 
 }
