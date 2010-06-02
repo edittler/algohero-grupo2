@@ -16,4 +16,8 @@ public class Tecla {
 		return codigoASCII;
 	}
 	
+	public char getTecla(){
+		return (char)codigoASCII;
+	}
+	
 }

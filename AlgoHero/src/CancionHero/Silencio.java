@@ -1,6 +1,11 @@
 package CancionHero;
 
+import java.util.Hashtable;
+import java.util.Iterator;
+
 import CancionHero.Figura.*;
+import CancionHero.Nota.Tono;
+import CancionHero.Tecla.Tecla;
 
 public class Silencio extends ElementoDeCompas {
 
@@ -20,6 +25,10 @@ public class Silencio extends ElementoDeCompas {
 
 	public Figura getFigura() {
 		return figura;
+	}
+	
+	public void mapear(Hashtable<Tono,Tecla> mapeo, Iterator<Tecla> itTeclas){
+		// como el silencio no se mapea, no realiza ninguna operacion.
 	}
 
 }
