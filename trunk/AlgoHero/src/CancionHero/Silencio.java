@@ -1,8 +1,7 @@
 package CancionHero;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Iterator;
-
 import CancionHero.Figura.*;
 import CancionHero.Nota.Tono;
 import CancionHero.Tecla.Tecla;
@@ -27,7 +26,7 @@ public class Silencio extends ElementoDeCompas {
 		return figura;
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, Iterator<Tecla> itTeclas){
+	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
 		// como el silencio no se mapea, no realiza ninguna operacion.
 	}
 

@@ -25,11 +25,13 @@ public class Tono {
 		if (obj == null){
 			return false;
 		}
-		if (getClass() != obj.getClass()){
+		if (this.getClass() != obj.getClass()){
 			return false;
 		}
 		Tono unTono = (Tono) obj;
-		return (this.getFrecuencia()==unTono.getFrecuencia());
+		Float unFloat = this.getFrecuencia();
+		Float otroFloat = unTono.getFrecuencia();
+		return (0==unFloat.compareTo(otroFloat));
 	}
 	
 }

@@ -1,8 +1,7 @@
 package CancionHero.Nota;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Iterator;
-
 import CancionHero.ElementoDeCompas;
 import CancionHero.Figura.*;
 import CancionHero.Tecla.Tecla;
@@ -44,9 +43,15 @@ public class Nota extends ElementoDeCompas {
 		return figura;
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, Iterator<Tecla> itTeclas){
-		if(itTeclas.hasNext()){
-			mapeo.put(this.getTono(), itTeclas.next());
+	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
+		if(mapeo.contains(this.getTono())==false){
+			if(teclas.size()<indiceTeclas){
+				mapeo.put(this.getTono(), teclas.get(indiceTeclas));
+				indiceTeclas+=1;
+			} else {
+				mapeo.put(this.getTono(), teclas.get(0));
+				indiceTeclas=1;
+			}
 		}
 	}
 

@@ -54,17 +54,14 @@ public class Compas {
 
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, Iterator<Tecla> itTeclas){
-		
+	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> itTeclas, int indiceTeclas){
 		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
 		
 		while (itElementos.hasNext()){
-			
 			/* Le pido a las notas del compas que se mapeen.
 			 */
-			
 			ElementoDeCompas unElemento = itElementos.next();
-			unElemento.mapear(mapeo, itTeclas);
+			unElemento.mapear(mapeo, itTeclas, indiceTeclas);
 		}
 	}
  
