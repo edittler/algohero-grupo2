@@ -51,20 +51,23 @@ public class Cancion {
 	public void mapearTeclas(ArrayList<Tecla> teclas){
 		this.mapeo = new Hashtable<Tono,Tecla>();
 		Iterator<Compas> itCompaces = this.getCompaces().iterator();
-		Iterator<Tecla> itTeclas = teclas.iterator();
+		
+		/* A falta de lista circular y 
+		 * de Iterador que retorne el inicio,
+		 * se utiliza una variable de indice del arreglo
+		 */
+		int indiceTeclas = 0;
+				
 		/* Si la cantidad de claves del mapeo es igual a la CANTIDAD DE NOTAS,
 		 * significa que se agregaron todas las notas posibles.
 		 * Ese es el punto en el que finaliza el Mapeo
 		 */
-		
 		while ((this.mapeo.size()<=Constantes.CANTIDAD_NOTAS)&&(itCompaces.hasNext())){
-		
 			/* 
 			 * Obtengo un Compas y le pido q mapee sus notas
 			 */
-			
 			Compas unCompas = itCompaces.next();
-			unCompas.mapear(mapeo, itTeclas);
+			unCompas.mapear(mapeo, teclas, indiceTeclas);
 		}
 	} // Fin Metodo mapeoAutomatico
 
