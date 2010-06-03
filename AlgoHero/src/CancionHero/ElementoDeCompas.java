@@ -11,5 +11,5 @@ public abstract class ElementoDeCompas {
 	public abstract double getDuracion();
 	
 	// mapea la nota en la tecla dada por el orden del iterador
-	public abstract void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> teclas, int indiceTeclas);
+	public abstract void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> teclas, int indiceTeclas);
 }
