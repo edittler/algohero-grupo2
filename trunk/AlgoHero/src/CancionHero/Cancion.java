@@ -5,19 +5,23 @@ import java.util.*;
 import CancionHero.Nota.*;
 import CancionHero.Tecla.*;
 import Constantes.Constantes;
+import Excepciones.CompasInvalidoExcepcion;
+import Excepciones.NoHayTeclasHabilitadasExcepcion;
+import Excepciones.TempoInvalidoException;
 
 public class Cancion {
 
 	private String nombre;
 	private int tempo; // [negras/minuto]
 	private ArrayList<Compas> compaces;
-	private Hashtable<Tono,Tecla> mapeo;
-
+	private Hashtable<Float,Integer> mapeo;// almacanena correspondencias entre un tono (diferenciadopor su frecuencia)
+										// y una tecla (diferenciada por su CodigoASCII) <Tono,Tecla>
 	// Constructor que asigna nombre a la cancion e inicializa colecciones
 	public Cancion(String Nombre) {
 		this.setNombre(Nombre);
+		this.tempo = 90;
 		this.compaces = new ArrayList<Compas>();
-		this.mapeo = new Hashtable<Tono,Tecla>();
+		this.mapeo = new Hashtable<Float,Integer>();
 	}
 
 	public void setNombre(String nombre) {
@@ -27,8 +31,12 @@ public class Cancion {
 	public String getNombre() {
 		return nombre;
 	}
-
-	public void setTempo(int tempo) {
+// 30<= tempo <= 150
+	public void setTempo(int tempo)
+	{
+		if ((tempo<30)||(tempo>150)){
+			throw new TempoInvalidoException();
+		}
 		this.tempo = tempo;
 	}
 
@@ -40,16 +48,23 @@ public class Cancion {
 		return compaces;
 	}
 	
-	public Hashtable<Tono, Tecla> getMapeo(){
+	public Hashtable<Float,Integer> getMapeo(){
 		return mapeo;
 	}
 	
 	public void agregarCompas(Compas unCompas) {
+		if (unCompas.estaInconcluso()){
+			throw new CompasInvalidoExcepcion();
+		}
 		this.compaces.add(unCompas);
 	}
 
 	public void mapearTeclas(ArrayList<Tecla> teclas){
-		this.mapeo = new Hashtable<Tono,Tecla>();
+		
+		if(teclas.size()==0){
+			throw new NoHayTeclasHabilitadasExcepcion();
+		}
+		this.mapeo = new Hashtable<Float,Integer>();
 		Iterator<Compas> itCompaces = this.getCompaces().iterator();
 		
 		/* A falta de lista circular y 

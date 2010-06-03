@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 public class CancionTest extends TestCase{
 
-	@Test
+
 	public void testCrearCancionCumpleFeliz(){
 		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
 		CumpleFeliz.setTempo(90);
@@ -59,8 +59,9 @@ public class CancionTest extends TestCase{
 	    
 	    CumpleFeliz.mapearTeclas(teclas);
 	    
-	    Hashtable<Tono, Tecla> unMapeo = CumpleFeliz.getMapeo();
-	    Tecla unaTecla = unMapeo.get(new Do());
+	    Hashtable<Float,Integer> unMapeo = CumpleFeliz.getMapeo();
+	    Tecla unaTecla = new Tecla(unMapeo.get(new Do().getFrecuencia()));
+	    
 	    //assertEquals(unaTecla.getCodigoASCII(),Constantes.CODIGO_ASCII_A);
 	   
 	    

@@ -1,14 +1,16 @@
 package CancionHero;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
+import java.util.*;
 
-import CancionHero.Nota.*;
+
+import Excepciones.CompasInvalidoExcepcion;
+import Excepciones.CompasSobrepasadoExcepcion;
+
+
 import CancionHero.Tecla.*;
 
-public class Compas {
 
+public class Compas {
 	private int numerador; // representa una cantidad de figuras
 	private int denominador; // representa una figura
 	private ArrayList<ElementoDeCompas> elementos; // almacena notas, silencios
@@ -20,15 +22,19 @@ public class Compas {
 		this.setDenominador(4);
 		this.elementos = new ArrayList<ElementoDeCompas>();
 	}
-
+//denominador representa una figura y se escribe como multiplos de Redonda (2 blanca, 4 negra, 8 corchea,etc) 
 	public Compas(int numerador, int denominador) {
 		this.setNumerador(numerador);
 		this.setDenominador(denominador);
 		this.elementos = new ArrayList<ElementoDeCompas>();
 				
 	}
+	
 
-	private void setNumerador(int numerador) {
+	public void setNumerador(int numerador) {
+		if(numerador<=0){
+			throw new CompasInvalidoExcepcion();
+		}
 		this.numerador = numerador;
 	}
 
@@ -36,7 +42,10 @@ public class Compas {
 		return numerador;
 	}
 
-	private void setDenominador(int denominador) {
+	public void setDenominador(int denominador) {
+		if(!this.esFigura(denominador)||(denominador<=0)){
+			throw new CompasInvalidoExcepcion();
+		}
 		this.denominador = denominador;
 	}
 
@@ -50,11 +59,14 @@ public class Compas {
 	}
 
 	public void agregarElemento(ElementoDeCompas elemento) {
+		if ((this.getDuracionParcial()+elemento.getDuracion())>(this.getDuracionTotal())){
+			throw new CompasSobrepasadoExcepcion();
+		}
 		this.elementos.add(elemento);
 
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> itTeclas, int indiceTeclas){
+	public void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> itTeclas, int indiceTeclas){
 		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
 		
 		while (itElementos.hasNext()){
@@ -65,4 +77,42 @@ public class Compas {
 		}
 	}
  
+	
+	
+
+	
+	/*Metodos auxiliares*/
+	
+	private boolean esFigura(int a){
+		boolean resultado=false;
+		switch (a){
+		case 1:
+		case 2:
+		case 4:
+		case 8:
+		case 16: resultado=true;
+		break;
+		}
+		return resultado;
+	}
+
+	public boolean estaInconcluso(){ 
+		return (this.getDuracionParcial()!=this.getDuracionTotal());
+	}
+	
+	private double getDuracionTotal(){ //medido en negras
+		double aux=((double)this.getNumerador()/(double)this.getDenominador());
+		return 	(aux*4);
+	}
+	
+	private double getDuracionParcial(){ 
+		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
+		double sumaDuracion=0;
+		while(itElementos.hasNext()){
+			ElementoDeCompas unElemento = itElementos.next();
+			sumaDuracion += unElemento.getDuracion();
+		}
+		return sumaDuracion;
+	}
+
 }

@@ -43,13 +43,13 @@ public class Nota extends ElementoDeCompas {
 		return figura;
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
+	public void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
 		if(mapeo.contains(this.getTono())==false){
-			if(teclas.size()<indiceTeclas){
-				mapeo.put(this.getTono(), teclas.get(indiceTeclas));
+			if(teclas.size()<indiceTeclas){ //Me huele a un error aca... no seria >   ?
+				mapeo.put(this.getTono().getFrecuencia(), teclas.get(indiceTeclas).getCodigoASCII());
 				indiceTeclas+=1;
 			} else {
-				mapeo.put(this.getTono(), teclas.get(0));
+				mapeo.put(this.getTono().getFrecuencia(), teclas.get(0).getCodigoASCII());
 				indiceTeclas=1;
 			}
 		}

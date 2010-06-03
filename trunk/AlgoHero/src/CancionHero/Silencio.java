@@ -26,7 +26,7 @@ public class Silencio extends ElementoDeCompas {
 		return figura;
 	}
 	
-	public void mapear(Hashtable<Tono,Tecla> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
+	public void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
 		// como el silencio no se mapea, no realiza ninguna operacion.
 	}
 
