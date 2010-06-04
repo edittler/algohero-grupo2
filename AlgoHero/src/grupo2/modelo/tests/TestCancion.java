@@ -48,10 +48,11 @@ public class TestCancion extends TestCase {
 		Compas unCompas = new Compas();
 		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
 		
-		
-		teclas.agregarTecla(new Tecla(65)); //Habilitamos las teclas A y B
+		//Habilitamos las teclas A y B
+		teclas.agregarTecla(new Tecla(65)); 
 		teclas.agregarTecla(new Tecla(66));
-		unCompas.agregarElemento(new Do(new Blanca())); //Agregamos al compas notas
+		//Agregamos al compas notas
+		unCompas.agregarElemento(new Do(new Blanca())); 
 		unCompas.agregarElemento(new ReSostenido(new Negra()));
 		unCompas.agregarElemento(new FaSostenido(new Negra()));
 		unaCancion.agregarCompas(unCompas);
@@ -59,7 +60,8 @@ public class TestCancion extends TestCase {
 		unaCancion.mapear(Constantes.FRECUENCIA_DO, teclas);
 		MapaDeTeclas unHash = unaCancion.getMapeo();
 		
-		assertTrue((unHash.obtenerCombinacion(new Do().getFrecuencia())).obtenerTecla().getCodigoASCII()==Constantes.CODIGO_ASCII_A); // Probamos que las notas esten mapeadas con su tecla correspondiente
+		// Probamos que las notas esten mapeadas con su tecla correspondiente
+		assertTrue((unHash.obtenerCombinacion(new Do().getFrecuencia())).obtenerTecla().getCodigoASCII()==Constantes.CODIGO_ASCII_A); 
 	}
 
 }
