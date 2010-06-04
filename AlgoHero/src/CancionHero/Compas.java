@@ -13,6 +13,7 @@ import CancionHero.Tecla.*;
 public class Compas {
 	private int numerador; // representa una cantidad de figuras
 	private int denominador; // representa una figura
+	private Iterator<ElementoDeCompas> itElementos;
 	private ArrayList<ElementoDeCompas> elementos; // almacena notas, silencios
 													// o acordes
 
@@ -21,12 +22,14 @@ public class Compas {
 		this.setNumerador(4);
 		this.setDenominador(4);
 		this.elementos = new ArrayList<ElementoDeCompas>();
+		this.itElementos = this.elementos.iterator();
 	}
 //denominador representa una figura y se escribe como multiplos de Redonda (2 blanca, 4 negra, 8 corchea,etc) 
 	public Compas(int numerador, int denominador) {
 		this.setNumerador(numerador);
 		this.setDenominador(denominador);
 		this.elementos = new ArrayList<ElementoDeCompas>();
+		this.itElementos = this.elementos.iterator();
 				
 	}
 	
@@ -54,10 +57,6 @@ public class Compas {
 	}
 	
 
-	public ArrayList<ElementoDeCompas> getElementos() {
-		return elementos;
-	}
-
 	public void agregarElemento(ElementoDeCompas elemento) {
 		if ((this.getDuracionParcial()+elemento.getDuracion())>(this.getDuracionTotal())){
 			throw new CompasSobrepasadoExcepcion();
@@ -65,21 +64,17 @@ public class Compas {
 		this.elementos.add(elemento);
 
 	}
-	
-	public void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> itTeclas, int indiceTeclas){
-		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
-		
-		while (itElementos.hasNext()){
-			/* Le pido a las notas del compas que se mapeen.
-			 */
-			ElementoDeCompas unElemento = itElementos.next();
-			unElemento.mapear(mapeo, itTeclas, indiceTeclas);
+//retorna null si ya se recorrio todo el compas y sino retorna el siguiente elemento
+	public ElementoDeCompas getSiguienteElemento(){
+		ElementoDeCompas elemento=null;
+		if(!this.itElementos.hasNext()){
+			this.itElementos = this.elementos.iterator();
 		}
+		else{
+			elemento=this.itElementos.next();
+		}
+		return elemento;
 	}
- 
-	
-	
-
 	
 	/*Metodos auxiliares*/
 	
@@ -106,7 +101,7 @@ public class Compas {
 	}
 	
 	private double getDuracionParcial(){ 
-		Iterator<ElementoDeCompas> itElementos = this.getElementos().iterator();
+		Iterator<ElementoDeCompas> itElementos = this.elementos.iterator();
 		double sumaDuracion=0;
 		while(itElementos.hasNext()){
 			ElementoDeCompas unElemento = itElementos.next();

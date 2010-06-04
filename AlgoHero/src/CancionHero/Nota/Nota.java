@@ -5,37 +5,43 @@ import java.util.Hashtable;
 import CancionHero.ElementoDeCompas;
 import CancionHero.Figura.*;
 import CancionHero.Tecla.Tecla;
+import Constantes.Constantes;
 
-public class Nota extends ElementoDeCompas {
+public abstract class Nota extends ElementoDeCompas {
 
-	private Tono tono;
+	private float frecuencia;
 	private Figura figura;
 	
 	// Constructor por defecto crea una nota Do Negra
-	public Nota(){
-		this.setTono(new Do());
+//	public Nota(){
+//		this.setFrecuencia(Constantes.FRECUENCIA_DO); NO SE PUEDE INSTANCIAR !!!!!!!!!!!!!
+//		this.setFigura(new Negra());
+//	}
+	
+	public Nota(float frecuencia){
+		this.setFrecuencia(frecuencia);
 		this.setFigura(new Negra());
 	}
-	
-	public Nota(Tono unTono, Figura unaFigura){
-		this.setTono(unTono);
+	public Nota(float frecuencia, Figura unaFigura){
+		this.setFrecuencia(frecuencia);
 		this.setFigura(unaFigura);
 	}
+	
+	private void setFrecuencia(float frecuencia) {
+		this.frecuencia = frecuencia;
+	}
+
+	public float getFrecuencia() {
+		return frecuencia;
+	}
+
 	
 	// Devuelve la duracion de la negra medida en figuras negras
 	public double getDuracion() {
 		return this.getFigura().getDuracion();
 	}
 
-	public void setTono(Tono tono) {
-		this.tono = tono;
-	}
-
-	public Tono getTono() {
-		return tono;
-	}
-
-	public void setFigura(Figura figura) {
+	private void setFigura(Figura figura) {
 		this.figura = figura;
 	}
 
@@ -43,16 +49,6 @@ public class Nota extends ElementoDeCompas {
 		return figura;
 	}
 	
-	public void mapear(Hashtable<Float,Integer> mapeo, ArrayList<Tecla> teclas, int indiceTeclas){
-		if(mapeo.contains(this.getTono())==false){
-			if(teclas.size()<indiceTeclas){ //Me huele a un error aca... no seria >   ?
-				mapeo.put(this.getTono().getFrecuencia(), teclas.get(indiceTeclas).getCodigoASCII());
-				indiceTeclas+=1;
-			} else {
-				mapeo.put(this.getTono().getFrecuencia(), teclas.get(0).getCodigoASCII());
-				indiceTeclas=1;
-			}
-		}
-	}
+
 
 }

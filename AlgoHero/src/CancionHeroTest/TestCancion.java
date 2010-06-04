@@ -2,12 +2,10 @@ package CancionHeroTest;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Iterator;
 
 import junit.framework.TestCase;
 import CancionHero.Cancion;
 import CancionHero.Compas;
-import CancionHero.ElementoDeCompas;
 import CancionHero.Tecla.*;
 import CancionHero.Nota.*;
 import CancionHero.Figura.*;
@@ -36,7 +34,7 @@ public class TestCancion extends TestCase {
 	public void testAgregarCompas() {
 		Cancion unaCancion = new Cancion("pa' lante");
 		Compas unCompas = new Compas();//por default se crea 4/4
-		unCompas.agregarElemento(new Nota(new Do(),new Blanca())); //agregamos solo una blanca
+		unCompas.agregarElemento(new Do(new Blanca())); //agregamos solo una blanca
 		try 	// e intentamos agregar el compas inconcluso a la cancion
 		{
 			unaCancion.agregarCompas(unCompas);
@@ -51,36 +49,20 @@ public class TestCancion extends TestCase {
 	public void testMapeo(){ //Probamos mapear algo sensillo
 		Cancion unaCancion = new Cancion("pa' lante");
 		Compas unCompas = new Compas();
-		ArrayList<Tecla> tecla = new ArrayList<Tecla>();
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
 		
 		
-		tecla.add(new A()); //Habilitamos las teclas A y J
-		tecla.add(new J());
-		unCompas.agregarElemento(new Nota(new Do(),new Blanca())); //Agregamos al compas notas
-		unCompas.agregarElemento(new Nota(new ReSostenido(),new Negra()));
-		unCompas.agregarElemento(new Nota(new FaSostenido(),new Negra()));
+		teclas.agregarTecla(new Tecla(65)); //Habilitamos las teclas A y B
+		teclas.agregarTecla(new Tecla(66));
+		unCompas.agregarElemento(new Do(new Blanca())); //Agregamos al compas notas
+		unCompas.agregarElemento(new ReSostenido(new Negra()));
+		unCompas.agregarElemento(new FaSostenido(new Negra()));
 		unaCancion.agregarCompas(unCompas);
 		
-		unaCancion.mapearTeclas(tecla);
-		Hashtable<Float,Integer> unHash = unaCancion.getMapeo();
-
-
-		assertTrue(unHash.containsKey(new Do().getFrecuencia()));
+		unaCancion.mapear(Constantes.FRECUENCIA_DO, teclas);
+		MapaDeTeclas unHash = unaCancion.getMapeo();
 		
-		assertTrue(unHash.get(new Do().getFrecuencia())==Constantes.CODIGO_ASCII_A); // Probamos que las notas esten mapeadas con su tecla correspondiente
-		
-		assertTrue(unHash.get(new ReSostenido().getFrecuencia())==Constantes.CODIGO_ASCII_J); 
-		
-		assertTrue(unHash.get(new ReSostenido().getFrecuencia())==Constantes.CODIGO_ASCII_A);
-		
-		
-		ArrayList<Tecla> teclas = new ArrayList<Tecla>();
-		try{ //Probamos que no permita mapear sin teclas
-			unaCancion.mapearTeclas(teclas);
-			fail("deberia haber lanzado una excepcion");
-		}
-		catch (RuntimeException e) {return;}
-			fail("deberia haber capturado");
+		assertTrue((unHash.obtenerCombinacion(new Do().getFrecuencia())).obtenerTecla().getCodigoASCII()==Constantes.CODIGO_ASCII_A); // Probamos que las notas esten mapeadas con su tecla correspondiente
 	}
 
 }
