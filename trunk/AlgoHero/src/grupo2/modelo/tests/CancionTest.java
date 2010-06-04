@@ -1,0 +1,55 @@
+package grupo2.modelo.tests;
+
+import grupo2.modelo.Cancion;
+import grupo2.modelo.Compas;
+import grupo2.modelo.Silencio;
+import grupo2.modelo.figura.*;
+import grupo2.modelo.nota.*;
+import junit.framework.TestCase;
+
+public class CancionTest extends TestCase{
+
+
+	public void testCrearCancionCumpleFeliz(){
+		Cancion CumpleFeliz = new Cancion("CumpleFeliz");
+		CumpleFeliz.setTempo(90);
+		
+		Compas unCompas = new Compas(3,4);
+	
+		unCompas.agregarElemento(new Silencio(new Blanca()));
+		
+		Nota unaNota = new Do(new Corchea());
+		unCompas.agregarElemento(unaNota);
+		
+		unCompas.agregarElemento(new Silencio(new Semicorchea()));
+		
+		unaNota = new Do(new Semicorchea());
+		unCompas.agregarElemento(unaNota);
+		
+		//finalizamos la creacion del compas, lo agregamos a la cancion
+		CumpleFeliz.agregarCompas(unCompas);
+		
+		unCompas = new Compas(3,4);
+		
+		unaNota = new Re(new Negra());
+		unCompas.agregarElemento(unaNota);
+		
+		unaNota = new Do(new Negra());
+		unCompas.agregarElemento(unaNota);
+	
+		unaNota = new Fa(new Negra());
+		unCompas.agregarElemento(unaNota);
+	
+		//finalizamos la creacion del segundo compas, lo agregamos a la cancion
+		CumpleFeliz.agregarCompas(unCompas);
+		
+	    assertTrue("Nombre Falso",CumpleFeliz.getNombre().equals("CumpleFeliz") );
+	    assertEquals(CumpleFeliz.getTempo(), 90); //Prueba que el tempo sea correcto
+	    
+	    //cargo el mapeo automatico y pruebo si cargo correctamente las notas
+	    // en sus correspondientes teclas. Antes debo crear la combinacion de teclas
+	    
+	}
+	
+	
+}
