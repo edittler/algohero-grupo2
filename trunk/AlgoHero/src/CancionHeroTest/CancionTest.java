@@ -6,7 +6,7 @@ import CancionHero.*;
 import CancionHero.Figura.*;
 import CancionHero.Nota.*;
 import CancionHero.Tecla.*;
-import Constantes.Constantes;
+
 import junit.framework.TestCase;
 
 public class CancionTest extends TestCase{
