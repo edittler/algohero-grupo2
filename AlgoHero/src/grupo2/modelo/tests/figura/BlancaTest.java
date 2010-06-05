@@ -7,7 +7,7 @@ import org.junit.Test;
 
 // SE ESTA USANDO JUNIT 4
 
-public class TestBlanca {
+public class BlancaTest {
 	
 	@Test
 	public void testGetDuracion(){

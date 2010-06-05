@@ -6,7 +6,7 @@ import org.junit.Test;
 
 //SE ESTA USANDO JUNIT 4
 
-public class TestCorchea {
+public class CorcheaTest {
 
 	@Test
 	public void testGetDuracion() {
