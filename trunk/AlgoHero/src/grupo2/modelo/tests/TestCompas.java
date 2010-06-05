@@ -1,12 +1,17 @@
 package grupo2.modelo.tests;
 
+import java.util.Iterator;
+
 import grupo2.modelo.Compas;
+import grupo2.modelo.ElementoDeCompas;
 import grupo2.modelo.Silencio;
 import grupo2.modelo.figura.*;
+import grupo2.modelo.nota.Do;
 import junit.framework.TestCase;
 
 public class TestCompas extends TestCase {
 
+	
 	public void testConstructor(){
 		Compas unCompas=new Compas();
 		assertTrue(unCompas.getNumerador()==4);
@@ -17,6 +22,7 @@ public class TestCompas extends TestCase {
 		assertTrue(unCompas.getDenominador()==8);
 		
 	}
+	
 	
 	public void testSetNumerador(){
 		
@@ -31,6 +37,8 @@ public class TestCompas extends TestCase {
 		fail("deberia haber capturado");
 		
 	}
+	
+	
 	
 	public void testSetDenominador(){
 		Compas unCompas=new Compas();
@@ -55,8 +63,15 @@ public class TestCompas extends TestCase {
 		fail("deberia haber capturado");
 	}
 	
+	
+	
 	public void testElemento(){
 		Compas unCompas=new Compas();
+		unCompas.agregarElemento(new Silencio(new Blanca()));
+		unCompas.agregarElemento(new Do(new Negra()));
+		Iterator<ElementoDeCompas> itElementos=unCompas.getIteratorElementos();
+		assertTrue((itElementos.next().getDuracion())==(new Blanca()).getDuracion());
+		
 		try{
 			unCompas.agregarElemento(new Silencio(new Redonda()));
 			unCompas.agregarElemento(new Silencio(new Corchea()));

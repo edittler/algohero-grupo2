@@ -1,7 +1,9 @@
 package grupo2.modelo;
 
 import java.util.*;
+
 import grupo2.modelo.excepciones.*;
+import grupo2.modelo.nota.Nota;
 import grupo2.modelo.tecla.*;
 
 public class Cancion {
@@ -50,8 +52,21 @@ public class Cancion {
 		this.compaces.add(unCompas);
 	}
 
-	public void mapear(float nota, CombinacionDeTeclas combinacion){
+	public void mapear(Nota nota, CombinacionDeTeclas combinacion){
 		this.mapeo.agregarMapeo(nota, combinacion);
 	}
 
+	public Compas getCompas(int index){
+		return this.compaces.get(index);
+	}
+	
+	public ElementoDeCompas getElemento(int compas,int index){
+		return this.compaces.get(compas).getElemento(index);
+	}
+	
+	public Iterator<Compas> getIteratorCompaces(){
+		IteradorCliente<Compas> unIterator = new IteradorCliente<Compas>(this.compaces);
+		return unIterator;
+	}
+	
 }

@@ -89,38 +89,12 @@ public class Compas {
 		return sumaDuracion;
 	}
 	
-	// CLASE ITERADOR PRIVADA
-	private class IteratorElementos implements Iterator<ElementoDeCompas> {
-		
-		private Iterator<ElementoDeCompas> itElementos;
-		
-		public IteratorElementos(ArrayList<ElementoDeCompas> unaLista){
-			this.itElementos = unaLista.iterator();
-		}
-		
-		@Override
-		public boolean hasNext() {
-			
-			return this.itElementos.hasNext();
-		}
-		
-		@Override
-		public ElementoDeCompas next() {
-			
-			return this.itElementos.next();
-		}
-
-		@Override
-		public void remove() {
-			/* Como no hay necesidad de que el cliente elimine los elementos
-			 * del compas, se deja este metodo en blanco
-			 */
-		}
-		
+	public ElementoDeCompas getElemento(int index){
+		return this.elementos.get(index);
 	}
 	
 	public Iterator<ElementoDeCompas> getIteratorElementos(){
-		IteratorElementos unIterator = new IteratorElementos(this.elementos);
+		IteradorCliente<ElementoDeCompas> unIterator = new IteradorCliente<ElementoDeCompas>(this.elementos);
 		return unIterator;
 	}
 
