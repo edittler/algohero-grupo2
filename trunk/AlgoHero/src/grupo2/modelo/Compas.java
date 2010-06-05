@@ -90,7 +90,7 @@ public class Compas {
 	}
 	
 	// CLASE ITERADOR PRIVADA
-	private class IteratorElementos {
+	private class IteratorElementos implements Iterator<ElementoDeCompas> {
 		
 		private Iterator<ElementoDeCompas> itElementos;
 		
@@ -98,21 +98,28 @@ public class Compas {
 			this.itElementos = unaLista.iterator();
 		}
 		
-		@SuppressWarnings("unused")
+		@Override
 		public boolean hasNext() {
 			
 			return this.itElementos.hasNext();
 		}
-
-		@SuppressWarnings("unused")
+		
+		@Override
 		public ElementoDeCompas next() {
 			
 			return this.itElementos.next();
 		}
+
+		@Override
+		public void remove() {
+			/* Como no hay necesidad de que el cliente elimine los elementos
+			 * del compas, se deja este metodo en blanco
+			 */
+		}
 		
 	}
 	
-	public IteratorElementos getIteratorElementos(){
+	public Iterator<ElementoDeCompas> getIteratorElementos(){
 		IteratorElementos unIterator = new IteratorElementos(this.elementos);
 		return unIterator;
 	}
