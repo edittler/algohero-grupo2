@@ -9,39 +9,39 @@ import org.junit.Test;
 
 //ACLARACION: SE USO JUNIT 4, POR FAVOR USAR ESA VERSION!!
 
-public class MiTest {
+public class LaSostenidoTest {
 
 	@Test
 	public void testGetFrecuenciaConstructor1() {
-		// Se crea la nota Mi usando su constructor sin parametros 
-		Nota unaNota = new Mi();
+		// Se crea la nota LaSostenido usando su constructor sin parametros 
+		Nota unaNota = new LaSostenido();
 		
 		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
-		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_MI, unaNota.getFrecuencia(), 0.001);
+		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_LA_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
 	}
 	
 	@Test
 	public void testGetFrecuenciaConstructor2() {
-		// Se crea la nota Mi estableciendo cualquier figura (en este caso Negra) 
-		Nota unaNota = new Mi(new Negra());
+		// Se crea la nota LaSostenido estableciendo cualquier figura (en este caso Negra) 
+		Nota unaNota = new LaSostenido(new Negra());
 		
 		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
-		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_MI, unaNota.getFrecuencia(), 0.001);
+		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_LA_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
 	}
 	
 	@Test
 	public void testGetDuracionDefault() {
-		// Se crea la nota Mi usando su constructor sin parametros 
-		Nota unaNota = new Mi();
+		// Se crea la nota LaSostenido usando su constructor sin parametros 
+		Nota unaNota = new LaSostenido();
 		
-		// La duracion de la nota Mi por default es 1 Negra
+		// La duracion de la nota LaSostenido por default es 1 Negra
 		assertEquals("Duracion inicializada incorrectamente", Constantes.NEGRA, unaNota.getDuracion(), 0.00001);
 	}
 
 	@Test
 	public void testGetDuracionRedonda() {
-		// Se crea la nota Mi y se pasa una figura Redonda 
-		Nota unaNota = new Mi(new Redonda());
+		// Se crea la nota LaSostenido y se pasa una figura Redonda 
+		Nota unaNota = new LaSostenido(new Redonda());
 		
 		// La duracion de la figura Redonda es de 4 Negras
 		assertEquals("Duracion establecida incorrectamente", Constantes.REDONDA, unaNota.getDuracion(), 0.00001);
@@ -49,8 +49,8 @@ public class MiTest {
 	
 	@Test
 	public void testGetDuracionBlanca() {
-		// Se crea la nota Mi y se pasa una figura Blanca 
-		Nota unaNota = new Mi(new Blanca());
+		// Se crea la nota LaSostenido y se pasa una figura Blanca
+		Nota unaNota = new LaSostenido(new Blanca());
 		
 		// La duracion de la figura Blanca es de 2 Negras
 		assertEquals("Duracion establecida incorrectamente", Constantes.BLANCA, unaNota.getDuracion(), 0.00001);
@@ -58,8 +58,8 @@ public class MiTest {
 	
 	@Test
 	public void testGetDuracionNegra() {
-		// Se crea la nota Mi y se pasa una figura Negra 
-		Nota unaNota = new Mi(new Negra());
+		// Se crea la nota LaSostenido y se pasa una figura Negra
+		Nota unaNota = new LaSostenido(new Negra());
 		
 		// La duracion de la figura Negra es de 1 Negra
 		assertEquals("Duracion establecida incorrectamente", Constantes.NEGRA, unaNota.getDuracion(), 0.00001);
@@ -67,8 +67,8 @@ public class MiTest {
 	
 	@Test
 	public void testGetDuracionCorchea() {
-		// Se crea la nota Mi y se pasa una figura Corchea 
-		Nota unaNota = new Mi(new Corchea());
+		// Se crea la nota LaSostenido y se pasa una figura Corchea
+		Nota unaNota = new LaSostenido(new Corchea());
 		
 		// La duracion de la figura Corchea es de 0.5 Negra
 		assertEquals("Duracion establecida incorrectamente", Constantes.CORCHEA, unaNota.getDuracion(), 0.00001);
@@ -76,8 +76,8 @@ public class MiTest {
 	
 	@Test
 	public void testGetDuracionSemicorchea() {
-		// Se crea la nota Mi y se pasa una figura Semicorchea 
-		Nota unaNota = new Mi(new Semicorchea());
+		// Se crea la nota LaSostenido y se pasa una figura Semicorchea
+		Nota unaNota = new LaSostenido(new Semicorchea());
 		
 		// La duracion de la figura Semicorchea es de 0.25 Negra
 		assertEquals("Duracion establecida incorrectamente", Constantes.SEMICORCHEA, unaNota.getDuracion(), 0.00001);
@@ -85,8 +85,8 @@ public class MiTest {
 	
 	@Test
 	public void testGetDuracionFusa() {
-		// Se crea la nota Mi y se pasa una figura Fusa 
-		Nota unaNota = new Mi(new Fusa());
+		// Se crea la nota LaSostenido y se pasa una figura Fusa
+		Nota unaNota = new LaSostenido(new Fusa());
 		
 		// La duracion de la figura Fusa es de 0.125 Negra
 		assertEquals("Duracion establecida incorrectamente", Constantes.FUSA, unaNota.getDuracion(), 0.00001);
