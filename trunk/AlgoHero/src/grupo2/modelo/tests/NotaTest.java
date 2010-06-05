@@ -1,14 +1,18 @@
 package grupo2.modelo.tests;
 
-import grupo2.modelo.constantes.Constantes;
-import grupo2.modelo.figura.Blanca;
-import grupo2.modelo.nota.Do;
-import grupo2.modelo.nota.Nota;
-import grupo2.modelo.nota.SolSostenido;
-import junit.framework.TestCase;
-public class TestNota extends TestCase {
+import static org.junit.Assert.*;
+import org.junit.*;
 
+import grupo2.modelo.constantes.*;
+import grupo2.modelo.figura.*;
+import grupo2.modelo.nota.*;
+
+
+public class NotaTest {
+
+	@Test
 	public void testConstructor(){
+		
 		Nota unaNota = new Do();
 		assertTrue(unaNota.getFrecuencia()==Constantes.FRECUENCIA_DO);
 		assertTrue(unaNota.getDuracion()==Constantes.NEGRA);

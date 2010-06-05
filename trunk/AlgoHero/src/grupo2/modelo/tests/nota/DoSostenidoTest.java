@@ -9,12 +9,21 @@ import org.junit.Test;
 
 //ACLARACION: SE USO JUNIT 4, POR FAVOR USAR ESA VERSION!!
 
-public class TestDoSostenido {
+public class DoSostenidoTest {
 
 	@Test
-	public void testGetFrecuencia() {
+	public void testGetFrecuenciaConstructor1() {
 		// Se crea la nota DoSostenido usando su constructor sin parametros 
 		Nota unaNota = new DoSostenido();
+		
+		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
+		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_DO_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
+	}
+	
+	@Test
+	public void testGetFrecuenciaConstructor2() {
+		// Se crea la nota DoSostenido estableciendo cualquier figura (en este caso Negra) 
+		Nota unaNota = new DoSostenido(new Negra());
 		
 		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
 		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_DO_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
