@@ -1,5 +1,7 @@
 package grupo2.modelo.tecla;
 
+import grupo2.modelo.IteradorCliente;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -7,17 +9,16 @@ import java.util.Iterator;
 public class CombinacionDeTeclas {
 	
 private ArrayList<Tecla> teclas;
-private Iterator<Tecla> itTeclas;
 
 	public CombinacionDeTeclas(){
 	this.teclas=new ArrayList<Tecla>();
-	this.itTeclas= this.teclas.iterator();
 	}
 	
 	public void agregarTecla(Tecla unaTecla){
 		this.teclas.add(unaTecla);
 	}
-	public Tecla obtenerTecla(){
-		return this.itTeclas.next();
+	
+	public Iterator<Tecla> getIteradorTeclas(){
+		return new IteradorCliente<Tecla>(this.teclas);
 	}
 }
