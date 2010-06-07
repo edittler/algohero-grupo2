@@ -50,6 +50,8 @@ public abstract class Nota extends ElementoDeCompas {
 		return this.getFigura().getDuracion();
 	}
 
+	//devuelve true si las teclas presionadas se corresponden a las teclas asociadas a la nota en el mapeo
+	
 	public boolean chequear(MapaDeTeclas mapeo,	CombinacionDeTeclas teclasPresionadas){
 		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
 		boolean resultado= true;

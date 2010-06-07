@@ -11,8 +11,8 @@ public class Tecla {
 	}
 	
 	public void setCodigoASCII(int codigoASCII) {
-		if ((codigoASCII<65)||(codigoASCII>90)){
-			throw new TeclaNoAceptadaExcepcion(); //Solo se permiten ingresar teclas de la A a la Z (mayúsculas)
+		if (((codigoASCII<65)||(codigoASCII>90))&&((codigoASCII<97)||(codigoASCII>122))){
+			throw new TeclaNoAceptadaExcepcion(); //Solo se permiten ingresar teclas de la A a la Z o de la 'a' a la 'z'
 		}
 		this.codigoASCII = codigoASCII;
 	}

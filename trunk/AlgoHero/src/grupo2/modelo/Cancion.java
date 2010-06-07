@@ -2,6 +2,7 @@ package grupo2.modelo;
 
 import java.util.*;
 
+import grupo2.modelo.constantes.Constantes;
 import grupo2.modelo.excepciones.*;
 import grupo2.modelo.nota.Nota;
 import grupo2.modelo.tecla.*;
@@ -60,8 +61,29 @@ public class Cancion {
 		return this.compaces.get(index);
 	}
 	
-	public ElementoDeCompas getElemento(int compas,int index){
-		return this.compaces.get(compas).getElemento(index);
+	//devuelve el elemento de la cancion correspondiente al instante ingresado
+	public ElementoDeCompas getElemento(double instante){
+		Iterator<Compas> itCompaces=this.getIteratorCompaces();
+		double LineaDeTiempo = 0.00; //Cuenta el tiempo transcurrido total a medida q se recorre la cancion
+		boolean entro= false; //marca cuando entra en el rango de presicion entorno al elemento buscado 
+		int compas=0; //cuenta los compaces recorridos
+		int elemento=0; //cuenta los elementos recorridos (correspondiente a un compas)
+		//Recorro los compaces hasta llegar al instante ingresado
+		while(!entro&&itCompaces.hasNext()){
+			Compas unCompas = itCompaces.next();
+			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
+			elemento=0;
+			while(itElementos.hasNext()&&!entro){
+				ElementoDeCompas unElemento=itElementos.next();
+				entro=this.entraEnElRangoDePresicion(LineaDeTiempo, instante); //"entra dentro del rango?"
+				elemento++; 
+				LineaDeTiempo += (double)(unElemento.getDuracion()/((this.getTempo()/60.00))); 
+			}
+			compas++;
+			elemento--;
+		}
+		compas--;
+		return this.getCompas(compas).getElemento(elemento);
 	}
 	
 	
@@ -71,30 +93,17 @@ public class Cancion {
 		return unIterator;
 	}
 
+	//Recive una combinacion de teclas y un instante en que fueron presionadas y devuelve true si 
+	//coincide con el mapeo de la cancion en el instante indicado.
+	
 	public boolean chequear(CombinacionDeTeclas teclasPresionadas, double instante) {
-		double LineaDeTiempo=0;
-		boolean resultado = false;
-		Iterator<Compas> itCompaces=this.getIteratorCompaces();
-		boolean entro= false;
-		while((!entro)&&(itCompaces.hasNext())){
-			Compas unCompas = itCompaces.next();
-
-			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
-			while(itElementos.hasNext()&&!entro){
-				ElementoDeCompas unElemento = itElementos.next();
-				
-				if(this.entraEnElRango(LineaDeTiempo, instante)){
-					resultado=unElemento.chequear(this.getMapeo(),teclasPresionadas);
-					entro=true;
-				}
-				LineaDeTiempo += (double)(unElemento.getDuracion()/((this.getTempo()/60.00)));
-			}
-		}
-
-		return resultado;
+		ElementoDeCompas unElemento=this.getElemento(instante); 
+		return unElemento.chequear(this.getMapeo(), teclasPresionadas);
 	}
 /*** método auxiliar***/
-	public boolean entraEnElRango(double valor,double entorno){
-		return ((valor<=(entorno+0.25))&&(valor>=(entorno-0.25))); //0.25 es el rango de dificultad hay q meterlo en constantes o un atributo de cada cancion
+	
+	//devuelve true si el valor ingresado se encuentra dentro del rango de presicion entorno a entorno segun la presicion del juego 
+	private boolean entraEnElRangoDePresicion(double valor,double entorno){ 
+		return ((valor<=(entorno+Constantes.PRESICION))&&(valor>=(entorno-Constantes.PRESICION))); //0.25 es el rango de dificultad hay q meterlo en constantes o un atributo de cada cancion
 	}
 }
