@@ -1,6 +1,8 @@
 package grupo2.modelo;
 
 import grupo2.modelo.figura.Figura;
+import grupo2.modelo.tecla.CombinacionDeTeclas;
+import grupo2.modelo.tecla.MapaDeTeclas;
 
 public class Silencio extends ElementoDeCompas {
 
@@ -20,5 +22,9 @@ public class Silencio extends ElementoDeCompas {
 
 	public Figura getFigura() {
 		return figura;
+	}
+	public boolean chequear(MapaDeTeclas mapeo,
+			CombinacionDeTeclas teclasPresionadas){
+		return false;
 	}
 }

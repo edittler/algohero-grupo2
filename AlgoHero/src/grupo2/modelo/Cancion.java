@@ -64,9 +64,37 @@ public class Cancion {
 		return this.compaces.get(compas).getElemento(index);
 	}
 	
+	
+	
 	public Iterator<Compas> getIteratorCompaces(){
 		IteradorCliente<Compas> unIterator = new IteradorCliente<Compas>(this.compaces);
 		return unIterator;
 	}
-	
+
+	public boolean chequear(CombinacionDeTeclas teclasPresionadas, double instante) {
+		double LineaDeTiempo=0;
+		boolean resultado = false;
+		Iterator<Compas> itCompaces=this.getIteratorCompaces();
+		boolean entro= false;
+		while((!entro)&&(itCompaces.hasNext())){
+			Compas unCompas = itCompaces.next();
+
+			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
+			while(itElementos.hasNext()&&!entro){
+				ElementoDeCompas unElemento = itElementos.next();
+				
+				if(this.entraEnElRango(LineaDeTiempo, instante)){
+					resultado=unElemento.chequear(this.getMapeo(),teclasPresionadas);
+					entro=true;
+				}
+				LineaDeTiempo += (double)(unElemento.getDuracion()/((this.getTempo()/60.00)));
+			}
+		}
+
+		return resultado;
+	}
+/*** método auxiliar***/
+	public boolean entraEnElRango(double valor,double entorno){
+		return ((valor<=(entorno+0.25))&&(valor>=(entorno-0.25))); //0.25 es el rango de dificultad hay q meterlo en constantes o un atributo de cada cancion
+	}
 }

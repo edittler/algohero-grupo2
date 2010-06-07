@@ -1,7 +1,12 @@
 package grupo2.modelo.nota;
 
+import java.util.Iterator;
+
 import grupo2.modelo.ElementoDeCompas;
 import grupo2.modelo.figura.*;
+import grupo2.modelo.tecla.CombinacionDeTeclas;
+import grupo2.modelo.tecla.MapaDeTeclas;
+import grupo2.modelo.tecla.Tecla;
 
 public abstract class Nota extends ElementoDeCompas {
 
@@ -45,4 +50,14 @@ public abstract class Nota extends ElementoDeCompas {
 		return this.getFigura().getDuracion();
 	}
 
+	public boolean chequear(MapaDeTeclas mapeo,	CombinacionDeTeclas teclasPresionadas){
+		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
+		boolean resultado= true;
+		while(itTeclasPresionadas.hasNext()&&resultado){
+			Tecla unaTeclaPresionada = itTeclasPresionadas.next();
+			resultado = (mapeo.obtenerCombinacion(this).contains(unaTeclaPresionada));
+		}
+		return resultado;
+	}
+	
 }

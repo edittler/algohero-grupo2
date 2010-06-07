@@ -1,5 +1,7 @@
 package grupo2.modelo.tecla;
 
+import grupo2.modelo.excepciones.TeclaNoAceptadaExcepcion;
+
 public class Tecla {
 
 	private int codigoASCII;
@@ -9,6 +11,9 @@ public class Tecla {
 	}
 	
 	public void setCodigoASCII(int codigoASCII) {
+		if ((codigoASCII<65)||(codigoASCII>90)){
+			throw new TeclaNoAceptadaExcepcion(); //Solo se permiten ingresar teclas de la A a la Z (mayúsculas)
+		}
 		this.codigoASCII = codigoASCII;
 	}
 
