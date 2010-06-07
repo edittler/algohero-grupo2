@@ -37,6 +37,10 @@ public class Constantes {
 	public final static int CODIGO_ASCII_S=83 ;
 	public final static int CODIGO_ASCII_J=106;
 	public final static int CODIGO_ASCII_K=107;
+	
+	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
+	
+	public final static double PRESICION = 0.20;
 }
 
 
