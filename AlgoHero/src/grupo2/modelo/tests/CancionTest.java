@@ -37,7 +37,7 @@ public class CancionTest {
 	}
 	
 	@Test
-	public void testSetTempo1(){ 
+	public void testSetTempoCorrecto(){ 
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		unaCancion.setTempo(50);
 		
@@ -46,7 +46,7 @@ public class CancionTest {
 	}
 	
 	@Test(expected=TempoInvalidoException.class)
-	public void test() {
+	public void testSetTempoIncorrecto1() {
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		
 		//Probamos ingresar un Tempo menor al admitido
@@ -55,7 +55,7 @@ public class CancionTest {
 	}
 	
 	@Test(expected=TempoInvalidoException.class)
-	public void testSetTempo3(){
+	public void testSetTempoIncorrecto2(){
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		
 		// Probamos ingresar un tempo mayor al admitido
@@ -77,7 +77,7 @@ public class CancionTest {
 	}
 	
 	@Test
-	public void testobtenerCompas(){
+	public void testObtenerCompas(){
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		Compas unCompas = new Compas();
 		unCompas.agregarElemento(new Do(new Blanca()));
