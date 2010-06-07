@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 import grupo2.modelo.ElementoDeCompas;
 import grupo2.modelo.IteradorCliente;
+import grupo2.modelo.tecla.CombinacionDeTeclas;
+import grupo2.modelo.tecla.MapaDeTeclas;
 
 public class Acorde extends ElementoDeCompas {
 
@@ -28,4 +30,8 @@ public class Acorde extends ElementoDeCompas {
 		return new IteradorCliente<Nota>(this.notas);
 	}
 	
+	public boolean chequear(MapaDeTeclas mapeo,
+			CombinacionDeTeclas teclasPresionadas){
+		return false; //TODO hay que implementar este metodo
+	}
 }
