@@ -39,8 +39,10 @@ public class Constantes {
 	public final static int CODIGO_ASCII_K=107;
 	
 	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
-	
 	public final static double PRESICION = 0.20;
+		
+	//Tempo por default de una cancion
+	public final static int TEMPO_DEFAULT=90;
 }
 
 

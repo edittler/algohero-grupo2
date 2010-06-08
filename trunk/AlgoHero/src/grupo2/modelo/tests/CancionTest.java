@@ -2,23 +2,28 @@ package grupo2.modelo.tests;
 
 import static org.junit.Assert.*;
 
-import java.util.Iterator;
-
-
 import org.junit.*;
 import grupo2.modelo.*;
-import grupo2.modelo.constantes.*;
 import grupo2.modelo.excepciones.*;
 import grupo2.modelo.figura.*;
 import grupo2.modelo.nota.*;
-import grupo2.modelo.tecla.CombinacionDeTeclas;
-import grupo2.modelo.tecla.Tecla;
+import grupo2.modelo.tecla.*;
 
 
 public class CancionTest {
 	
 	@Test
-	public void testConstructor(){ 
+	public void testConstructorDefault(){ 
+		Cancion unaCancion = new Cancion();
+		
+		// Probamos que almacene correctamente el nombre de la cancion
+		assertEquals("No inicializa correctamente el nombre de la cancion",unaCancion.getNombre(),"Sin Nombre");
+		// Probamos que inicialize el Tempo en 90
+		assertTrue("No inicializa el Tempo de la cancion con el valor default",unaCancion.getTempo()==90);
+	}
+	
+	@Test
+	public void testConstructorConParametro(){ 
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		
 		// Probamos que almacene correctamente el nombre de la cancion
@@ -73,25 +78,15 @@ public class CancionTest {
 		unCompas.agregarElemento(new Do(new Blanca())); 
 		unaCancion.agregarCompas(unCompas);
 		fail("Permite agregar un compas incompleto a la cancion");
-
 	}
+
+	/* Debido a la privacion de metodos, este test debe ser reescrito
+	 * o considerar que es reemplazado por el metodo 'chequear()'
+	
+	 Esta seria una prueba de integracion... 
+	 Nose si tiene otro formato u otra convencion establecida
 	
 	@Test
-	public void testObtenerCompas(){
-		Cancion unaCancion = new Cancion("Una noche en la playa");
-		Compas unCompas = new Compas();
-		unCompas.agregarElemento(new Do(new Blanca()));
-		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new Re(new Negra()));
-		unaCancion.agregarCompas(unCompas);
-		
-		assertTrue(unaCancion.getCompas(0).getElemento(0).getDuracion()==Constantes.BLANCA);
-		assertTrue(unaCancion.getCompas(0).getElemento(1).getDuracion()==Constantes.NEGRA);
-		assertTrue(((Nota)unaCancion.getCompas(0).getElemento(2)).getFrecuencia()==Constantes.FRECUENCIA_RE);
-
-	}
-
-	@Test//Esta seria una prueba de integracion... nose si tiene otro formato u otra convencion establecida
 	public void testMapear(){
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
@@ -117,29 +112,31 @@ public class CancionTest {
 		assertTrue("Error al mapear tecla H",itTeclasMi.next().getCodigoASCII()=='H');
 		assertTrue("Error al mapear tecla L",itTeclasMi.next().getCodigoASCII()=='L');
 	}
+	*/
 	
 	@Test
 	public void testChequear(){
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		
+		// combinacion de teclas para la nota Mi
 		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
 		teclas.agregarTecla(new Tecla('A'));
 		teclas.agregarTecla(new Tecla('C'));
-
 		unaCancion.mapear(new Mi(),teclas);
 		
+		// combinacion de teclas para la nota LaSostenido
 		teclas = new CombinacionDeTeclas();
 		teclas.agregarTecla(new Tecla('O'));
 		teclas.agregarTecla(new Tecla('H'));
 		teclas.agregarTecla(new Tecla('L'));
-	
 		unaCancion.mapear(new LaSostenido(), teclas);
 		
+		// combinacion de teclas para la nota Re
 		teclas = new CombinacionDeTeclas();
 		teclas.agregarTecla(new Tecla('I'));
-		
 		unaCancion.mapear(new Re(),teclas);
 		
+		// creacion y agregacion de compas 1
 		Compas unCompas = new Compas();
 		unCompas.agregarElemento(new Mi(new Blanca()));
 		unCompas.agregarElemento(new LaSostenido(new Corchea()));
@@ -147,12 +144,14 @@ public class CancionTest {
 		unCompas.agregarElemento(new Re(new Negra()));
 		unaCancion.agregarCompas(unCompas);
 		
+		// creacion y agregacion de compas 2
 		unCompas = new Compas();
 		unCompas.agregarElemento(new Mi(new Blanca()));
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
 		unaCancion.agregarCompas(unCompas);
-
+		
+		// conjunto de teclas presionadas en "el instante"
 		CombinacionDeTeclas teclasPresionadas= new CombinacionDeTeclas();
 		teclasPresionadas.agregarTecla(new Tecla('A'));
 		teclasPresionadas.agregarTecla(new Tecla('C'));
