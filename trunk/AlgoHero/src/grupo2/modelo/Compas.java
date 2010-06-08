@@ -5,6 +5,7 @@ import grupo2.modelo.excepciones.*;
 import java.util.*;
 
 public class Compas {
+	
 	private int numerador; // representa una cantidad de figuras
 	private int denominador; // representa una figura
 	
@@ -18,12 +19,14 @@ public class Compas {
 		this.elementos = new ArrayList<ElementoDeCompas>();
 	}
 	
+	
 	//denominador representa una figura y se escribe como multiplos de Redonda (2 blanca, 4 negra, 8 corchea,etc) 
 	public Compas(int numerador, int denominador){
 		this.setNumerador(numerador);
 		this.setDenominador(denominador);
 		this.elementos = new ArrayList<ElementoDeCompas>();
 	}
+	
 	
 	public void setNumerador(int numerador){
 		if(numerador<=0){
@@ -32,10 +35,12 @@ public class Compas {
 		this.numerador = numerador;
 	}
 
+	
 	public int getNumerador(){
 		return numerador;
 	}
 
+	
 	public void setDenominador(int denominador) {
 		if(!this.esFigura(denominador)||(denominador<=0)){
 			throw new CompasInvalidoExcepcion();
@@ -43,11 +48,12 @@ public class Compas {
 		this.denominador = denominador;
 	}
 
+	
 	public int getDenominador() {
 		return denominador;
 	}
 	
-
+	
 	public void agregarElemento(ElementoDeCompas elemento) {
 		if ((this.getDuracionParcial()+elemento.getDuracion())>(this.getDuracionTotal())){
 			throw new CompasSobrepasadoExcepcion();
@@ -55,7 +61,30 @@ public class Compas {
 		this.elementos.add(elemento);
 	}
 	
-	/*Metodos auxiliares*/
+	
+	public boolean estaInconcluso(){ 
+		return (this.getDuracionParcial()!=this.getDuracionTotal());
+	}
+	
+	
+	/**
+	 * METODOS AUXILIARES PUBLICOS
+	 */
+		
+	public ElementoDeCompas getElemento(int index){
+		return this.elementos.get(index);
+	}
+	
+	
+	public Iterator<ElementoDeCompas> getIteratorElementos(){
+		IteradorCliente<ElementoDeCompas> unIterator = new IteradorCliente<ElementoDeCompas>(this.elementos);
+		return unIterator;
+	}
+	
+
+	/***
+	 *  METODOS AUXILIARES INTERNOS (SON DE CARACTER PRIVADO)
+	 ***/
 	
 	private boolean esFigura(int a){
 		boolean resultado=false;
@@ -70,15 +99,19 @@ public class Compas {
 		return resultado;
 	}
 
-	public boolean estaInconcluso(){ 
-		return (this.getDuracionParcial()!=this.getDuracionTotal());
-	}
 	
-	private double getDuracionTotal(){ //medido en negras
+	/*
+	 * Post-condicion: devuelve la duracion medido en Negras
+	 */
+	private double getDuracionTotal(){ 
 		double aux=((double)this.getNumerador()/(double)this.getDenominador());
 		return 	(aux*4);
 	}
 	
+	
+	/*
+	 * Post-condicion: devuelve la duracion medido en Negras
+	 */
 	private double getDuracionParcial(){ 
 		Iterator<ElementoDeCompas> itElementos = this.elementos.iterator();
 		double sumaDuracion=0;
@@ -87,15 +120,6 @@ public class Compas {
 			sumaDuracion += unElemento.getDuracion();
 		}
 		return sumaDuracion;
-	}
-	
-	public ElementoDeCompas getElemento(int index){
-		return this.elementos.get(index);
-	}
-	
-	public Iterator<ElementoDeCompas> getIteratorElementos(){
-		IteradorCliente<ElementoDeCompas> unIterator = new IteradorCliente<ElementoDeCompas>(this.elementos);
-		return unIterator;
 	}
 
 }
