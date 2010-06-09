@@ -10,4 +10,8 @@ public abstract class ElementoDeCompas {
 
 	public abstract boolean chequear(MapaDeTeclas mapeo,
 			CombinacionDeTeclas teclasPresionadas);
+	
+	public double getDuracionEnSegundos(int Tempo){
+		return (this.getDuracion()/((Tempo/60.00)));
+	}
 }

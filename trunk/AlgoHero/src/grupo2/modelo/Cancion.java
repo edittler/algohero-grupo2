@@ -74,33 +74,32 @@ public class Cancion {
 	
 	/* Post-condicion: devuelve el elemento de la cancion correspondiente
 	 * al instante ingresado
+	 * TODO refactorizar el método
 	 */
 	public ElementoDeCompas getElemento(double instante){
 		Iterator<Compas> itCompaces=this.getIteratorCompaces();
 		double LineaDeTiempo = 0.00; //Cuenta el tiempo transcurrido total a medida q se recorre la cancion
-		boolean entro= false; //marca cuando entra en el rango de presicion entorno al elemento buscado 
-		int compas=0; //cuenta los compaces recorridos
-		int elemento=0; //cuenta los elementos recorridos (correspondiente a un compas)
+		boolean LlegoAlElemento= false;  
+		int ContadorCompas=0; 
+		int ContadorElemento=0; 
 		
 		//Recorro los compaces hasta llegar al instante ingresado
-		while(!entro && itCompaces.hasNext()){
+		while(!LlegoAlElemento && itCompaces.hasNext()){
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
-			elemento=0;
-			
-			while(itElementos.hasNext() && !entro){
+			ContadorElemento=0;//Reiniciamos el contador para el siguiente compas
+			//Recorremos los elementos del compas 
+			while(itElementos.hasNext() && !LlegoAlElemento){
 				ElementoDeCompas unElemento = itElementos.next();
-				entro = this.entraEnElRangoDePresicion(LineaDeTiempo, instante); //"entra dentro del rango?"
-				elemento++; 
-				LineaDeTiempo += (double)(unElemento.getDuracion()/((this.getTempo()/60.00))); 
+				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante);
+				ContadorElemento++; 
+				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
-			compas++;
-			elemento--; // para que se realiza esta operacion si cuando
-						// se reinicia el ciclo el valor vuelve a 0?
+			ContadorCompas++;
 		}
-		
-		compas--; // idem con la pregunta de elemento--
-		return this.getCompas(compas).getElemento(elemento);
+		ContadorElemento--;//Como siempre cuenta uno de mas le restamos uno al final
+		ContadorCompas--; 
+		return this.getCompas(ContadorCompas).getElemento(ContadorElemento);
 	}
 	
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas
