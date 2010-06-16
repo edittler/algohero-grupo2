@@ -1,11 +1,12 @@
 package algo3c1g2.modelo.figura;
 
-import algo3c1g2.modelo.constantes.Constantes;
-
 public class Redonda extends Figura {
 
+	// Tiempo de la figura medido en Negras
+	private final static double TIEMPO_REDONDA = 4;
+	
 	public Redonda(){
-		super(Constantes.REDONDA);
+		super(TIEMPO_REDONDA);
 	}
 	              
 }

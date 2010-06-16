@@ -1,16 +1,18 @@
 package algo3c1g2.modelo.nota;
 
-import algo3c1g2.modelo.constantes.*;
 import algo3c1g2.modelo.figura.*;
 
 public class ReSostenido extends Nota {
 
+	//Frecuencia caracteristica del tono Re Sostenido en la octava 3
+	private final static float FRECUENCIA_RE_SOSTENIDO = 311;
+	
 	public ReSostenido(){
-		super(Constantes.FRECUENCIA_RE_SOSTENIDO);
+		super(FRECUENCIA_RE_SOSTENIDO);
 	}
 	
 	public ReSostenido(Figura unaFigura){
-		super(Constantes.FRECUENCIA_RE_SOSTENIDO,unaFigura);
+		super(FRECUENCIA_RE_SOSTENIDO,unaFigura);
 	}
 	
 }

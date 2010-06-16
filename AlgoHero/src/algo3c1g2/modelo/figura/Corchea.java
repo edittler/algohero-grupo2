@@ -1,10 +1,12 @@
 package algo3c1g2.modelo.figura;
 
-import algo3c1g2.modelo.constantes.Constantes;
-
 public class Corchea extends Figura {
 
+	// Tiempo de la figura medido en Negras
+	private final static double TIEMPO_CORCHEA = 0.5;
+	
 	public Corchea(){
-		super(Constantes.CORCHEA);
+		super(TIEMPO_CORCHEA);
 	}
+
 }

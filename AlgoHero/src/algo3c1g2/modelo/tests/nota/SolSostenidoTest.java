@@ -3,7 +3,6 @@ package algo3c1g2.modelo.tests.nota;
 import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
-import algo3c1g2.modelo.constantes.*;
 import algo3c1g2.modelo.figura.*;
 import algo3c1g2.modelo.nota.*;
 
@@ -16,8 +15,8 @@ public class SolSostenidoTest {
 		// Se crea la nota SolSostenido usando su constructor sin parametros 
 		Nota unaNota = new SolSostenido();
 		
-		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
-		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_SOL_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz
+		assertEquals("Frecuencia inicializada incorrectamente", 415, unaNota.getFrecuencia(), 0.001);
 	}
 	
 	@Test
@@ -25,8 +24,8 @@ public class SolSostenidoTest {
 		// Se crea la nota SolSostenido estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new SolSostenido(new Negra());
 		
-		// Se comparan las frecuencias que almacena el objeto con la almacenada en la clase constantes
-		assertEquals("Frecuencia inicializada incorrectamente", Constantes.FRECUENCIA_SOL_SOSTENIDO, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz
+		assertEquals("Frecuencia inicializada incorrectamente", 415, unaNota.getFrecuencia(), 0.001);
 	}
 	
 	@Test
@@ -35,7 +34,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido();
 		
 		// La duracion de la nota SolSostenido por default es 1 Negra
-		assertEquals("Duracion inicializada incorrectamente", Constantes.NEGRA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion inicializada incorrectamente", 1, unaNota.getDuracion(), 0.00001);
 	}
 
 	@Test
@@ -44,7 +43,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Redonda());
 		
 		// La duracion de la figura Redonda es de 4 Negras
-		assertEquals("Duracion establecida incorrectamente", Constantes.REDONDA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 4, unaNota.getDuracion(), 0.00001);
 	}
 	
 	@Test
@@ -53,7 +52,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Blanca());
 		
 		// La duracion de la figura Blanca es de 2 Negras
-		assertEquals("Duracion establecida incorrectamente", Constantes.BLANCA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 2, unaNota.getDuracion(), 0.00001);
 	}
 	
 	@Test
@@ -62,7 +61,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Negra());
 		
 		// La duracion de la figura Negra es de 1 Negra
-		assertEquals("Duracion establecida incorrectamente", Constantes.NEGRA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 1, unaNota.getDuracion(), 0.00001);
 	}
 	
 	@Test
@@ -71,7 +70,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Corchea());
 		
 		// La duracion de la figura Corchea es de 0.5 Negra
-		assertEquals("Duracion establecida incorrectamente", Constantes.CORCHEA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 0.5, unaNota.getDuracion(), 0.00001);
 	}
 	
 	@Test
@@ -80,7 +79,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Semicorchea());
 		
 		// La duracion de la figura Semicorchea es de 0.25 Negra
-		assertEquals("Duracion establecida incorrectamente", Constantes.SEMICORCHEA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 0.25, unaNota.getDuracion(), 0.00001);
 	}
 	
 	@Test
@@ -89,7 +88,7 @@ public class SolSostenidoTest {
 		Nota unaNota = new SolSostenido(new Fusa());
 		
 		// La duracion de la figura Fusa es de 0.125 Negra
-		assertEquals("Duracion establecida incorrectamente", Constantes.FUSA, unaNota.getDuracion(), 0.00001);
+		assertEquals("Duracion establecida incorrectamente", 0.125, unaNota.getDuracion(), 0.00001);
 	}
 	
 }
