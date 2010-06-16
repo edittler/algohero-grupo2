@@ -1,4 +1,4 @@
-package algo3c1g2.modelo.tests.nota;
+package algo3c1g2.modelo.test.nota;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.*;

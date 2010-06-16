@@ -1,4 +1,4 @@
-package algo3c1g2.modelo.tests.tecla;
+package algo3c1g2.modelo.test.tecla;
 
 import static org.junit.Assert.*;
 import org.junit.*;

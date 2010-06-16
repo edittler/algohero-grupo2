@@ -1,4 +1,4 @@
-package algo3c1g2.modelo.tests;
+package algo3c1g2.modelo.test;
 
 import static org.junit.Assert.*;
 import org.junit.*;
