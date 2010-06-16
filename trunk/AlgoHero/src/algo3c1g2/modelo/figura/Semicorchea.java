@@ -1,10 +1,12 @@
 package algo3c1g2.modelo.figura;
 
-import algo3c1g2.modelo.constantes.Constantes;
-
 public class Semicorchea extends Figura {
 	
+	// Tiempo de la figura medido en Negras
+	private final static double TIEMPO_SEMICORCHEA = 0.25;
+	
 	public Semicorchea(){
-		super(Constantes.SEMICORCHEA);
+		super(TIEMPO_SEMICORCHEA);
 	}
+	
 }

@@ -1,10 +1,12 @@
 package algo3c1g2.modelo.figura;
 
-import algo3c1g2.modelo.constantes.Constantes;
-
 public class Fusa extends Figura {
 
+	// Tiempo de la figura medido en Negras
+	private final static double TIEMPO_FUSA = 0.125;
+	
 	public Fusa(){
-		super(Constantes.FUSA);
+		super(TIEMPO_FUSA);
 	} 
+
 }

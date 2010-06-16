@@ -1,11 +1,12 @@
 package algo3c1g2.modelo.figura;
 
-import algo3c1g2.modelo.constantes.Constantes;
-
 public class Negra extends Figura {
 
+	// Tiempo de la figura medido en Negras
+	private final static double TIEMPO_NEGRA = 1;
+	
 	public Negra(){
-		super(Constantes.NEGRA);
+		super(TIEMPO_NEGRA);
 	}
 	              
 }

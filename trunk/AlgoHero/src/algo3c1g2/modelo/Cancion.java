@@ -2,13 +2,18 @@ package algo3c1g2.modelo;
 
 import java.util.*;
 
-import algo3c1g2.modelo.constantes.*;
 import algo3c1g2.modelo.excepciones.*;
 import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.tecla.*;
 
 public class Cancion {
 
+	//Tempo por default de una cancion
+	private final static int TEMPO_DEFAULT = 90;
+	
+	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
+	private final static double PRESICION = 0.20; 
+	
 	private String nombre;
 	private int tempo; //[negras/minuto]
 	private ArrayList<Compas> compaces;
@@ -21,7 +26,7 @@ public class Cancion {
 	// Constructor por defecto sin parametros
 	public Cancion() {
 		this.setNombre("Sin Nombre");
-		this.tempo = Constantes.TEMPO_DEFAULT;
+		this.tempo = TEMPO_DEFAULT;
 		this.compaces = new ArrayList<Compas>();
 		this.mapeo = new MapaDeTeclas();
 	}
@@ -29,7 +34,7 @@ public class Cancion {
 	// Constructor que asigna nombre a la cancion e inicializa colecciones
 	public Cancion(String Nombre) {
 		this.setNombre(Nombre);
-		this.tempo = Constantes.TEMPO_DEFAULT;
+		this.tempo = TEMPO_DEFAULT;
 		this.compaces = new ArrayList<Compas>();
 		this.mapeo = new MapaDeTeclas();
 	}
@@ -130,6 +135,6 @@ public class Cancion {
 	
 	//devuelve true si el valor ingresado se encuentra dentro del rango de presicion entorno a entorno segun la presicion del juego 
 	private boolean entraEnElRangoDePresicion(double valor,double entorno){ 
-		return ((valor<=(entorno+Constantes.PRESICION))&&(valor>=(entorno-Constantes.PRESICION))); //0.25 es el rango de dificultad hay q meterlo en constantes o un atributo de cada cancion
+		return ((valor<=(entorno+PRESICION))&&(valor>=(entorno-PRESICION)));
 	}
 }
