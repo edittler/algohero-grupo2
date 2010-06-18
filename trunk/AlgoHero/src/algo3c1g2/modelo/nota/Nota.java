@@ -44,6 +44,25 @@ public abstract class Nota extends ElementoDeCompas {
 		return figura;
 	}
 	
+	public boolean equals(Object o){
+		
+		//Compruebo si se referencia al mismo objeto 
+	    if ( this == o ) return true; 
+	    
+	    //Compruebo si el objeto es nulo 
+	    if ( o == null ) return false; 
+	    
+	    //Compruebo si son de distinta clase 
+	    if ( this.getClass() != o.getClass() ) return false; 
+	    
+	    //Si no paso la comprobacion anterior, es porque es de la misma clase
+	    //Ahora comparo la frecuencia y la duracion de la figura.
+	    // Antes debo castear el objeto recibido
+	    if ((this.getFrecuencia()==this.getClass().cast(o).getFrecuencia())
+	    		&&(this.getFigura().equals(this.getClass().cast(o).getFigura()))) return true; 
+	    else return false;
+	}
+	
 	// Devuelve la duracion de la negra medida en figuras negras
 	public double getDuracion() {
 		return this.getFigura().getDuracion();
