@@ -1,24 +1,11 @@
 package algo3c1g2.vista;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.net.URL;
+import javax.swing.*;
 import algo3c1g2.controlador.InicioJuego;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import ar.uba.fi.algo3.titiritero.vista.Panel;
+import algo3c1g2.vista.Panel;
 
 
 public class VentanaPrincipal extends JFrame implements ActionListener {

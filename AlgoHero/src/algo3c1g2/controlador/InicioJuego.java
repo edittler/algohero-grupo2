@@ -1,9 +1,10 @@
 package algo3c1g2.controlador;
 
+import algo3c1g2.ControladorJuego;
+import algo3c1g2.ObjetoVivo;
+import algo3c1g2.SuperficieDeDibujo;
 import algo3c1g2.vista.*;
-import ar.uba.fi.algo3.titiritero.ControladorJuego;
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
+
 
 
 public class InicioJuego implements ObjetoVivo{

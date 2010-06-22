@@ -1,6 +1,6 @@
 package algo3c1g2.vista;
 
-import ar.uba.fi.algo3.titiritero.Posicionable;
+import algo3c1g2.Posicionable;
 
 
 public class Pentagrama implements Posicionable{
