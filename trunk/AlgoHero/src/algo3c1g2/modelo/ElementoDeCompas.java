@@ -14,4 +14,5 @@ public abstract class ElementoDeCompas {
 	public double getDuracionEnSegundos(int Tempo){
 		return (this.getDuracion()/((Tempo/60.00)));
 	}
+	public abstract boolean isNota();
 }

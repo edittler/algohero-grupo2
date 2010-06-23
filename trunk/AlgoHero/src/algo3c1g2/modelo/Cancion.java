@@ -12,7 +12,7 @@ public class Cancion {
 	private final static int TEMPO_DEFAULT = 90;
 	
 	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
-	private final static double PRESICION = 0.20; 
+	private final static double PRESICION = 0.02; 
 	
 	private String nombre;
 	private int tempo; //[negras/minuto]
@@ -87,24 +87,27 @@ public class Cancion {
 		boolean LlegoAlElemento= false;  
 		int ContadorCompas=0; 
 		int ContadorElemento=0; 
-		
+		boolean sepaso=false;
+		ElementoDeCompas resultado;
 		//Recorro los compaces hasta llegar al instante ingresado
-		while(!LlegoAlElemento && itCompaces.hasNext()){
+		while(!LlegoAlElemento && itCompaces.hasNext()&&!sepaso){
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
 			ContadorElemento=0;//Reiniciamos el contador para el siguiente compas
 			//Recorremos los elementos del compas 
-			while(itElementos.hasNext() && !LlegoAlElemento){
+			while(itElementos.hasNext() && !LlegoAlElemento && !sepaso){
 				ElementoDeCompas unElemento = itElementos.next();
 				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante);
 				ContadorElemento++; 
+				sepaso=(LineaDeTiempo>(instante+PRESICION));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
 			ContadorCompas++;
 		}
 		ContadorElemento--;//Como siempre cuenta uno de mas le restamos uno al final
 		ContadorCompas--; 
-		return this.getCompas(ContadorCompas).getElemento(ContadorElemento);
+		resultado=(sepaso==false)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
+		return resultado;
 	}
 	
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas

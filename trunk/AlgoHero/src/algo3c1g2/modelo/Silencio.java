@@ -27,4 +27,10 @@ public class Silencio extends ElementoDeCompas {
 			CombinacionDeTeclas teclasPresionadas){
 		return false;
 	}
+
+	@Override
+	public boolean isNota() {
+		return false;
+	}
+	
 }

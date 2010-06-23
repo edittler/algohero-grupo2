@@ -1,6 +1,9 @@
 package algo3c1g2.modelo.nota;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+
+import programa.Circulito;
 
 import algo3c1g2.modelo.ElementoDeCompas;
 import algo3c1g2.modelo.figura.*;
@@ -79,5 +82,12 @@ public abstract class Nota extends ElementoDeCompas {
 		}
 		return resultado;
 	}
+	public boolean isNota(){
+		return true;
+	}
+	public abstract int ubicacionCuerda();
+	
+	public abstract void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas);
+	
 	
 }

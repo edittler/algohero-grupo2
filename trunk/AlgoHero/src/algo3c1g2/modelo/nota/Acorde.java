@@ -35,4 +35,9 @@ public class Acorde extends ElementoDeCompas {
 			CombinacionDeTeclas teclasPresionadas){
 		return false; //TODO hay que implementar este metodo
 	}
+
+	@Override
+	public boolean isNota() {
+		return true;
+	}
 }
