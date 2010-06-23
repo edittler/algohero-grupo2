@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.net.URL;
 import javax.swing.*;
 import algo3c1g2.controlador.InicioJuego;
-import algo3c1g2.vista.Panel;
+import ar.uba.fi.algo3.titiritero.vista.Panel;
 
 
 public class VentanaPrincipal extends JFrame implements ActionListener {

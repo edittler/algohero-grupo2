@@ -1,6 +1,6 @@
 package algo3c1g2.vista;
 
-import algo3c1g2.vista.Imagen;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class VistaPentagrama extends Imagen {
 	public VistaPentagrama() {
