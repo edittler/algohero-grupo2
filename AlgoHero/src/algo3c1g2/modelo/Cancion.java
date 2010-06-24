@@ -12,7 +12,7 @@ public class Cancion {
 	private final static int TEMPO_DEFAULT = 90;
 	
 	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
-	private final static double PRESICION = 0.02; 
+	private final static double PRESICION = 0.5; 
 	
 	private String nombre;
 	private int tempo; //[negras/minuto]
@@ -123,7 +123,7 @@ public class Cancion {
 	 *  METODOS AUXILIARES INTERNOS
 	 ***/
 	
-	private MapaDeTeclas getMapeo(){
+	public MapaDeTeclas getMapeo(){
 		return mapeo;
 	}
 	

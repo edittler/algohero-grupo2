@@ -10,7 +10,7 @@ public class FaSostenido extends Nota {
 
 	//Frecuencia caracteristica del tono Fa Sostenido en la octava 3
 	private final static float FRECUENCIA_FA_SOSTENIDO = 369;
-	private final static int UbicacionCuerdaFaSostenido=386;
+	private final static int UbicacionCuerdaFaSostenido=427;
 
 	public FaSostenido(){
 		super(FRECUENCIA_FA_SOSTENIDO);
@@ -25,19 +25,12 @@ public class FaSostenido extends Nota {
 		
 		return UbicacionCuerdaFaSostenido;
 	}
-	public void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
-		Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
+
+
+	@Override
+	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
 		itCuer.next();
 		itCuer.next();
 		itCuer.next();
-		Iterator<Circulito> itCir =itCuer.next().iterator();
-		boolean habilito=false;
-		while(itCir.hasNext()&&!habilito){
-			Circulito unCirculito=itCir.next();
-			if(!unCirculito.estaHabilitado()){
-				unCirculito.habilitar();
-				habilito=true;
-			}
-		}
-		}
+	}
 }

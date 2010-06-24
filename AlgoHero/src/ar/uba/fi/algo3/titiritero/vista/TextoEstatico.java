@@ -12,6 +12,9 @@ public class TextoEstatico extends Texto {
 		this.texto = texto;
 	}
 
+	public void setTexto(String texto){
+		this.texto=texto;
+	}
 	public TextoEstatico(String texto, Color color, Font fuente) {
 		super(color, fuente);
 		this.texto = texto;

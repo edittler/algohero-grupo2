@@ -32,4 +32,14 @@ private ArrayList<Tecla> teclas;
 		}
 		return resultado;
 	}
+	
+	public String getTeclasTexto(){
+		String resultado="";
+		Iterator<Tecla> it=this.getIteradorTeclas();
+		while(it.hasNext()){
+			resultado+=(char)it.next().getCodigoASCII();
+			resultado+=" ";
+		}
+		return resultado;
+	}
 }

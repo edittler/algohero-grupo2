@@ -10,12 +10,13 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	private int y;
 	private Nota nota;
 	private boolean habilitado;
+	private int POSICION_INICIAL_Y=-45; 
 	
 	public Circulito(Nota nota){
 		
 		this.nota=nota;
 		this.x=nota.ubicacionCuerda();
-		this.y=-30;
+		this.y=POSICION_INICIAL_Y;
 		habilitado=false;
 	}
 	
@@ -27,13 +28,17 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		this.habilitado=true;
 	}
 	
+	public void reiniciar(){
+		this.y=POSICION_INICIAL_Y;
+		habilitado=false;
+	}
+	
 	@Override
 	public void vivir() {	
 		if(habilitado)
 		this.y=this.y+2;
-		if(this.y>568){
-			habilitado=false;
-			this.y=-30;
+		if(this.y>VentanaPrincipal.TAMAÑO_VERTICAL){  
+			this.reiniciar();
 		}
 	}
 

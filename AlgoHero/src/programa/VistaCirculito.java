@@ -7,7 +7,7 @@ import ar.uba.fi.algo3.titiritero.vista.Circulo;
 public class VistaCirculito extends Circulo {
 
 	public VistaCirculito() {
-		super(30);
+		super(45);
 		setColor(Color.RED);
 	}
 	

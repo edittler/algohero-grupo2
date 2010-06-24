@@ -10,7 +10,7 @@ public class Do extends Nota {
 
 	//Frecuencia caracteristica del tono Do en la octava 3
 	private final static float FRECUENCIA_DO = 261;
-	private final static int UbicacionCuerdaDO=155;
+	private final static int UbicacionCuerdaDO=168;
 	
 	public Do(){
 		super(FRECUENCIA_DO);
@@ -25,18 +25,7 @@ public class Do extends Nota {
 		return UbicacionCuerdaDO;
 	}
 
-	@Override
-	public void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
-	Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
-	Iterator<Circulito> itCir =itCuer.next().iterator();
-	boolean habilito=false;
-	while(itCir.hasNext()&&!habilito){
-		Circulito unCirculito=itCir.next();
-		if(!unCirculito.estaHabilitado()){
-			unCirculito.habilitar();
-			habilito=true;
-		}
-	}
+	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
 	}
 	
 }
