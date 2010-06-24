@@ -10,7 +10,7 @@ public class La extends Nota {
 
 	//Frecuencia caracteristica del tono La en la octava 3
 	private final static float FRECUENCIA_LA = 440;
-	private final static int UbicacionCuerdaLa=455;
+	private final static int UbicacionCuerdaLa=504;
 
 	public La(){
 		super(FRECUENCIA_LA);
@@ -25,20 +25,12 @@ public class La extends Nota {
 		// TODO Auto-generated method stub
 		return UbicacionCuerdaLa;
 	}
-	public void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
-		Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
+
+	@Override
+	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
 		itCuer.next();
 		itCuer.next();
 		itCuer.next();
 		itCuer.next();
-		Iterator<Circulito> itCir =itCuer.next().iterator();
-		boolean habilito=false;
-		while(itCir.hasNext()&&!habilito){
-			Circulito unCirculito=itCir.next();
-			if(!unCirculito.estaHabilitado()){
-				unCirculito.habilitar();
-				habilito=true;
-			}
-		}
-		}
+	}
 }

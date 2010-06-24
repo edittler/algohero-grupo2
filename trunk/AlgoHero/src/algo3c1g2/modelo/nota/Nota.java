@@ -87,7 +87,25 @@ public abstract class Nota extends ElementoDeCompas {
 	}
 	public abstract int ubicacionCuerda();
 	
-	public abstract void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas);
 	
-	
+	/* Ubica la cuerda correspondiente a la nota, recorre la cuerda buscando Circulitos NO habilitados,
+	 * cuando lo encuentra lo habilita y lo devuelve
+	 */
+	public Circulito ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
+		Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
+		iterarHastaLaCuerda(itCuer);
+		Iterator<Circulito> itCir =itCuer.next().iterator();
+		Circulito unCirculito=new Circulito(new Do());
+		boolean habilito=false;
+		while(itCir.hasNext()&&!habilito){
+			unCirculito=itCir.next();
+			if(!unCirculito.estaHabilitado()){
+				unCirculito.habilitar();
+				habilito=true;
+			}
+		}
+		return unCirculito;
+		}
+
+	protected abstract void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer);
 }

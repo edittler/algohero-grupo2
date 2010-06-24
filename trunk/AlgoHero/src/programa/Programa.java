@@ -1,6 +1,8 @@
 package programa;
 
+import java.awt.Color;
 import java.util.ArrayList;
+
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Compas;
@@ -10,9 +12,13 @@ import algo3c1g2.modelo.figura.Corchea;
 import algo3c1g2.modelo.figura.Negra;
 import algo3c1g2.modelo.figura.Semicorchea;
 import algo3c1g2.modelo.nota.*;
+import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
+import algo3c1g2.modelo.tecla.Tecla;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
+
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
+import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 public class Programa {
@@ -34,28 +40,54 @@ public class Programa {
 		unCompas.agregarElemento(new Mi(new Negra()));	
 		unCompas.agregarElemento(new La(new Corchea()));
 		unaCancion.agregarCompas(unCompas);
+		
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('H'));
+		unaCancion.mapear(new DoSostenido(),teclas);
+		
+		// combinacion de teclas para la nota LaSostenido
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('L'));
+		unaCancion.mapear(new Re(), teclas);
+		
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('C'));
+		unaCancion.mapear(new Fa(),teclas);
+		
+		// combinacion de teclas para la nota LaSostenido
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('M'));
+		unaCancion.mapear(new Sol(), teclas);
+		
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('S'));
+		unaCancion.mapear(new Si(), teclas);
+		
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('N'));
+		unaCancion.mapear(new Mi(), teclas);
+		
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('T'));
+		unaCancion.mapear(new La(), teclas);
+		
 			/************************************************/
 		
-
 		
 		ControladorJuego controlador = new ControladorJuego();
-		Ventana ventana = new VentanaPrincipal(controlador);
-		controlador.setSuperficieDeDibujo(ventana);
+		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
+		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
 		
 		
-		Mesa unaMesa = new Mesa(500, 500);
+		Mesa unaMesa = new Mesa(717,538);
 		VistaFondo vistaMesa = new VistaFondo();
 		vistaMesa.setPosicionable(unaMesa);
 		controlador.agregarDibujable(vistaMesa);
 		
-//		Circulito unCir=new Circulito(new Si());
-//		VistaCirculito v=new VistaCirculito();
-//		v.setPosicionable(unCir);
-//		controlador.agregarDibujable(v);
-//		controlador.agregarObjetoVivo(unCir);
-//		unCir.habilitar();
-//		
+
+		
+		/******** CREA LOS CIRCULITOS***********/
 		ArrayList<ArrayList<Circulito>> cuerdas=new ArrayList<ArrayList<Circulito>>();
 		ArrayList<Circulito> cuerda1= new ArrayList<Circulito>();
 		ArrayList<Circulito> cuerda2= new ArrayList<Circulito>();
@@ -190,19 +222,20 @@ public class Programa {
 		cuerdas.add(cuerda5);
 		cuerdas.add(cuerda6);
 		
-		Guitarra unaGuitarra=new Guitarra(unaCancion,cuerdas);
+		/*******************************/
+		
+		Guitarra unaGuitarra=new Guitarra(unaCancion,cuerdas,controlador);
+		Escuchador escu = new Escuchador(unaGuitarra);
+		controlador.agregarKeyPressObservador(escu);
 		controlador.agregarObjetoVivo(unaGuitarra);
 
-			
-		
+
 		/*
 		 * finalmente establezco el intervalo de sleep dentro del gameloop
 		 * y comienzo a ejecutar
 		 */
 		controlador.setIntervaloSimulacion(15);
 		controlador.comenzarJuego();
-
-
 	}
 
 }

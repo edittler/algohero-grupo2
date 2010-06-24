@@ -10,7 +10,7 @@ public class Sol extends Nota {
 
 	//Frecuencia caracteristica del tono Sol en la octava 3
 	private final static float FRECUENCIA_SOL = 391;
-	private final static int UbicacionCuerdaSol=386;
+	private final static int UbicacionCuerdaSol=427;
 
 	public Sol(){
 		super(FRECUENCIA_SOL);
@@ -25,19 +25,12 @@ public class Sol extends Nota {
 		// TODO Auto-generated method stub
 		return UbicacionCuerdaSol;
 	}
-	public void ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
-		Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
+
+
+	@Override
+	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
 		itCuer.next();
 		itCuer.next();
 		itCuer.next();
-		Iterator<Circulito> itCir =itCuer.next().iterator();
-		boolean habilito=false;
-		while(itCir.hasNext()&&!habilito){
-			Circulito unCirculito=itCir.next();
-			if(!unCirculito.estaHabilitado()){
-				unCirculito.habilitar();
-				habilito=true;
-			}
-		}
-		}
+	}
 }
