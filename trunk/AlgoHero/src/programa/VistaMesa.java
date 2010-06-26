@@ -10,7 +10,7 @@ public class VistaMesa extends Cuadrado implements SuperficieDeDibujo {
 
 	
 	public VistaMesa() {
-		super(210,210);
+		super(100,559);
 		setColor(Color.BLACK);
 	}
 

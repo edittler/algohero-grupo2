@@ -8,14 +8,12 @@ public class Circulito implements ObjetoVivo, Posicionable {
 
 	private int x;
 	private int y;
-	private Nota nota;
 	private boolean habilitado;
-	private int POSICION_INICIAL_Y=-45; 
+	private static int POSICION_INICIAL_Y=-48; 
 	
-	public Circulito(Nota nota){
+	public Circulito(int ubicacionEnX){
 		
-		this.nota=nota;
-		this.x=nota.ubicacionCuerda();
+		this.x=ubicacionEnX;
 		this.y=POSICION_INICIAL_Y;
 		habilitado=false;
 	}
@@ -30,13 +28,14 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	
 	public void reiniciar(){
 		this.y=POSICION_INICIAL_Y;
-		habilitado=false;
+		this.habilitado=false;
 	}
 	
 	@Override
 	public void vivir() {	
-		if(habilitado)
-		this.y=this.y+2;
+		if(habilitado){
+		this.y=this.y+2; //ese 2 deberia depender del tempo de la cancion no? es la velocidad con la q se desplaza el circulito (2/0.015)
+		}
 		if(this.y>VentanaPrincipal.TAMAÑO_VERTICAL){  
 			this.reiniciar();
 		}

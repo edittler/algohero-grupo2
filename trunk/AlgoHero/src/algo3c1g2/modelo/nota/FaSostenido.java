@@ -11,7 +11,7 @@ public class FaSostenido extends Nota {
 	//Frecuencia caracteristica del tono Fa Sostenido en la octava 3
 	private final static float FRECUENCIA_FA_SOSTENIDO = 369;
 	private final static int UbicacionCuerdaFaSostenido=427;
-
+	private final static int cuerda=4;
 	public FaSostenido(){
 		super(FRECUENCIA_FA_SOSTENIDO);
 	}
@@ -26,11 +26,8 @@ public class FaSostenido extends Nota {
 		return UbicacionCuerdaFaSostenido;
 	}
 
-
-	@Override
-	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
-		itCuer.next();
-		itCuer.next();
-		itCuer.next();
+	public int getCuerda() {
+		return FaSostenido.cuerda;
 	}
+
 }

@@ -11,7 +11,8 @@ public class Mi extends Nota {
 	//Frecuencia caracteristica del tono Mi en la octava 3
 	public final static float FRECUENCIA_MI = 329;
 	private final static int UbicacionCuerdaLaSostenido=345;
-
+	private final static int cuerda=3;
+	
 	public Mi(){
 		super(FRECUENCIA_MI);
 	}
@@ -26,9 +27,8 @@ public class Mi extends Nota {
 		return UbicacionCuerdaLaSostenido;
 	}
 
-	@Override
-	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
-		itCuer.next();
-		itCuer.next();
+	public int getCuerda() {
+		return Mi.cuerda;
 	}
+	
 }

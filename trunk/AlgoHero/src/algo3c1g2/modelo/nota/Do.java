@@ -11,6 +11,7 @@ public class Do extends Nota {
 	//Frecuencia caracteristica del tono Do en la octava 3
 	private final static float FRECUENCIA_DO = 261;
 	private final static int UbicacionCuerdaDO=168;
+	private final static int cuerda=1;
 	
 	public Do(){
 		super(FRECUENCIA_DO);
@@ -25,7 +26,7 @@ public class Do extends Nota {
 		return UbicacionCuerdaDO;
 	}
 
-	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
+	public int getCuerda() {
+		return Do.cuerda;
 	}
-	
 }

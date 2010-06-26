@@ -11,7 +11,8 @@ public class Si extends Nota {
 	//Frecuencia caracteristica del tono Si en la octava 3
 	private final static float FRECUENCIA_SI = 493;
 	private final static int UbicacionCuerdaSi=576;
-
+	private final static int cuerda=6;
+	
 	public Si(){
 		super(FRECUENCIA_SI);
 	}
@@ -22,17 +23,11 @@ public class Si extends Nota {
 
 	@Override
 	public int ubicacionCuerda() {
-		// TODO Auto-generated method stub
 		return UbicacionCuerdaSi;
 	}
 
-
-	@Override
-	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
-		itCuer.next();
-		itCuer.next();
-		itCuer.next();
-		itCuer.next();
-		itCuer.next();
+	public int getCuerda() {
+		return Si.cuerda;
 	}
+
 }

@@ -156,7 +156,7 @@ public class CancionTest {
 		teclasPresionadas.agregarTecla(new Tecla('A'));
 		teclasPresionadas.agregarTecla(new Tecla('C'));
 
-		assertTrue(unaCancion.chequear(teclasPresionadas,0));
+		assertTrue(unaCancion.chequear(teclasPresionadas,0,0.01));
 		
 		teclasPresionadas = new CombinacionDeTeclas();
 		teclasPresionadas.agregarTecla(new Tecla('O'));
@@ -164,6 +164,6 @@ public class CancionTest {
 		teclasPresionadas.agregarTecla(new Tecla('L'));
 		
 		
-		assertTrue(unaCancion.chequear(teclasPresionadas,4.00/3.00));
+		assertTrue(unaCancion.chequear(teclasPresionadas,4.00/3.00,0.01));
 	}
 }
