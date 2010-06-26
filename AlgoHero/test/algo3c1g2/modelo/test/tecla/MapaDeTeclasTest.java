@@ -34,7 +34,7 @@ public class MapaDeTeclasTest {
 		
 		
 		//Hago el mapeo de las notas con la combinacion de teclas
-		
+
 		mapa.agregarMapeo(new Do(), unaCombinacion);
 		mapa.agregarMapeo(new La(), unaCombinacion);
 		

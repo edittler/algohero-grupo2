@@ -11,7 +11,8 @@ public class Re extends Nota {
 	//Frecuencia caracteristica del tono Re en la octava 3
 	private final static float FRECUENCIA_RE = 293;
 	private final static int UbicacionCuerdaRe=257;
-
+	private final static int cuerda=2;
+	
 	public Re(){
 		super(FRECUENCIA_RE);
 	}
@@ -26,9 +27,8 @@ public class Re extends Nota {
 		return UbicacionCuerdaRe;
 	}
 
-	@Override
-	protected void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer) {
-		itCuer.next();
-		
+	public int getCuerda() {
+		return Re.cuerda;
 	}
+	
 }

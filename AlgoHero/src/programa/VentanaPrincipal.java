@@ -18,7 +18,7 @@ public class VentanaPrincipal extends Frame {
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
 		this.addKeyListener(new KeyPressedController(controladorJuego));
-		this.setTitle("Pelotas");
+		this.setTitle("ALGO-HERO");
 		this.setSize(TAMAÑO_HORIZONTAL,TAMAÑO_VERTICAL);
 		this.setResizable(false);
 		panel = new Panel(TAMAÑO_HORIZONTAL,TAMAÑO_VERTICAL,controladorJuego);

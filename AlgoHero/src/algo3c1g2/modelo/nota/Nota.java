@@ -14,7 +14,7 @@ public abstract class Nota extends ElementoDeCompas {
 
 	private float frecuencia;
 	private Figura figura;
-	
+	protected int cuerda;
 	/*
 	 * Poscondicion: Asigna la frecuencia pasada por parametro y la Figura Negra por default
 	 */
@@ -47,6 +47,8 @@ public abstract class Nota extends ElementoDeCompas {
 		return figura;
 	}
 	
+	
+	@Override
 	public boolean equals(Object o){
 		
 		//Compruebo si se referencia al mismo objeto 
@@ -61,10 +63,11 @@ public abstract class Nota extends ElementoDeCompas {
 	    //Si no paso la comprobacion anterior, es porque es de la misma clase
 	    //Ahora comparo la frecuencia y la duracion de la figura.
 	    // Antes debo castear el objeto recibido
-	    if ((this.getFrecuencia()==this.getClass().cast(o).getFrecuencia())
-	    		&&(this.getFigura().equals(this.getClass().cast(o).getFigura()))) return true; 
+	    if ((this.getFrecuencia()==this.getClass().cast(o).getFrecuencia()))
+	    		 return true; 
 	    else return false;
 	}
+	
 	
 	// Devuelve la duracion de la negra medida en figuras negras
 	public double getDuracion() {
@@ -87,25 +90,7 @@ public abstract class Nota extends ElementoDeCompas {
 	}
 	public abstract int ubicacionCuerda();
 	
-	
-	/* Ubica la cuerda correspondiente a la nota, recorre la cuerda buscando Circulitos NO habilitados,
-	 * cuando lo encuentra lo habilita y lo devuelve
-	 */
-	public Circulito ubicarCuerda(ArrayList<ArrayList<Circulito>> cuerdas) {
-		Iterator<ArrayList<Circulito>> itCuer=cuerdas.iterator();
-		iterarHastaLaCuerda(itCuer);
-		Iterator<Circulito> itCir =itCuer.next().iterator();
-		Circulito unCirculito=new Circulito(new Do());
-		boolean habilito=false;
-		while(itCir.hasNext()&&!habilito){
-			unCirculito=itCir.next();
-			if(!unCirculito.estaHabilitado()){
-				unCirculito.habilitar();
-				habilito=true;
-			}
-		}
-		return unCirculito;
-		}
+	public abstract int getCuerda();
 
-	protected abstract void iterarHastaLaCuerda(Iterator<ArrayList<Circulito>> itCuer);
+	
 }

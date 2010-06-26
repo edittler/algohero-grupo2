@@ -28,6 +28,7 @@ public abstract class Figura {
 	    //Compruebo si son de la misma clase, condicion para que sea True la igualdad
 	    if ( this.getClass() == o.getClass() ) return true;
 	    else return false;
+	    
 	}
 
 }

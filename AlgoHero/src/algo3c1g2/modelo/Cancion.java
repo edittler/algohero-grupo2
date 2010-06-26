@@ -12,7 +12,7 @@ public class Cancion {
 	private final static int TEMPO_DEFAULT = 90;
 	
 	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
-	private final static double PRESICION = 0.5; 
+	private final static double PRESICION = 0.0075; 
 	
 	private String nombre;
 	private int tempo; //[negras/minuto]
@@ -81,7 +81,7 @@ public class Cancion {
 	 * al instante ingresado
 	 * TODO refactorizar el método
 	 */
-	public ElementoDeCompas getElemento(double instante){
+	public ElementoDeCompas getElemento(double instante,double presicion){
 		Iterator<Compas> itCompaces=this.getIteratorCompaces();
 		double LineaDeTiempo = 0.00; //Cuenta el tiempo transcurrido total a medida q se recorre la cancion
 		boolean LlegoAlElemento= false;  
@@ -97,25 +97,26 @@ public class Cancion {
 			//Recorremos los elementos del compas 
 			while(itElementos.hasNext() && !LlegoAlElemento && !sepaso){
 				ElementoDeCompas unElemento = itElementos.next();
-				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante);
+				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante,presicion);
 				ContadorElemento++; 
-				sepaso=(LineaDeTiempo>(instante+PRESICION));
+				sepaso = (LineaDeTiempo>(instante+presicion));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
 			ContadorCompas++;
 		}
 		ContadorElemento--;//Como siempre cuenta uno de mas le restamos uno al final
 		ContadorCompas--; 
-		resultado=(sepaso==false)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
+		resultado=(!sepaso&&LlegoAlElemento)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
 		return resultado;
 	}
 	
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas
 	 * Post-condicion: devuelve true si coincide con el mapeo de la cancion en el instante indicado.
 	 */
-	public boolean chequear(CombinacionDeTeclas teclasPresionadas, double instante) {
-		ElementoDeCompas unElemento=this.getElemento(instante); 
-		return unElemento.chequear(this.getMapeo(), teclasPresionadas);
+	public boolean chequear(CombinacionDeTeclas teclasPresionadas, double instante,double presicion) {
+		ElementoDeCompas unElemento=this.getElemento(instante,presicion);
+		boolean resultado=(unElemento==null)?false:unElemento.chequear(this.getMapeo(), teclasPresionadas);
+		return resultado;
 	}
 	
 	
@@ -137,7 +138,7 @@ public class Cancion {
 	}
 	
 	//devuelve true si el valor ingresado se encuentra dentro del rango de presicion entorno a entorno segun la presicion del juego 
-	private boolean entraEnElRangoDePresicion(double valor,double entorno){ 
-		return ((valor<=(entorno+PRESICION))&&(valor>=(entorno-PRESICION)));
+	private boolean entraEnElRangoDePresicion(double valor,double entorno,double presicion){ 
+		return ((valor<=(entorno+presicion))&&(valor>=(entorno-presicion)));
 	}
 }
