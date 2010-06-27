@@ -11,9 +11,6 @@ public class Cancion {
 	//Tempo por default de una cancion
 	private final static int TEMPO_DEFAULT = 90;
 	
-	//Nivel de presicion exigida en el juego (por ahora es constante) medida en segundos
-	private final static double PRESICION = 0.0075; 
-	
 	private String nombre;
 	private int tempo; //[negras/minuto]
 	private ArrayList<Compas> compaces;
@@ -22,14 +19,6 @@ public class Cancion {
 	/* mapeo: almacanena correspondencias entre un tono
 	 * (diferenciado por su frecuencia) y una combinacion de teclas
 	 */
-	
-	// Constructor por defecto sin parametros
-	public Cancion() {
-		this.setNombre("Sin Nombre");
-		this.tempo = TEMPO_DEFAULT;
-		this.compaces = new ArrayList<Compas>();
-		this.mapeo = new MapaDeTeclas();
-	}
 	
 	// Constructor que asigna nombre a la cancion e inicializa colecciones
 	public Cancion(String Nombre) {

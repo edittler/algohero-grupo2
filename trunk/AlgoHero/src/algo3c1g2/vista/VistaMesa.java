@@ -1,10 +1,9 @@
-package programa;
+package algo3c1g2.vista;
 
 import java.awt.Color;
 
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class VistaMesa extends Cuadrado implements SuperficieDeDibujo {
 

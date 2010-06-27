@@ -1,6 +1,9 @@
 package algo3c1g2.modelo.test;
 
 import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
 import org.junit.*;
 
 import algo3c1g2.modelo.*;
@@ -12,18 +15,9 @@ import algo3c1g2.modelo.tecla.*;
 
 public class CancionTest {
 	
-	@Test
-	public void testConstructorDefault(){ 
-		Cancion unaCancion = new Cancion();
-		
-		// Probamos que almacene correctamente el nombre de la cancion
-		assertEquals("No inicializa correctamente el nombre de la cancion",unaCancion.getNombre(),"Sin Nombre");
-		// Probamos que inicialize el Tempo en 90
-		assertTrue("No inicializa el Tempo de la cancion con el valor default",unaCancion.getTempo()==90);
-	}
 	
 	@Test
-	public void testConstructorConParametro(){ 
+	public void testConstructorConParametro1(){ 
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		
 		// Probamos que almacene correctamente el nombre de la cancion
@@ -79,12 +73,6 @@ public class CancionTest {
 		unaCancion.agregarCompas(unCompas);
 		fail("Permite agregar un compas incompleto a la cancion");
 	}
-
-	/* Debido a la privacion de metodos, este test debe ser reescrito
-	 * o considerar que es reemplazado por el metodo 'chequear()'
-	
-	 Esta seria una prueba de integracion... 
-	 Nose si tiene otro formato u otra convencion establecida
 	
 	@Test
 	public void testMapear(){
@@ -112,7 +100,7 @@ public class CancionTest {
 		assertTrue("Error al mapear tecla H",itTeclasMi.next().getCodigoASCII()=='H');
 		assertTrue("Error al mapear tecla L",itTeclasMi.next().getCodigoASCII()=='L');
 	}
-	*/
+
 	
 	@Test
 	public void testChequear(){
