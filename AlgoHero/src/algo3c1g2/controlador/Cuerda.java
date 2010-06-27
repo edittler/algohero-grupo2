@@ -25,20 +25,21 @@ public class Cuerda {
 		}
 	}
 	
+	
 	public Iterator<Circulito> iterator(){
 		IteradorCliente<Circulito> unIterator = new IteradorCliente<Circulito>(this.circulitos);
 		return unIterator;
 	}
+	
 	
 	public Iterator<VistaCirculito> iteratorVista(){
 		IteradorCliente<VistaCirculito> unIterator = new IteradorCliente<VistaCirculito>(this.vistas);
 		return unIterator;
 	}
 	
-	/*Habilita el 1er circulito que encuentra deshabilitado en la cuerda*/
 	
+	/*Habilita el 1er circulito que encuentra deshabilitado en la cuerda*/
 	public Circulito habilitarUnCirculito(){
-		
 		Iterator<Circulito> itCir = this.iterator();
 		
 		Circulito unCirculito=null;
@@ -53,6 +54,8 @@ public class Cuerda {
 		}
 		return unCirculito; //Devuelvo el Circulito habilitado
 	}
+	
+	
 	public VistaCirculito getVista(Circulito unCirculito){
 		Iterator<VistaCirculito> itVista= this.vistas.iterator();
 		VistaCirculito resultado=null;

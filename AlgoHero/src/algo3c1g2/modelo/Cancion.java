@@ -6,6 +6,11 @@ import algo3c1g2.modelo.excepciones.*;
 import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.tecla.*;
 
+/**
+ *
+ * 
+ * @author Grupo 2 - Algoritmos 3 - FIUBA
+ */
 public class Cancion {
 
 	//Tempo por default de una cancion
@@ -15,12 +20,16 @@ public class Cancion {
 	private int tempo; //[negras/minuto]
 	private ArrayList<Compas> compaces;
 	
-	private MapaDeTeclas mapeo;
 	/* mapeo: almacanena correspondencias entre un tono
 	 * (diferenciado por su frecuencia) y una combinacion de teclas
 	 */
+	private MapaDeTeclas mapeo;
+	
 	
 	// Constructor que asigna nombre a la cancion e inicializa colecciones
+	/**
+	 * @param Nombre Nombre de la canción
+	 */
 	public Cancion(String Nombre) {
 		this.setNombre(Nombre);
 		this.tempo = TEMPO_DEFAULT;
@@ -36,11 +45,12 @@ public class Cancion {
 		return nombre;
 	}
 	
-	/* Pre-condicion: El tempo debe estar en un valor entre 30 y 150
-	 * Post-concicion: Si no se cumple la pre-condicion, se lanza una excepcion
+
+	/**
+	 * @param tempo Tempo de la canción en un valor entre 30 y 150
+	 * @throws TempoInvalidoException Cuando no se cumple la precondición en el parámetro
 	 */
-	public void setTempo(int tempo)
-	{
+	public void setTempo(int tempo) {
 		if ((tempo<30)||(tempo>150)){
 			throw new TempoInvalidoException();
 		}
@@ -51,8 +61,10 @@ public class Cancion {
 		return tempo;
 	}
 	
-	/* Pre-condicion: El compas a agregar debe estar completo (en terminos del tiempo)
-	 * Post-concicion: Si no se cumple la pre-condicion, se lanza una excepcion
+	
+	/**
+	 * @param unCompas Compas a agregar a la canción
+	 * @throws CompasInvalidoExcepcion Si el compás no está completo
 	 */
 	public void agregarCompas(Compas unCompas) {
 		if (unCompas.estaInconcluso()){
@@ -61,6 +73,7 @@ public class Cancion {
 		this.compaces.add(unCompas);
 	}
 
+	
 	public void mapear(Nota nota, CombinacionDeTeclas combinacion){
 		this.mapeo.agregarMapeo(nota, combinacion);
 	}
@@ -72,32 +85,42 @@ public class Cancion {
 	 */
 	public ElementoDeCompas getElemento(double instante,double presicion){
 		Iterator<Compas> itCompaces=this.getIteratorCompaces();
-		double LineaDeTiempo = 0.00; //Cuenta el tiempo transcurrido total a medida q se recorre la cancion
+		
+		//Contador del tiempo transcurrido total a medida que se recorre la cancion
+		double LineaDeTiempo = 0.00; 
 		boolean LlegoAlElemento= false;  
 		int ContadorCompas=0; 
 		int ContadorElemento=0; 
-		boolean sepaso=false;
+		boolean sePaso=false;
 		ElementoDeCompas resultado;
+		
 		//Recorro los compaces hasta llegar al instante ingresado
-		while(!LlegoAlElemento && itCompaces.hasNext()&&!sepaso){
+		while(!LlegoAlElemento && itCompaces.hasNext()&&!sePaso){
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
-			ContadorElemento=0;//Reiniciamos el contador para el siguiente compas
+			
+			//Se reinicia el contador para cada compas a recorrer
+			ContadorElemento=0;
+			
 			//Recorremos los elementos del compas 
-			while(itElementos.hasNext() && !LlegoAlElemento && !sepaso){
+			while(itElementos.hasNext() && !LlegoAlElemento && !sePaso){
 				ElementoDeCompas unElemento = itElementos.next();
-				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante,presicion);
+				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante, presicion);
 				ContadorElemento++; 
-				sepaso = (LineaDeTiempo>(instante+presicion));
+				sePaso = (LineaDeTiempo>(instante+presicion));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
+			
 			ContadorCompas++;
 		}
-		ContadorElemento--;//Como siempre cuenta uno de mas le restamos uno al final
+		
+		//Como siempre cuenta uno de mas, le restamos uno al final
+		ContadorElemento--;
 		ContadorCompas--; 
-		resultado=(!sepaso&&LlegoAlElemento)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
+		resultado=(!sePaso&&LlegoAlElemento)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
 		return resultado;
 	}
+	
 	
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas
 	 * Post-condicion: devuelve true si coincide con el mapeo de la cancion en el instante indicado.

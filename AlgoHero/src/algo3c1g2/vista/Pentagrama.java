@@ -5,8 +5,10 @@ import ar.uba.fi.algo3.titiritero.Posicionable;
 
 public class Pentagrama implements Posicionable{
 
+	private int alto;
+	private int ancho;
+	
 	public Pentagrama(int ancho, int alto){
-
 		this.alto = alto;
 		this.ancho = ancho;
 	}
@@ -19,8 +21,6 @@ public class Pentagrama implements Posicionable{
 		return 0;
 	}
 
-	private int alto;
-	private int ancho;
 	public int getAlto() {
 		return alto;
 	}
