@@ -1,6 +1,6 @@
-package programa;
+package algo3c1g2.vista;
 
-import algo3c1g2.modelo.nota.Nota;
+import programa.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 

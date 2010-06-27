@@ -1,14 +1,19 @@
-package programa;
+package algo3c1g2.controlador;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.ElementoDeCompas;
 import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
+import algo3c1g2.vista.Circulito;
+import algo3c1g2.vista.ObjetoTexto;
+import algo3c1g2.vista.TablaDePuntos;
+import algo3c1g2.vista.VistaCirculito;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.vista.Cuadrado;

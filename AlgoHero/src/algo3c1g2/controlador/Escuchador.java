@@ -1,4 +1,4 @@
-package programa;
+package algo3c1g2.controlador;
 
 import java.awt.event.KeyEvent;
 

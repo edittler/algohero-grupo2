@@ -1,26 +1,24 @@
 package programa;
 
-import java.awt.Color;
-import java.util.ArrayList;
-
-
+import algo3c1g2.controlador.Escuchador;
+import algo3c1g2.controlador.Guitarra;
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Compas;
-import algo3c1g2.modelo.Silencio;
 import algo3c1g2.modelo.figura.Blanca;
 import algo3c1g2.modelo.figura.Corchea;
 import algo3c1g2.modelo.figura.Negra;
-import algo3c1g2.modelo.figura.Semicorchea;
-import algo3c1g2.modelo.nota.*;
+import algo3c1g2.modelo.nota.DoSostenido;
+import algo3c1g2.modelo.nota.Fa;
+import algo3c1g2.modelo.nota.La;
+import algo3c1g2.modelo.nota.Mi;
+import algo3c1g2.modelo.nota.Re;
+import algo3c1g2.modelo.nota.Si;
+import algo3c1g2.modelo.nota.Sol;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
+import algo3c1g2.vista.Mesa;
+import algo3c1g2.vista.VistaFondo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
-
-
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
-import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
-import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 public class Programa {
 

@@ -1,8 +1,10 @@
-package programa;
+package algo3c1g2.controlador;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import algo3c1g2.modelo.IteradorCliente;
+import algo3c1g2.vista.Circulito;
+import algo3c1g2.vista.VistaCirculito;
 
 public class Cuerda {
 
