@@ -1,34 +1,23 @@
 package algo3c1g2.modelo.nota;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import programa.Circulito;
-import algo3c1g2.modelo.figura.*;
+import algo3c1g2.modelo.figura.Figura;
 
 public class Re extends Nota {
 
 	//Frecuencia caracteristica del tono Re en la octava 3
 	private final static float FRECUENCIA_RE = 293;
-	private final static int UbicacionCuerdaRe=257;
-	private final static int cuerda=2;
+	private final static int CUERDA = 2;
 	
 	public Re(){
 		super(FRECUENCIA_RE);
 	}
 	
 	public Re(Figura unaFigura){
-		super(FRECUENCIA_RE,unaFigura);
-	}
-
-	@Override
-	public int ubicacionCuerda() {
-		// TODO Auto-generated method stub
-		return UbicacionCuerdaRe;
+		super(FRECUENCIA_RE, unaFigura);
 	}
 
 	public int getCuerda() {
-		return Re.cuerda;
+		return Re.CUERDA;
 	}
 	
 }
