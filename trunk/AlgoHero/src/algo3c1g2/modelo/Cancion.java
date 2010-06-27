@@ -140,7 +140,7 @@ public class Cancion {
 		return mapeo;
 	}
 	
-	private Iterator<Compas> getIteratorCompaces(){
+	public Iterator<Compas> getIteratorCompaces(){
 		IteradorCliente<Compas> unIterator = new IteradorCliente<Compas>(this.compaces);
 		return unIterator;
 	}
