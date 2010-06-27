@@ -13,7 +13,6 @@ import algo3c1g2.modelo.tecla.Tecla;
 public abstract class Nota extends ElementoDeCompas {
 
 	private float frecuencia;
-	private Figura figura;
 	protected int cuerda;
 	
 	/*
@@ -41,16 +40,6 @@ public abstract class Nota extends ElementoDeCompas {
 	
 	public float getFrecuencia() {
 		return frecuencia;
-	}
-
-	
-	protected void setFigura(Figura figura) {
-		this.figura = figura;
-	}
-
-	
-	public Figura getFigura() {
-		return figura;
 	}
 	
 	
