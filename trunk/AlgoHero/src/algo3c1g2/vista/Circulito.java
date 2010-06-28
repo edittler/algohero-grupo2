@@ -1,6 +1,6 @@
 package algo3c1g2.vista;
 
-import programa.VentanaPrincipal;
+import programa.VentanaPrincipalInicialJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
@@ -36,7 +36,7 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		if(habilitado){
 		this.y=this.y+2; //ese 2 deberia depender del tempo de la cancion no? es la velocidad con la q se desplaza el circulito (2/0.015)
 		}
-		if(this.y>VentanaPrincipal.TAMAÑO_VERTICAL){  
+		if(this.y>VentanaPrincipalInicialJuego.TAMAÑO_VERTICAL){  
 			this.reiniciar();
 		}
 	}
