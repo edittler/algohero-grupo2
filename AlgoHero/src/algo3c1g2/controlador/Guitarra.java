@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.sound.midi.MidiChannel;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Synthesizer;
+
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.ElementoDeCompas;
@@ -185,5 +190,6 @@ public class Guitarra implements ObjetoVivo {
 	private double getInstanteDeCancion(){
 		return this.instanteActual-4;//HARDCODEAR EL 4 (ES UN CAMBIO DE VARIABLE ENTRE EL INSTANTE DE OBTENCION DE NOTAS Y REPRODUCCION (X-CTE)
 	}
+
 	
 }

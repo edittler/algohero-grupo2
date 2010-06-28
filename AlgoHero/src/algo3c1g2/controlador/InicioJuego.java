@@ -14,7 +14,7 @@ public class InicioJuego implements ObjetoVivo{
 	public InicioJuego(SuperficieDeDibujo superficieDeDibujo){
 		Pentagrama pentagrama = new Pentagrama(600,600);
 		
-		controlador = new ControladorJuego();
+		controlador = new ControladorJuego(true);
 		controlador.setSuperficieDeDibujo(superficieDeDibujo);
 		
 		VistaPentagrama vistaPentagrama = new VistaPentagrama();

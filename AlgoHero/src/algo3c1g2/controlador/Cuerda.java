@@ -20,6 +20,7 @@ public class Cuerda {
 			unCirculito = new Circulito(ubicacionDeLaCuerda);
 			vistaCir = new VistaCirculito();
 			vistaCir.setPosicionable(unCirculito);
+			unCirculito.setDibujable(vistaCir);
 			this.circulitos.add(unCirculito);
 			this.vistas.add(vistaCir);
 		}

@@ -1,6 +1,9 @@
 package algo3c1g2.vista;
 
+import java.awt.Color;
+
 import programa.VentanaPrincipalInicialJuego;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
@@ -10,6 +13,7 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	private int y;
 	private boolean habilitado;
 	private static int POSICION_INICIAL_Y=-48; 
+	private VistaCirculito vista;
 	
 	public Circulito(int ubicacionEnX){
 		
@@ -29,6 +33,7 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	public void reiniciar(){
 		this.y=POSICION_INICIAL_Y;
 		this.habilitado=false;
+		this.vista.setColor(Color.RED);
 	}
 	
 	@Override
@@ -53,6 +58,11 @@ public class Circulito implements ObjetoVivo, Posicionable {
 
 	public void setX(int x) {
 		this.x=x;		
+	}
+
+	public void setDibujable(VistaCirculito vistaCir) {
+		this.vista=vistaCir;
+		
 	}
 
 }
