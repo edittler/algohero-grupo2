@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Cancion nombre="CumpleFeliz" tempo="90">
+  <MapaDeTeclas />
+  <Compas numerador="3" denominador="4">
+    <Silencio>
+      <Blanca />
+    </Silencio>
+    <Do>
+      <Corchea />
+    </Do>
+    <Silencio>
+      <Semicorchea />
+    </Silencio>
+    <Do>
+      <Semicorchea />
+    </Do>
+  </Compas>
+  <Compas numerador="3" denominador="4">
+    <Re>
+      <Negra />
+    </Re>
+    <Do>
+      <Negra />
+    </Do>
+    <Fa>
+      <Negra />
+    </Fa>
+  </Compas>
+</Cancion>
+

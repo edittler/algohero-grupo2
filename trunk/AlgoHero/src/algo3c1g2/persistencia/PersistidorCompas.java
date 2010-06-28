@@ -1,7 +1,9 @@
 package algo3c1g2.persistencia;
 
 import java.util.Iterator;
+import java.util.List;
 
+import org.jdom.DataConversionException;
 import org.jdom.Element;
 
 import algo3c1g2.modelo.Compas;
@@ -31,6 +33,32 @@ public class PersistidorCompas {
 		}
 		
 		return root;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Compas obtenerCompas(Element root) throws DataConversionException {
+		//creo el compas a devolver
+		Compas unCompas = new Compas();
+		
+		//agrego los atributos
+		int numerador = (int) root.getAttribute("numerador").getLongValue();
+		int denominador = (int) root.getAttribute("demoninador").getLongValue();
+		unCompas.setNumerador(numerador);
+		unCompas.setDenominador(denominador);
+				
+		//ahora tengo que obtener los elementos del compas
+		List elementos = root.getChildren("Compas");
+		Iterator itElementos = elementos.iterator();
+		PersistidorElemento unPersistidorCompas = new PersistidorElemento();
+		
+		//recorro la coleccion para cargar los elementos al compas
+		while (itElementos.hasNext()){
+			Element unElemento = (Element) itElementos.next();
+			ElementoDeCompas unElementDeCompas = unPersistidorCompas.obtenerElemento(unElemento);
+			unCompas.agregarElemento(unElementDeCompas);
+		}
+		
+		return unCompas;
 	}
 
 }

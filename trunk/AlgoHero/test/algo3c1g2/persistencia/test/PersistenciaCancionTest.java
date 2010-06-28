@@ -61,7 +61,7 @@ public class PersistenciaCancionTest {
 		
 		PersistidorCancion unPersistidorCancion = new PersistidorCancion();
 		
-		unPersistidorCancion.persistir(unaCancion);
+		unPersistidorCancion.persistirYGuardar(unaCancion, "canciones/CumpleFeliz.xml");
 	}
 	
 }
