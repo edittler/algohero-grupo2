@@ -14,7 +14,7 @@ public class IniciarAlgoHero {
 	
 public static void main(String[] args){
 		
-		ControladorJuego controlador = new ControladorJuego();
+		ControladorJuego controlador = new ControladorJuego(true);
 		
 		// PANTALLA DE BIENVENIDA
 		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
@@ -41,6 +41,19 @@ public static void main(String[] args){
 	unCompas.agregarElemento(new Si(new Corchea()));
 	unCompas.agregarElemento(new Mi(new Negra()));	
 	unCompas.agregarElemento(new La(new Corchea()));
+	unaCancion.agregarCompas(unCompas);
+	
+	unCompas = new Compas();
+	unCompas.agregarElemento(new Sol(new Blanca()));
+	unCompas.agregarElemento(new Si(new Corchea()));
+	unCompas.agregarElemento(new Mi(new Negra()));	
+	unCompas.agregarElemento(new La(new Corchea()));
+	unaCancion.agregarCompas(unCompas);
+	
+	unCompas = new Compas();
+	unCompas.agregarElemento(new DoSostenido(new Blanca()));
+	unCompas.agregarElemento(new Re(new Negra()));
+	unCompas.agregarElemento(new Fa(new Negra()));
 	unaCancion.agregarCompas(unCompas);
 	
 	CombinacionDeTeclas teclas = new CombinacionDeTeclas();

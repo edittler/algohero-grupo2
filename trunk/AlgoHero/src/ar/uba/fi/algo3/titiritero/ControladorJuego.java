@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import ar.uba.fi.algo3.titiritero.audio.Reproductor;
+
 /**
  * @author Nicolas
  * Esta clase es la encargada de manejar todo el gameloop. Básicamente tiene una lista
@@ -12,11 +14,14 @@ import java.util.List;
  */
 public class ControladorJuego implements Runnable {
 	
-	public ControladorJuego(){
+	public ControladorJuego(boolean activarReproductor){
 		this.objetosVivos = new ArrayList<ObjetoVivo>();
 		this.dibujables = new ArrayList<Dibujable>();
 		this.mouseClickObservadores = new ArrayList<MouseClickObservador>();
 		this.keyPressedObservadores = new ArrayList<KeyPressedObservador>();
+		this.estaReproductorActivo = activarReproductor;
+		if(this.estaReproductorActivo)
+			this.reproductor = new Reproductor();		
 	}
 	
 	public boolean estaEnEjecucion(){
@@ -40,6 +45,11 @@ public class ControladorJuego implements Runnable {
 	public void comenzarJuegoAsyn(){
 		Thread thread = new Thread(this);
 		thread.start();
+		if(this.estaReproductorActivo){
+			this.reproductor.encender();
+			this.hiloAudio =  new Thread(this.reproductor);
+			this.hiloAudio.start();
+		}
 	}
 
 	/**
@@ -67,6 +77,7 @@ public class ControladorJuego implements Runnable {
 	 */
 	public void detenerJuego(){
 		this.estaEnEjecucion = false;
+		this.reproductor.apagar();
 	}
 	
 	public void agregarObjetoVivo(ObjetoVivo objetoVivo){
@@ -168,8 +179,17 @@ public class ControladorJuego implements Runnable {
 	private List<MouseClickObservador> mouseClickObservadores;
 	private List<KeyPressedObservador> keyPressedObservadores;
 	private SuperficieDeDibujo superficieDeDibujo;
+	private Reproductor reproductor;
+	private Thread hiloAudio;
+	private boolean estaReproductorActivo;
 	
 	public void run() {
 		this.comenzarJuego();
+	}
+
+	public Reproductor getReproductorDeAudio() {
+		if(!this.estaReproductorActivo)
+			throw new OperacionNoValida();
+		return this.reproductor;
 	}	
 }

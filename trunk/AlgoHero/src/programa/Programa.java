@@ -73,7 +73,7 @@ public class Programa {
 			/************************************************/
 		
 		
-		ControladorJuego controlador = new ControladorJuego();
+		ControladorJuego controlador = new ControladorJuego(true);
 		VentanaPrincipalInicialJuego ventana = new VentanaPrincipalInicialJuego(controlador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);

@@ -12,9 +12,6 @@ public class TextoEstatico extends Texto {
 		this.texto = texto;
 	}
 
-	public void setTexto(String texto){
-		this.texto=texto;
-	}
 	public TextoEstatico(String texto, Color color, Font fuente) {
 		super(color, fuente);
 		this.texto = texto;
@@ -23,6 +20,11 @@ public class TextoEstatico extends Texto {
 	@Override
 	protected String getTexto() {
 		return this.texto;
+	}
+
+	public void setTexto(String string) {
+		this.texto=string;
+		
 	}
 
 }
