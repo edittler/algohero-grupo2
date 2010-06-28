@@ -1,16 +1,17 @@
-package algo3c1g2.vista;
+package programa;
 
 import java.awt.Color;
-import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
+import algo3c1g2.vista.VistaAcercaDe;
+import algo3c1g2.vista.VistaRegla;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
@@ -18,16 +19,16 @@ import ar.uba.fi.algo3.titiritero.vista.Panel;
 
 public class VentanaPrincipal extends JFrame {
 
+	private JMenu menuArchivo;
+	private JMenu menuAyuda;
+	private JMenuItem nuevo;
+	private JMenuItem pausa;
+	private JMenuItem salir;
+	private JMenuItem reglas;
+	private JMenuItem acercaDe;
 	private ControladorJuego controladorJuego;
 	private static final long serialVersionUID = 1L;
 	private Panel panel;
-	private JPanel panelSup = new JPanel(new GridLayout(1,0));
-	private JButton BotonJugar= new JButton("JUGAR");
-    private JButton BotonPausar= new JButton("PAUSA");
-    private JButton BotonSalir= new JButton("SALIR");
-    private JButton BotonReglas= new JButton("REGLAS");
-    private JButton BotonAcercade= new JButton("ACERCA DE...");
-    
 	
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		
@@ -47,36 +48,48 @@ public class VentanaPrincipal extends JFrame {
 		
 		JMenuBar mbarra = new JMenuBar();
 		
-		//Agregos los botones al panel
 		
-		 panelSup.add(BotonJugar);
-		 panelSup.add(BotonPausar);
-		 panelSup.add(BotonSalir);
-		 panelSup.add(BotonReglas);
-		 panelSup.add(BotonAcercade);
-		 
+		//Aï¿½adimos un menu Archivo que contiene Nuevo y Salir.
+		
+		menuArchivo = new JMenu( "Archivo  " );
+		nuevo = new JMenuItem("Nuevo  ");
+		pausa = new JMenuItem ("Pausar  ");
+		salir = new JMenuItem("Salir  ");
+		menuArchivo.add(nuevo);
+		menuArchivo.add(pausa);
+		menuArchivo.add(salir);
+		
+		mbarra.add(menuArchivo);
+	 
+		//Agregamos un menu Ayuda que contiene Reglas y AcercaDe.
+		
+		menuAyuda = new JMenu( "Ayuda  " );
+		reglas = new JMenuItem("Reglas  ");
+		acercaDe = new JMenuItem("Acerca de..  ");
+		mbarra.add(menuAyuda);
+		menuAyuda.add(reglas);
+		menuAyuda.add(acercaDe);
 		setJMenuBar(mbarra);
-		mbarra.add(panelSup);
 		
 
 		
 		//Asignamos las acciones de nuestros items del menu Archivo y Ayuda.
 		
-		BotonJugar.addActionListener(new java.awt.event.ActionListener() {
+		
+		nuevo.addActionListener(new java.awt.event.ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				;
 				if(!controladorJuego.estaEnEjecucion()){
-					controladorJuego.comenzarJuegoAsyn();
-					BotonJugar.setLabel("CONTINUAR");
+					nuevo.setLabel("Continuar");
+					controladorJuego.comenzarJuegoAsyn();	
 				}
 				}
 		});
+
 		
-	
-		
-		BotonPausar.addActionListener(new java.awt.event.ActionListener() {
+		pausa.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				controladorJuego.detenerJuego();
@@ -84,7 +97,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 		});
 			
-		BotonReglas.addActionListener(new java.awt.event.ActionListener() {
+		reglas.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				;
@@ -95,7 +108,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 			});
 		
-		BotonAcercade.addActionListener(new java.awt.event.ActionListener() {
+		acercaDe.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 	
 				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
@@ -104,7 +117,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 			});
 		
-		BotonSalir.addActionListener(new java.awt.event.ActionListener() {
+		salir.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "¿Desea salir del juego?", "Salir", JOptionPane.OK_CANCEL_OPTION) == 0)
 					   System.exit(0);

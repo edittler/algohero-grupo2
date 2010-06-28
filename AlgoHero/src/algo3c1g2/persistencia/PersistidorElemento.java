@@ -19,4 +19,14 @@ public class PersistidorElemento {
 		return root;
 	}
 
+	public ElementoDeCompas obtenerElemento(Element unElemento) {
+		@SuppressWarnings("unused")
+		String nombreClase = unElemento.getName();
+		
+		
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
