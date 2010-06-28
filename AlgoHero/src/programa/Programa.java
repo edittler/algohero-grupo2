@@ -74,7 +74,7 @@ public class Programa {
 		
 		
 		ControladorJuego controlador = new ControladorJuego();
-		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
+		VentanaPrincipalInicialJuego ventana = new VentanaPrincipalInicialJuego(controlador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
 		
@@ -97,6 +97,7 @@ public class Programa {
 //		controlador.agregarDibujable(v);
 //		controlador.agregarObjetoVivo(c);
 //		c.habilitar();
+		
 		Guitarra unaGuitarra=new Guitarra(unaCancion,controlador);
 		Escuchador escu = new Escuchador(unaGuitarra);
 		controlador.agregarKeyPressObservador(escu);
@@ -108,7 +109,7 @@ public class Programa {
 		 * y comienzo a ejecutar
 		 */
 		//controlador.setIntervaloSimulacion(15);
-		controlador.comenzarJuego();
+		controlador.comenzarJuegoAsyn();
 	}
 
 }

@@ -11,10 +11,10 @@ import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 import ar.uba.fi.algo3.titiritero.vista.Panel;
 
-public class VentanaPrincipal extends Frame {
+public class VentanaPrincipalInicialJuego extends Frame {
 	public static final int TAMAÑO_VERTICAL=600;
 	public static final int TAMAÑO_HORIZONTAL=800;
-	public VentanaPrincipal(ControladorJuego unControladorJuego) {
+	public VentanaPrincipalInicialJuego(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
 		this.addKeyListener(new KeyPressedController(controladorJuego));
 		this.setTitle("ALGO-HERO");
