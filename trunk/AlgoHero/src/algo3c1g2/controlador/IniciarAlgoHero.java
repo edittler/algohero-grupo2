@@ -1,14 +1,8 @@
 package algo3c1g2.controlador;
 
-import javax.sound.midi.MidiUnavailableException;
-
-import algo3c1g2.modelo.Cancion;
-import algo3c1g2.modelo.Compas;
-import algo3c1g2.modelo.Silencio;
-import algo3c1g2.modelo.figura.*;
+import algo3c1g2.modelo.*;
 import algo3c1g2.modelo.nota.*;
-import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
-import algo3c1g2.modelo.tecla.Tecla;
+import algo3c1g2.modelo.tecla.*;
 import algo3c1g2.persistencia.PersistidorCancion;
 import algo3c1g2.vista.*;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;

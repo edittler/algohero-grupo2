@@ -4,10 +4,8 @@ import java.awt.Color;
 
 import programa.VentanaPrincipalInicialJuego;
 import algo3c1g2.modelo.nota.Nota;
-import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
-import ar.uba.fi.algo3.titiritero.vista.Figura;
 
 public class Circulito implements ObjetoVivo, Posicionable {
 
