@@ -3,13 +3,15 @@ package algo3c1g2.persistencia;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
 import org.jdom.DataConversionException;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.jdom.input.DOMBuilder;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
@@ -69,16 +71,15 @@ public class PersistidorCancion {
 	
 	@SuppressWarnings("unchecked")
 	public Cancion cagarCancion(String rutaArchivo){
-		DOMBuilder builder = new DOMBuilder();
-		Cancion unaCancion = new Cancion("nombre");
-		
 		try {
-			Document doc = builder.build((org.w3c.dom.Document) new FileInputStream(rutaArchivo));
+			SAXBuilder builder = new SAXBuilder();
+			
+			Document doc = builder.build(new FileInputStream(rutaArchivo));
 			Element root = doc.getRootElement();
 			String nombre = root.getAttributeValue("nombre");
 			int tempo = (int) root.getAttribute("tempo").getLongValue();
 			
-			unaCancion.setNombre(nombre);
+			Cancion unaCancion = new Cancion(nombre);
 			unaCancion.setTempo(tempo);
 			
 			List elementosCompaces = root.getChildren("Compas");
@@ -105,8 +106,14 @@ public class PersistidorCancion {
 		} catch (CompasInvalidoExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return unaCancion;
+		return null;
 	}
 	
 	

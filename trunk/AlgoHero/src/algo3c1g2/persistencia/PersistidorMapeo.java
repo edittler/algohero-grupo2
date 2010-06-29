@@ -7,7 +7,7 @@ import algo3c1g2.modelo.tecla.MapaDeTeclas;
 public class PersistidorMapeo {
 
 	public Element persistir(MapaDeTeclas mapeo){
-		Element root = new Element(mapeo.getClass().getSimpleName());
+		Element root = new Element(mapeo.getClass().getName());
 		//como se puede guardar el Hastable????
 		return root;
 	}
