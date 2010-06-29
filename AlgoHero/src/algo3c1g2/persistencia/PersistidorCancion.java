@@ -70,7 +70,7 @@ public class PersistidorCancion {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Cancion cagarCancion(String rutaArchivo){
+	public Cancion cargarCancion(String rutaArchivo){
 		try {
 			SAXBuilder builder = new SAXBuilder();
 			
