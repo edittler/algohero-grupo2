@@ -2,17 +2,10 @@ package algo3c1g2.persistencia.test;
 
 import org.junit.Test;
 
-import algo3c1g2.modelo.Cancion;
-import algo3c1g2.modelo.Compas;
-import algo3c1g2.modelo.Silencio;
-import algo3c1g2.modelo.figura.Blanca;
-import algo3c1g2.modelo.figura.Corchea;
-import algo3c1g2.modelo.figura.Negra;
-import algo3c1g2.modelo.figura.Semicorchea;
-import algo3c1g2.modelo.nota.Do;
-import algo3c1g2.modelo.nota.Fa;
-import algo3c1g2.modelo.nota.Nota;
-import algo3c1g2.modelo.nota.Re;
+import algo3c1g2.modelo.*;
+import algo3c1g2.modelo.figura.*;
+import algo3c1g2.modelo.nota.*;
+import algo3c1g2.modelo.tecla.*;
 import algo3c1g2.persistencia.PersistidorCancion;
 
 
@@ -51,6 +44,16 @@ public class PersistenciaCancionTest {
 		//finalizamos la creacion del segundo compas, lo agregamos a la cancion
 		CumpleFeliz.agregarCompas(unCompas);
 		
+		//Agrego las teclas de mapeo
+		MapaDeTeclas mapeo = new MapaDeTeclas();
+		
+		CombinacionDeTeclas combi = new CombinacionDeTeclas();
+		combi.agregarTecla(new Tecla('A'));
+		mapeo.agregarMapeo(new Do(), combi);
+		
+		combi.agregarTecla(new Tecla('S'));
+		mapeo.agregarMapeo(new Re(), combi);
+		
 		//retornamos la cancion
 		return CumpleFeliz;
 	}
@@ -62,7 +65,7 @@ public class PersistenciaCancionTest {
 		PersistidorCancion unPersistidorCancion = new PersistidorCancion();
 		
 		unPersistidorCancion.persistirYGuardar(unaCancion, "canciones/CumpleFeliz.xml");
-		unPersistidorCancion.cagarCancion("canciones/CumpleFeliz.xml");
+		unPersistidorCancion.cargarCancion("canciones/CumpleFeliz.xml");
 	}
 	
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cancion nombre="CumpleFeliz" tempo="90">
-  <MapaDeTeclas />
+  <algo3c1g2.modelo.tecla.MapaDeTeclas>{}</algo3c1g2.modelo.tecla.MapaDeTeclas>
   <Compas numerador="3" denominador="4">
     <ElementoDeCompas>
       algo3c1g2.modelo.Silencio
