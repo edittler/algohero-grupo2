@@ -25,7 +25,7 @@ public class Reproductor implements Runnable {
 				else{
 					try {
 						System.out.print("silencio");
-						Thread.sleep(500);
+						Thread.sleep(10); //Cambie esto creo q anda mejor
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

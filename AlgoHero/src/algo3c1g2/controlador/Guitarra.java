@@ -4,10 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Synthesizer;
 
 
 import algo3c1g2.modelo.Cancion;
@@ -21,6 +17,8 @@ import algo3c1g2.vista.TablaDePuntos;
 import algo3c1g2.vista.VistaCirculito;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.audio.Elemento;
+import ar.uba.fi.algo3.titiritero.audio.Reproductor;
 import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
 import ar.uba.fi.algo3.titiritero.vista.TextoDinamico;
 import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
@@ -93,7 +91,7 @@ public class Guitarra implements ObjetoVivo {
 				String TeclasEnTexto=this.cancion.getMapeo().obtenerCombinacion(((Nota)elemento)).getTeclasTexto();
 				
 				//Habilita un Circulito en la Cuerda correspondiente a la Nota y obtiene una referencia al Circulito habilitado
-				Circulito unCirculito = this.habilitarUnNuevoCirculito(((Nota)elemento).getCuerda());
+				Circulito unCirculito = this.habilitarUnNuevoCirculito((Nota)elemento);
 
 				this.adjuntarTextoACirculito(TeclasEnTexto, unCirculito);
 			}
@@ -112,34 +110,30 @@ public class Guitarra implements ObjetoVivo {
 	
 	//Chequea que el caracater presionado sea correcto en el instante que va de la cancion
 	
-	public void contarPuntos(char unChar){
+	public void contarPuntos(char unChar) {
 		CombinacionDeTeclas unaCombinacionTeclas = new CombinacionDeTeclas();
 		Tecla unaTecla = new Tecla(unChar);
 		unaCombinacionTeclas.agregarTecla(unaTecla);
 		Iterator<Cuerda> itCuerdas = this.cuerdas.iterator();
-		int cuerda=0;
 		boolean conto=false;
 		
+		if(this.cancion.chequear(unaCombinacionTeclas, this.getInstanteDeCancion(), Guitarra.PRESICION_SIMULACION)){
 		//Recorremos buscando Circulitos en el area de habilitacion
 		while(itCuerdas.hasNext()&&!conto){
 			Iterator<Circulito> itCir = itCuerdas.next().iterator();
-			cuerda++;
 
 			while(itCir.hasNext()&&!conto){
 				Circulito unCirculito=itCir.next();
-
-				//chequeo si es correcto 
-				if(this.cancion.chequear(unaCombinacionTeclas, this.getInstanteDeCancion(), Guitarra.PRESICION_SIMULACION)){
-					this.tablaPuntos.contarPuntos(unCirculito.getY());
-					conto=this.tablaPuntos.conto(unCirculito.getY());
-
-					if(conto){ //TODO REFACTORIZAME!!!
-						VistaCirculito vista = this.cuerdas.get(cuerda-1).getVista(unCirculito);
-						vista.setColor(Color.GREEN);
-					}
-				}
 				
-				puntosEnTexto.setTexto(Integer.toString(this.tablaPuntos.getPuntos()));
+					if(this.tablaPuntos.estaDentroDelRango(unCirculito.getY())){ //TODO REFACTORIZAME!!!
+						this.tablaPuntos.contarPuntos(unCirculito.getY());
+						conto=true;
+						unCirculito.getVista().setColor(Color.GREEN);
+						this.reproducir(unCirculito.getNota());
+						puntosEnTexto.setTexto(Integer.toString(this.tablaPuntos.getPuntos()));
+					}
+				
+			}
 			}
 		}
 	}
@@ -147,6 +141,15 @@ public class Guitarra implements ObjetoVivo {
 
 
 	
+	private void reproducir(Nota nota) {
+		Reproductor reproductor=this.controlador.getReproductorDeAudio();
+		int frecuencia=(int)nota.getFrecuencia();
+		int duracion=(int)(900*(nota.getFigura().getDuracion())*(60.00/this.cancion.getTempo()));
+		reproductor.reproducir(new Elemento(frecuencia,duracion));
+	}
+
+
+
 	/****** Métodos Auxiliares*******/
 	
 	private void crearTablaDePuntos(){
@@ -182,8 +185,8 @@ public class Guitarra implements ObjetoVivo {
 	}
 	
 	/*Busca y habilita un Circulito en la cuerda indicada*/
-	private Circulito habilitarUnNuevoCirculito(int cuerda) {
-		return this.cuerdas.get(cuerda-1).habilitarUnCirculito();
+	private Circulito habilitarUnNuevoCirculito(Nota nota) {
+		return this.cuerdas.get(nota.getCuerda()-1).habilitarUnCirculito(nota);
 		}
 	
 	/*Obtiene el instante de reproduccion de la musica*/
