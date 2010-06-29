@@ -72,16 +72,25 @@ public class PersistidorCancion {
 	@SuppressWarnings("unchecked")
 	public Cancion cargarCancion(String rutaArchivo){
 		try {
+			// Obtengo el Documento del Archivo y lo proceso
 			SAXBuilder builder = new SAXBuilder();
-			
 			Document doc = builder.build(new FileInputStream(rutaArchivo));
 			Element root = doc.getRootElement();
+			
+			//Obtengo los atributos del Elemento
 			String nombre = root.getAttributeValue("nombre");
 			int tempo = (int) root.getAttribute("tempo").getLongValue();
 			
+			//Creo la cancion e inicializo sus atributos
 			Cancion unaCancion = new Cancion(nombre);
 			unaCancion.setTempo(tempo);
 			
+			//Obtengo el Mapeo y lo cargo a la cancion
+			Element unElementoMapa = root.getChild("MapaDeTeclas");
+			PersistidorMapeo unPersistidorMapeo = new PersistidorMapeo();
+			unPersistidorMapeo.cargarMapeo(unaCancion, unElementoMapa);
+			
+			//Obtengo los compaces y los cargo a la cancion
 			List elementosCompaces = root.getChildren("Compas");
 			Iterator itElementosCompaces = elementosCompaces.iterator();
 			PersistidorCompas unPersistidorCompas = new PersistidorCompas();

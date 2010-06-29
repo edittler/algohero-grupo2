@@ -45,14 +45,13 @@ public class PersistenciaCancionTest {
 		CumpleFeliz.agregarCompas(unCompas);
 		
 		//Agrego las teclas de mapeo
-		MapaDeTeclas mapeo = new MapaDeTeclas();
-		
 		CombinacionDeTeclas combi = new CombinacionDeTeclas();
 		combi.agregarTecla(new Tecla('A'));
-		mapeo.agregarMapeo(new Do(), combi);
+		CumpleFeliz.mapear(new Do(), combi);
 		
+		combi = new CombinacionDeTeclas();
 		combi.agregarTecla(new Tecla('S'));
-		mapeo.agregarMapeo(new Re(), combi);
+		CumpleFeliz.mapear(new Re(), combi);
 		
 		//retornamos la cancion
 		return CumpleFeliz;
@@ -65,7 +64,9 @@ public class PersistenciaCancionTest {
 		PersistidorCancion unPersistidorCancion = new PersistidorCancion();
 		
 		unPersistidorCancion.persistirYGuardar(unaCancion, "canciones/CumpleFeliz.xml");
-		unPersistidorCancion.cargarCancion("canciones/CumpleFeliz.xml");
+		Cancion otraCancion = unPersistidorCancion.cargarCancion("canciones/CumpleFeliz.xml");
+		String cancion= otraCancion.toString();
+		System.out.print(cancion);
 	}
 	
 }

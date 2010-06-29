@@ -20,5 +20,9 @@ public class MapaDeTeclas {
 	public CombinacionDeTeclas obtenerCombinacion(Nota nota){
 		return this.mapa.get(nota.getClass().getName());
 	}
+	
+	public Hashtable<String, CombinacionDeTeclas> getMapa(){
+		return this.mapa;
+	}
 
 }

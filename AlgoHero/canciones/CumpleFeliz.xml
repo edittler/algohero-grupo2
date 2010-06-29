@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Cancion nombre="CumpleFeliz" tempo="90">
-  <algo3c1g2.modelo.tecla.MapaDeTeclas>{}</algo3c1g2.modelo.tecla.MapaDeTeclas>
+  <MapaDeTeclas>
+    <Clave>
+      algo3c1g2.modelo.nota.Do
+      <Valor>
+        <Tecla codigoASCII="65" />
+      </Valor>
+    </Clave>
+    <Clave>
+      algo3c1g2.modelo.nota.Re
+      <Valor>
+        <Tecla codigoASCII="83" />
+      </Valor>
+    </Clave>
+  </MapaDeTeclas>
   <Compas numerador="3" denominador="4">
     <ElementoDeCompas>
       algo3c1g2.modelo.Silencio
