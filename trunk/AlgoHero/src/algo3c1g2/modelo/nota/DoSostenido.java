@@ -5,7 +5,7 @@ import algo3c1g2.modelo.figura.Figura;
 public class DoSostenido extends Nota {
 
 	//Frecuencia caracteristica del tono Do Sostenido en la octava 3
-	private final static float FRECUENCIA_DO_SOSTENIDO = 277;
+	private final static float FRECUENCIA_DO_SOSTENIDO = 61;
 	private final static int CUERDA = 1;
 	
 	public DoSostenido(){

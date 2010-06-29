@@ -3,9 +3,11 @@ package algo3c1g2.vista;
 import java.awt.Color;
 
 import programa.VentanaPrincipalInicialJuego;
+import algo3c1g2.modelo.nota.Nota;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
+import ar.uba.fi.algo3.titiritero.vista.Figura;
 
 public class Circulito implements ObjetoVivo, Posicionable {
 
@@ -14,6 +16,7 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	private boolean habilitado;
 	private static int POSICION_INICIAL_Y=-48; 
 	private VistaCirculito vista;
+	private Nota nota;
 	
 	public Circulito(int ubicacionEnX){
 		
@@ -63,6 +66,18 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	public void setDibujable(VistaCirculito vistaCir) {
 		this.vista=vistaCir;
 		
+	}
+
+	public void setNota(Nota nota) {
+		this.nota = nota;
+	}
+
+	public Nota getNota() {
+		return nota;
+	}
+
+	public VistaCirculito getVista() {
+		return vista;
 	}
 
 }

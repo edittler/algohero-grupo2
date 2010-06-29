@@ -1,18 +1,22 @@
 package algo3c1g2.controlador;
 
+import javax.sound.midi.MidiUnavailableException;
+
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Compas;
+import algo3c1g2.modelo.Silencio;
 import algo3c1g2.modelo.figura.*;
 import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
+import algo3c1g2.persistencia.PersistidorCancion;
 import algo3c1g2.vista.*;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class IniciarAlgoHero {
 	
 	
-public static void main(String[] args){
+public static void main(String[] args) {
 		
 		ControladorJuego controlador = new ControladorJuego(true);
 		
@@ -29,32 +33,17 @@ public static void main(String[] args){
 		
 		
 		/************CREAMOS UNA CANCION********************/
-	Cancion unaCancion = new Cancion("cancionRandom");
-	Compas unCompas = new Compas();
-	unCompas.agregarElemento(new DoSostenido(new Blanca()));
-	unCompas.agregarElemento(new Re(new Negra()));
-	unCompas.agregarElemento(new Fa(new Negra()));
-	unaCancion.agregarCompas(unCompas);
+//	Cancion unaCancion = new Cancion("cancionRandom");
+//	Compas unCompas = new Compas();
+//	unCompas.agregarElemento(new Silencio(new Blanca()));
+//	unCompas.agregarElemento(new Do(new Corchea()));
+//	unCompas.agregarElemento(new Silencio(new Semicorchea()));
+//	unCompas.agregarElemento(new Do(new Semicorchea()));
+//	unaCancion.agregarCompas(unCompas);
 	
-	unCompas = new Compas();
-	unCompas.agregarElemento(new Sol(new Blanca()));
-	unCompas.agregarElemento(new Si(new Corchea()));
-	unCompas.agregarElemento(new Mi(new Negra()));	
-	unCompas.agregarElemento(new La(new Corchea()));
-	unaCancion.agregarCompas(unCompas);
-	
-	unCompas = new Compas();
-	unCompas.agregarElemento(new Sol(new Blanca()));
-	unCompas.agregarElemento(new Si(new Corchea()));
-	unCompas.agregarElemento(new Mi(new Negra()));	
-	unCompas.agregarElemento(new La(new Corchea()));
-	unaCancion.agregarCompas(unCompas);
-	
-	unCompas = new Compas();
-	unCompas.agregarElemento(new DoSostenido(new Blanca()));
-	unCompas.agregarElemento(new Re(new Negra()));
-	unCompas.agregarElemento(new Fa(new Negra()));
-	unaCancion.agregarCompas(unCompas);
+
+
+	Cancion unaCancion = new PersistidorCancion().cargarCancion("Cancion.xml");
 	
 	CombinacionDeTeclas teclas = new CombinacionDeTeclas();
 	teclas.agregarTecla(new Tecla('A'));
@@ -88,6 +77,7 @@ public static void main(String[] args){
 	
 		/************************************************/
 		
+	
 	
 	Mesa unaMesa = new Mesa(717,538);
 	VistaFondo vistaMesa = new VistaFondo();

@@ -3,6 +3,7 @@ package algo3c1g2.controlador;
 import java.util.ArrayList;
 import java.util.Iterator;
 import algo3c1g2.modelo.IteradorCliente;
+import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.vista.Circulito;
 import algo3c1g2.vista.VistaCirculito;
 
@@ -40,7 +41,7 @@ public class Cuerda {
 	
 	
 	/*Habilita el 1er circulito que encuentra deshabilitado en la cuerda*/
-	public Circulito habilitarUnCirculito(){
+	public Circulito habilitarUnCirculito(Nota nota){
 		Iterator<Circulito> itCir = this.iterator();
 		
 		Circulito unCirculito=null;
@@ -51,6 +52,7 @@ public class Cuerda {
 			if(!unCirculito.estaHabilitado()){ //Si no esta habilitado lo habilito y termino el while
 				unCirculito.habilitar();
 				habilito=true;
+				unCirculito.setNota(nota);
 			}
 		}
 		return unCirculito; //Devuelvo el Circulito habilitado

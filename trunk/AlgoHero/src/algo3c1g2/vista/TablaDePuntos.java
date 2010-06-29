@@ -36,18 +36,16 @@ public class TablaDePuntos implements Posicionable {
 
 	public void contarPuntos(int Posicion){
 
-		if((Posicion<TablaDePuntos.PosicionFinalDelAreaDeHabilitacion)&&(Posicion>TablaDePuntos.PosicionInicialDelAreaDeHabilitacion))
-		{
 		if(Math.abs((int)(TablaDePuntos.PosicionCentralDelAreaHabilitada-Posicion))>TablaDePuntos.RangoDeMaximaPresicion){
 			this.puntos+=TablaDePuntos.PuntosPresicionNormal;
 		}
 		else{
 			this.puntos+=TablaDePuntos.PuntosMaximaPresicion;
 		}
-		}
+		
 	}
 	
-	public boolean conto(int Posicion){
+	public boolean estaDentroDelRango(int Posicion){
 		return ((Posicion<TablaDePuntos.PosicionFinalDelAreaDeHabilitacion)&&(Posicion>TablaDePuntos.PosicionInicialDelAreaDeHabilitacion)); 
 	}
 	

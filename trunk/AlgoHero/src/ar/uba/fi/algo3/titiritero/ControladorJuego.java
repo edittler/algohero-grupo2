@@ -5,6 +5,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.sound.midi.MidiChannel;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Synthesizer;
+
+import ar.uba.fi.algo3.titiritero.audio.Elemento;
 import ar.uba.fi.algo3.titiritero.audio.Reproductor;
 
 /**
@@ -59,6 +65,7 @@ public class ControladorJuego implements Runnable {
 	public void comenzarJuego(int cantidadDeCiclos){
 		int contador = 0;
 		estaEnEjecucion = true;
+		
 		try{
 			while(contador < cantidadDeCiclos && estaEnEjecucion){
 				simular();

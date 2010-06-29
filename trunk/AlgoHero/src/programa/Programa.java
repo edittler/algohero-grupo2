@@ -1,7 +1,6 @@
 package programa;
 
-import algo3c1g2.controlador.Escuchador;
-import algo3c1g2.controlador.Guitarra;
+
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Compas;
 import algo3c1g2.modelo.figura.Blanca;
@@ -14,11 +13,9 @@ import algo3c1g2.modelo.nota.Mi;
 import algo3c1g2.modelo.nota.Re;
 import algo3c1g2.modelo.nota.Si;
 import algo3c1g2.modelo.nota.Sol;
-import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
-import algo3c1g2.modelo.tecla.Tecla;
-import algo3c1g2.vista.Mesa;
-import algo3c1g2.vista.VistaFondo;
-import ar.uba.fi.algo3.titiritero.ControladorJuego;
+
+import algo3c1g2.persistencia.PersistidorCancion;
+
 
 public class Programa {
 
@@ -40,76 +37,96 @@ public class Programa {
 		unCompas.agregarElemento(new La(new Corchea()));
 		unaCancion.agregarCompas(unCompas);
 		
-		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('A'));
-		unaCancion.mapear(new DoSostenido(),teclas);
 		
-		// combinacion de teclas para la nota LaSostenido
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('B'));
-		unaCancion.mapear(new Re(), teclas);
+		PersistidorCancion persis=new PersistidorCancion();
+		persis.persistirYGuardar(unaCancion,"Cancion.xml");
 		
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('C'));
-		unaCancion.mapear(new Fa(),teclas);
+		Cancion otraCancion=persis.cargarCancion("Cancion.xml");
 		
-		// combinacion de teclas para la nota LaSostenido
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('D'));
-		unaCancion.mapear(new Sol(), teclas);
-		
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('E'));
-		unaCancion.mapear(new Si(), teclas);
-		
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('F'));
-		unaCancion.mapear(new Mi(), teclas);
-		
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('G'));
-		unaCancion.mapear(new La(), teclas);
-		
-			/************************************************/
+		System.out.print(otraCancion.getNombre());
 		
 		
-		ControladorJuego controlador = new ControladorJuego(true);
-		VentanaPrincipalInicialJuego ventana = new VentanaPrincipalInicialJuego(controlador);
-		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
-		ventana.setVisible(true);
-		
-		
-		Mesa unaMesa = new Mesa(717,538);
-		VistaFondo vistaMesa = new VistaFondo();
-		vistaMesa.setPosicionable(unaMesa);
-		controlador.agregarDibujable(vistaMesa);
-		
-//		Circulito c=new Circulito(200);
-//		VistaCirculito v=new VistaCirculito();
-//		v.setPosicionable(c);
-//		controlador.agregarDibujable(v);
-//		controlador.agregarObjetoVivo(c);
-//		c.habilitar();
+//		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('A'));
+//		unaCancion.mapear(new DoSostenido(),teclas);
+//		
+//		// combinacion de teclas para la nota LaSostenido
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('B'));
+//		unaCancion.mapear(new Re(), teclas);
+//		
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('C'));
+//		unaCancion.mapear(new Fa(),teclas);
+//		
+//		// combinacion de teclas para la nota LaSostenido
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('D'));
+//		unaCancion.mapear(new Sol(), teclas);
+//		
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('E'));
+//		unaCancion.mapear(new Si(), teclas);
+//		
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('F'));
+//		unaCancion.mapear(new Mi(), teclas);
+//		
+//		teclas = new CombinacionDeTeclas();
+//		teclas.agregarTecla(new Tecla('G'));
+//		unaCancion.mapear(new La(), teclas);
+//		
+//			/************************************************/
+//		
+//		
+//		ControladorJuego controlador = new ControladorJuego(true);
+//		VentanaPrincipalInicialJuego ventana = new VentanaPrincipalInicialJuego(controlador);
+//		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
+//		ventana.setVisible(true);
+//		
+//		
+//		Mesa unaMesa = new Mesa(717,538);
+//		VistaFondo vistaMesa = new VistaFondo();
+//		vistaMesa.setPosicionable(unaMesa);
+//		controlador.agregarDibujable(vistaMesa);
+//		
+////		Circulito c=new Circulito(200);
+////		VistaCirculito v=new VistaCirculito();
+////		v.setPosicionable(c);
+////		controlador.agregarDibujable(v);
+////		controlador.agregarObjetoVivo(c);
+////		c.habilitar();
+////
+////		Circulito c2=new Circulito(200);
+////		VistaCirculito vc=new VistaCirculito();
+////		v.setPosicionable(c);
+////		controlador.agregarDibujable(v);
+////		controlador.agregarObjetoVivo(c);
+////		c.habilitar();
+//		
+//		Guitarra unaGuitarra=new Guitarra(unaCancion,controlador);
+//		Escuchador escu = new Escuchador(unaGuitarra);
+//		controlador.agregarKeyPressObservador(escu);
+//		controlador.agregarObjetoVivo(unaGuitarra);
 //
-//		Circulito c2=new Circulito(200);
-//		VistaCirculito vc=new VistaCirculito();
-//		v.setPosicionable(c);
-//		controlador.agregarDibujable(v);
-//		controlador.agregarObjetoVivo(c);
-//		c.habilitar();
+//		
+//		/*
+//		 * finalmente establezco el intervalo de sleep dentro del gameloop
+//		 * y comienzo a ejecutar
+//		 */
+//		//controlador.setIntervaloSimulacion(15);
+//		controlador.comenzarJuegoAsyn();
 		
-		Guitarra unaGuitarra=new Guitarra(unaCancion,controlador);
-		Escuchador escu = new Escuchador(unaGuitarra);
-		controlador.agregarKeyPressObservador(escu);
-		controlador.agregarObjetoVivo(unaGuitarra);
-
 		
-		/*
-		 * finalmente establezco el intervalo de sleep dentro del gameloop
-		 * y comienzo a ejecutar
-		 */
-		//controlador.setIntervaloSimulacion(15);
-		controlador.comenzarJuegoAsyn();
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
