@@ -23,12 +23,12 @@ public class EqualsNotaTest {
 		Nota unaNota = new Do(new Blanca());
 		Nota otraNota = new Do(new Negra());
 		
-		//Las notas no son iguales, la comparacion debe dar falso
+		//Las notas son iguales, la comparacion debe dar verdadero
 		assertTrue(unaNota.equals(otraNota));
 	}
 	
 	@Test
-	public void testEqualsIncorrecto2(){
+	public void testEqualsIncorrecto1(){
 		Nota unaNota = new ReSostenido(new Blanca());
 		Nota otraNota = new Do(new Negra());
 		

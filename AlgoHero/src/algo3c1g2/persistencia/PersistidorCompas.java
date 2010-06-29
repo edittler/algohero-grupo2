@@ -42,12 +42,12 @@ public class PersistidorCompas {
 		
 		//agrego los atributos
 		int numerador = (int) root.getAttribute("numerador").getLongValue();
-		int denominador = (int) root.getAttribute("demoninador").getLongValue();
+		int denominador = (int) root.getAttribute("denominador").getLongValue();
 		unCompas.setNumerador(numerador);
 		unCompas.setDenominador(denominador);
 				
 		//ahora tengo que obtener los elementos del compas
-		List elementos = root.getChildren("Compas");
+		List elementos = root.getChildren("ElementoDeCompas");
 		Iterator itElementos = elementos.iterator();
 		PersistidorElemento unPersistidorCompas = new PersistidorElemento();
 		
