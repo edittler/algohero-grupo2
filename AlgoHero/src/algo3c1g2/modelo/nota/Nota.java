@@ -70,12 +70,12 @@ public abstract class Nota extends ElementoDeCompas {
 
 	
 	//devuelve true si las teclas presionadas se corresponden a las teclas asociadas a la nota en el mapeo
-	public boolean chequear(MapaDeTeclas mapeo,	CombinacionDeTeclas teclasPresionadas){
+	public boolean chequear(CombinacionDeTeclas teclasDelMapeo,	CombinacionDeTeclas teclasPresionadas){
 		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
 		boolean resultado= true;
 		while(itTeclasPresionadas.hasNext()&&resultado){
 			Tecla unaTeclaPresionada = itTeclasPresionadas.next();
-			resultado = (mapeo.obtenerCombinacion(this).contains(unaTeclaPresionada));
+			resultado = (teclasDelMapeo.contains(unaTeclaPresionada));
 		}
 		return resultado;
 	}

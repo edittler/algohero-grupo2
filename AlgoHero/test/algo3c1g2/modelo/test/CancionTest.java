@@ -144,7 +144,7 @@ public class CancionTest {
 		teclasPresionadas.agregarTecla(new Tecla('A'));
 		teclasPresionadas.agregarTecla(new Tecla('C'));
 
-		assertTrue(unaCancion.chequear(teclasPresionadas,0,0.01));
+		assertTrue(unaCancion.verificarTeclas(teclasPresionadas,0,0.01));
 		
 		teclasPresionadas = new CombinacionDeTeclas();
 		teclasPresionadas.agregarTecla(new Tecla('O'));
@@ -152,6 +152,58 @@ public class CancionTest {
 		teclasPresionadas.agregarTecla(new Tecla('L'));
 		
 		
-		assertTrue(unaCancion.chequear(teclasPresionadas,4.00/3.00,0.01));
+		assertTrue(unaCancion.verificarTeclas(teclasPresionadas,4.00/3.00,0.01));
 	}
+	
+	@Test
+	public void testgetElemento(){
+		Cancion unaCancion = new Cancion("Una noche en la playa");
+		
+		// combinacion de teclas para la nota Mi
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('A'));
+		teclas.agregarTecla(new Tecla('C'));
+		unaCancion.mapear(new Mi(),teclas);
+		
+		// combinacion de teclas para la nota LaSostenido
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('O'));
+		teclas.agregarTecla(new Tecla('H'));
+		teclas.agregarTecla(new Tecla('L'));
+		unaCancion.mapear(new LaSostenido(), teclas);
+		
+		// combinacion de teclas para la nota Re
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('I'));
+		unaCancion.mapear(new Re(),teclas);
+		
+		// creacion y agregacion de compas 1
+		Compas unCompas = new Compas();
+		unCompas.agregarElemento(new Mi(new Blanca()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Re(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		
+		// creacion y agregacion de compas 2
+		unCompas = new Compas();
+		unCompas.agregarElemento(new Mi(new Blanca()));
+		unCompas.agregarElemento(new Mi(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		
+		// conjunto de teclas presionadas en "el instante"
+		CombinacionDeTeclas teclasPresionadas= new CombinacionDeTeclas();
+		teclasPresionadas.agregarTecla(new Tecla('A'));
+		teclasPresionadas.agregarTecla(new Tecla('C'));
+
+		assertEquals(unaCancion.getElemento(0,0.001),new Mi());
+		assertEquals(unaCancion.getElemento(1.33333,0.001),new LaSostenido());
+		assertEquals(unaCancion.getElemento(1.66666,0.001),new Mi());
+		assertEquals(unaCancion.getElemento(2,0.001),new Re());
+		assertEquals(unaCancion.getElemento(2.66666,0.001),new Mi());
+		assertEquals(unaCancion.getElemento(4,0.001),new Mi());
+		assertEquals(unaCancion.getElemento(4.66666,0.001),new LaSostenido());
+	}
+	
 }

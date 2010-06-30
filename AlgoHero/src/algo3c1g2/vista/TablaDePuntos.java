@@ -7,7 +7,7 @@ public class TablaDePuntos implements Posicionable {
 	private int x;
 	private int y;
 	private int puntos;
-	private final static int PosicionCentralDelAreaHabilitada= 533;
+	public final static int PosicionCentralDelAreaHabilitada= 500;
 	private final static int RangoDeMaximaPresicion= 18;
 	private final static int RangoDePresicionNormal= 26;
 	private final static int PuntosMaximaPresicion=1000;

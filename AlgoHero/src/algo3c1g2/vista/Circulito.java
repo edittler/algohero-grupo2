@@ -12,15 +12,18 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	private int x;
 	private int y;
 	private boolean habilitado;
-	private static int POSICION_INICIAL_Y=-48; 
+	private static int POSICION_INICIAL_Y=-85; 
 	private VistaCirculito vista;
 	private Nota nota;
+	private boolean fueReproducida;
+	public static int pixelesPorCiclo;
 	
 	public Circulito(int ubicacionEnX){
 		
 		this.x=ubicacionEnX;
 		this.y=POSICION_INICIAL_Y;
 		habilitado=false;
+		this.fueReproducida=false;
 	}
 	
 	public boolean estaHabilitado(){
@@ -34,13 +37,14 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	public void reiniciar(){
 		this.y=POSICION_INICIAL_Y;
 		this.habilitado=false;
-		this.vista.setColor(Color.RED);
+		this.vista.setNombreArchivoImagen("fantasyball_001.png");
+		this.fueReproducida=false;
 	}
 	
 	@Override
 	public void vivir() {	
 		if(habilitado){
-		this.y=this.y+2; //ese 2 deberia depender del tempo de la cancion no? es la velocidad con la q se desplaza el circulito (2/0.015)
+		this.y=this.y+Circulito.pixelesPorCiclo; //ese 2 deberia depender del tempo de la cancion no? es la velocidad con la q se desplaza el circulito (2/0.015)
 		}
 		if(this.y>VentanaPrincipalInicialJuego.TAMAÑO_VERTICAL){  
 			this.reiniciar();
@@ -78,4 +82,14 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		return vista;
 	}
 
+	public void setFueReproducidaTrue() {
+		this.fueReproducida=true;
+	}
+
+	public boolean fueReproducida() {
+		this.vista.setNombreArchivoImagen("fantasyball_004.png");
+		return fueReproducida;
+	}
+
+	
 }

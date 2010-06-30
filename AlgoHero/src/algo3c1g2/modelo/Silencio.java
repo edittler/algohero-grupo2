@@ -19,11 +19,6 @@ public class Silencio extends ElementoDeCompas {
 		return this.getFigura().getDuracion();
 	}
 
-	public boolean chequear(MapaDeTeclas mapeo,
-			CombinacionDeTeclas teclasPresionadas){
-		return false;
-	}
-
 	@Override
 	public boolean isNota() {
 		return false;

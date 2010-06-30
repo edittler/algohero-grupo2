@@ -25,18 +25,18 @@ import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
 
 public class Guitarra implements ObjetoVivo {
 
-	private static int UBICACION_CUERDA_1=168;
-	private static int UBICACION_CUERDA_2=257;
-	private static int UBICACION_CUERDA_3=345;
-	private static int UBICACION_CUERDA_4=427;
-	private static int UBICACION_CUERDA_5=504;
-	private static int UBICACION_CUERDA_6=576;
+	private static int UBICACION_CUERDA_1=168-19;
+	private static int UBICACION_CUERDA_2=257-19;
+	private static int UBICACION_CUERDA_3=345-19;
+	private static int UBICACION_CUERDA_4=427-19;
+	private static int UBICACION_CUERDA_5=504-19;
+	private static int UBICACION_CUERDA_6=576-19;
 	
 	//Presicion con la que se obtiene un elemento
-	private static double PRESICION_ELEMENTO = 0.0075; 
+	private static double PRESICION_ELEMENTO = 0.0074; 
 	
 	//Presicion admitida por la simulacion del juego
-	private static double PRESICION_SIMULACION = 0.8;
+	private static double PRESICION_SIMULACION = 0.5;
 	
 	//Intervalo de tiempo en el que transcurre la simulacion
 	private static final double TIEMPO_INTERVALO_SIMULACION = 0.015;
@@ -62,9 +62,12 @@ public class Guitarra implements ObjetoVivo {
 		this.cuerdas.add(new Cuerda(Guitarra.UBICACION_CUERDA_6,5));
 		
 		this.controlador=controlador;
-		this.controlador.setIntervaloSimulacion(15);
+		this.controlador.setIntervaloSimulacion((int)(TIEMPO_INTERVALO_SIMULACION*1000));
 		this.agregarCirculosAControlador();
 		this.crearTablaDePuntos();
+		
+		Circulito.pixelesPorCiclo=(int)(this.cancion.getTempo()/60.00)*(4/3)+1;
+		
 		
 		//esto no es necesario lo agrege para q termine el juego despues hay q cambiarlo TODO
 		this.elementosNulos=0;
@@ -117,7 +120,7 @@ public class Guitarra implements ObjetoVivo {
 		Iterator<Cuerda> itCuerdas = this.cuerdas.iterator();
 		boolean conto=false;
 		
-		if(this.cancion.chequear(unaCombinacionTeclas, this.getInstanteDeCancion(), Guitarra.PRESICION_SIMULACION)){
+		if(this.cancion.verificarTeclas(unaCombinacionTeclas, this.getInstanteDeCancion(), Guitarra.PRESICION_SIMULACION)){
 		//Recorremos buscando Circulitos en el area de habilitacion
 		while(itCuerdas.hasNext()&&!conto){
 			Iterator<Circulito> itCir = itCuerdas.next().iterator();
@@ -126,13 +129,14 @@ public class Guitarra implements ObjetoVivo {
 				Circulito unCirculito=itCir.next();
 				
 					if(this.tablaPuntos.estaDentroDelRango(unCirculito.getY())){ //TODO REFACTORIZAME!!!
+						if(!unCirculito.fueReproducida()){
 						this.tablaPuntos.contarPuntos(unCirculito.getY());
 						conto=true;
-						unCirculito.getVista().setColor(Color.GREEN);
 						this.reproducir(unCirculito.getNota());
 						puntosEnTexto.setTexto(Integer.toString(this.tablaPuntos.getPuntos()));
-					}
-				
+						unCirculito.setFueReproducidaTrue();
+						}
+					}	
 			}
 			}
 		}
@@ -191,7 +195,7 @@ public class Guitarra implements ObjetoVivo {
 	
 	/*Obtiene el instante de reproduccion de la musica*/
 	private double getInstanteDeCancion(){
-		return this.instanteActual-4;//HARDCODEAR EL 4 (ES UN CAMBIO DE VARIABLE ENTRE EL INSTANTE DE OBTENCION DE NOTAS Y REPRODUCCION (X-CTE)
+		return this.instanteActual-(((int)(TablaDePuntos.PosicionCentralDelAreaHabilitada*this.TIEMPO_INTERVALO_SIMULACION/Circulito.pixelesPorCiclo))+1);//HARDCODEAR EL 4 
 	}
 
 	

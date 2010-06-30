@@ -11,9 +11,6 @@ public abstract class ElementoDeCompas {
 	// devuelve la duracion medida en negras.
 	public abstract double getDuracion();
 	
-	public abstract boolean chequear(MapaDeTeclas mapeo,
-			CombinacionDeTeclas teclasPresionadas);
-	
 	public double getDuracionEnSegundos(int Tempo){
 		return (this.getDuracion()/((Tempo/60.00)));
 	}
