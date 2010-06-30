@@ -79,9 +79,11 @@ public class Cancion {
 	}
 
 	
+	
+	
+	
 	/* Post-condicion: devuelve el elemento de la cancion correspondiente
 	 * al instante ingresado
-	 * TODO refactorizar el método
 	 */
 	public ElementoDeCompas getElemento(double instante,double presicion){
 		Iterator<Compas> itCompaces=this.getIteratorCompaces();
@@ -89,45 +91,43 @@ public class Cancion {
 		//Contador del tiempo transcurrido total a medida que se recorre la cancion
 		double LineaDeTiempo = 0.00; 
 		boolean LlegoAlElemento= false;  
-		int ContadorCompas=0; 
-		int ContadorElemento=0; 
 		boolean sePaso=false;
-		ElementoDeCompas resultado;
+		ElementoDeCompas unElemento = null;
 		
 		//Recorro los compaces hasta llegar al instante ingresado
 		while(!LlegoAlElemento && itCompaces.hasNext()&&!sePaso){
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
-			
-			//Se reinicia el contador para cada compas a recorrer
-			ContadorElemento=0;
-			
+			//verificamos si el siguiente compas contiene el instante que buscamos, sino seguimos iterando los compaces.
+			if(this.entraEnElRangoDePresicion(LineaDeTiempo+this.duracionDeUnCompasEnSegundos(unCompas), instante, this.duracionDeUnCompasEnSegundos(unCompas)+presicion)){
 			//Recorremos los elementos del compas 
 			while(itElementos.hasNext() && !LlegoAlElemento && !sePaso){
-				ElementoDeCompas unElemento = itElementos.next();
+				unElemento = itElementos.next();
 				LlegoAlElemento = this.entraEnElRangoDePresicion(LineaDeTiempo, instante, presicion);
-				ContadorElemento++; 
 				sePaso = (LineaDeTiempo>(instante+presicion));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
-			
-			ContadorCompas++;
+			}
 		}
 		
-		//Como siempre cuenta uno de mas, le restamos uno al final
-		ContadorElemento--;
-		ContadorCompas--; 
-		resultado=(!sePaso&&LlegoAlElemento)?this.getCompas(ContadorCompas).getElemento(ContadorElemento):null;
-		return resultado;
+		unElemento=(!sePaso&&LlegoAlElemento)?unElemento:null;
+		return unElemento;
 	}
 	
 	
+	private double duracionDeUnCompasEnSegundos(Compas unCompas) {
+		return (unCompas.getNumerador()/unCompas.getDenominador())*(4/(this.getTempo()/60.00));
+	}
+
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas
 	 * Post-condicion: devuelve true si coincide con el mapeo de la cancion en el instante indicado.
 	 */
-	public boolean chequear(CombinacionDeTeclas teclasPresionadas, double instante,double presicion) {
+	public boolean verificarTeclas(CombinacionDeTeclas teclasPresionadas, double instante,double presicion) {
 		ElementoDeCompas unElemento=this.getElemento(instante,presicion);
-		boolean resultado=(unElemento==null)?false:unElemento.chequear(this.getMapeo(), teclasPresionadas);
+		
+		boolean resultado=(unElemento.isNota())? 
+				((Nota)unElemento).chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas)
+				:false;
 		return resultado;
 	}
 	
@@ -145,9 +145,6 @@ public class Cancion {
 		return unIterator;
 	}
 	
-	private Compas getCompas(int index){
-		return this.compaces.get(index);
-	}
 	
 	//devuelve true si el valor ingresado se encuentra dentro del rango de presicion entorno a entorno segun la presicion del juego 
 	private boolean entraEnElRangoDePresicion(double valor,double entorno,double presicion){ 
