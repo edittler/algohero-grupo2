@@ -99,7 +99,7 @@ public class Cancion {
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
 			//verificamos si el siguiente compas contiene el instante que buscamos, sino seguimos iterando los compaces.
-			if(this.entraEnElRangoDePresicion(LineaDeTiempo+this.duracionDeUnCompasEnSegundos(unCompas), instante, this.duracionDeUnCompasEnSegundos(unCompas)+presicion)){
+			//if(this.entraEnElRangoDePresicion(LineaDeTiempo+this.duracionDeUnCompasEnSegundos(unCompas), instante, this.duracionDeUnCompasEnSegundos(unCompas)+presicion)){
 			//Recorremos los elementos del compas 
 			while(itElementos.hasNext() && !LlegoAlElemento && !sePaso){
 				unElemento = itElementos.next();
@@ -107,7 +107,7 @@ public class Cancion {
 				sePaso = (LineaDeTiempo>(instante+presicion));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
-			}
+			//}
 		}
 		
 		unElemento=(!sePaso&&LlegoAlElemento)?unElemento:null;
@@ -126,7 +126,7 @@ public class Cancion {
 		ElementoDeCompas unElemento=this.getElemento(instante,presicion);
 		
 		boolean resultado=(unElemento.isNota())? 
-				((Nota)unElemento).chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas)
+				this.chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas)
 				:false;
 		return resultado;
 	}
@@ -135,6 +135,18 @@ public class Cancion {
 	/***
 	 *  METODOS AUXILIARES INTERNOS
 	 ***/
+	
+	//devuelve true si las teclas presionadas se corresponden a las teclas asociadas a la nota en el mapeo
+	private boolean chequear(CombinacionDeTeclas teclasDelMapeo,	CombinacionDeTeclas teclasPresionadas){
+		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
+		boolean resultado= true;
+		while(itTeclasPresionadas.hasNext()&&resultado){
+			Tecla unaTeclaPresionada = itTeclasPresionadas.next();
+			resultado = (teclasDelMapeo.contains(unaTeclaPresionada));
+		}
+		return resultado;
+	}
+	
 	
 	public MapaDeTeclas getMapeo(){
 		return mapeo;

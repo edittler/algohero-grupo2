@@ -9,7 +9,7 @@ public class TablaDePuntos implements Posicionable {
 	private int puntos;
 	public final static int PosicionCentralDelAreaHabilitada= 500;
 	private final static int RangoDeMaximaPresicion= 18;
-	private final static int RangoDePresicionNormal= 26;
+	private final static int RangoDePresicionNormal= 33;
 	private final static int PuntosMaximaPresicion=1000;
 	private final static int PuntosPresicionNormal=100;
 	private final static int PosicionInicialDelAreaDeHabilitacion=TablaDePuntos.PosicionCentralDelAreaHabilitada-TablaDePuntos.RangoDePresicionNormal;
