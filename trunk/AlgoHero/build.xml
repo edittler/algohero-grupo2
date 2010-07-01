@@ -1,13 +1,29 @@
 <?xml version="1.0"?>
 
-<project name="ProbandoAnt" default="compilar" basedir=".">
+<project name="AlgoHero" default="ejecutar" basedir=".">
 
   <!-- propiedades globales del proyecto -->
-  <property name="fuente" value="." />
-  <property name="destino" value="classes" />
+  <property name="fuente" value="src" />
+  <property name="destino" value="bin" />
+  <path id="path.compilacion">
+	<pathelement location="lib\jdom.jar"/>
+  </path>
 
-  <target name="compilar">
-    
-    <javac srcdir="${fuente}" destdir="${destino}" />
+  
+  <!-- tarea de compilacion -->
+  <target name="compilar" description="Compila el codigo fuente">
+    <javac srcdir="${fuente}"
+		   destdir="${destino}"
+		   debug="on"
+		   deprecation="off"
+		   optimize="on"
+		   failonerror="on" >
+	  <classpath refid="path.compilacion"/>
+	</javac>
+  </target>
+  
+  <!-- tarea de ejecucion-->
+  <target name="ejecutar" depends="compilar">
+    <java classname="algo3c1g2.controlador.IniciarAlgoHero" classpath="${destino}"/>
   </target>
 </project>

@@ -119,10 +119,6 @@ public class Cancion {
 	}
 	
 	
-	private double duracionDeUnCompasEnSegundos(Compas unCompas) {
-		return (unCompas.getNumerador()/unCompas.getDenominador())*(4/(this.getTempo()/60.00));
-	}
-
 	/* Pre-condicion: Recibe una combinacion de teclas y un instante en que fueron presionadas
 	 * Post-condicion: devuelve true si coincide con el mapeo de la cancion en el instante indicado.
 	 */

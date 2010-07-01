@@ -230,7 +230,6 @@ public class CancionTest {
 		unCompas.agregarElemento(new Si(new Negra()));
 		unaCancion.agregarCompas(unCompas);
 		
-		@SuppressWarnings("unused")
 		ElementoDeCompas unElemento = unaCancion.getElemento(300, 0.1);
 		assertTrue(unElemento==null);
 	
