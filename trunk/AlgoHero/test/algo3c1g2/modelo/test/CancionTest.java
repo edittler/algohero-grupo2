@@ -206,7 +206,7 @@ public class CancionTest {
 		assertEquals(unaCancion.getElemento(4.66666,0.001),new LaSostenido());
 	}
 	
-	@Test
+	@Test(expected=TiempoNegativoExcepcion.class)
 	public void testGetElementoFueraDeRango1(){
 		Cancion unaCancion = new Cancion("Palomitas de Maiz");
 		Compas unCompas = new Compas();
@@ -232,7 +232,7 @@ public class CancionTest {
 		
 		@SuppressWarnings("unused")
 		ElementoDeCompas unElemento = unaCancion.getElemento(300, 0.1);
-		fail("Intento buscar un elemento en un instante que no alcanza la cancion");
+		assertTrue(unElemento==null);
 	
 	}
 	
