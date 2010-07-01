@@ -1,6 +1,7 @@
 package algo3c1g2.modelo.test;
 
 import static org.junit.Assert.*;
+
 import org.junit.*;
 
 import java.util.Iterator;
@@ -54,13 +55,28 @@ public class CompasTest {
 	}
 	
 	@Test(expected=CompasInvalidoExcepcion.class)
-	public void testSetDenominadorIncorrecto(){
+	public void testSetDenominadorIncorrecto1(){
+		Compas unCompas = new Compas();
+		unCompas.setDenominador(0);
+		fail("Permite setear el valor 0 como Denominador");
+	}
+	
+	@Test(expected=CompasInvalidoExcepcion.class)
+	public void testSetDenominadorIncorrecto2(){
 		Compas unCompas = new Compas();
 		unCompas.setDenominador(-3);
+		fail("Permite setear un valor negativo");
+	}
+	
+	@Test(expected=CompasInvalidoExcepcion.class)
+	public void testSetDenominadorIncorrecto3(){
+		Compas unCompas = new Compas();
+		unCompas.setDenominador(3);
+		fail("Permite setear un Denominador invalido, que no se corresponde a una figura musical");
 	}
 	
 	@Test	
-	public void testAgregarElementoCorrecto(){
+	public void testAgregarElementos(){
 		Compas unCompas = new Compas();
 		unCompas.agregarElemento(new Silencio(new Blanca()));
 		unCompas.agregarElemento(new Do(new Negra()));
@@ -71,7 +87,7 @@ public class CompasTest {
 	}
 	
 	@Test(expected=CompasSobrepasadoExcepcion.class)
-	public void testAgregarElementoIncorrecto(){
+	public void testAgregarMasElementosDeLoPermitido(){
 		Compas unCompas=new Compas();
 		unCompas.agregarElemento(new Silencio(new Blanca()));
 		unCompas.agregarElemento(new Do(new Negra()));
