@@ -86,6 +86,9 @@ public class Cancion {
 	 * al instante ingresado
 	 */
 	public ElementoDeCompas getElemento(double instante,double presicion){
+		if(instante<0){
+			throw new TiempoNegativoExcepcion();
+		}
 		Iterator<Compas> itCompaces=this.getIteratorCompaces();
 		
 		//Contador del tiempo transcurrido total a medida que se recorre la cancion
@@ -109,8 +112,9 @@ public class Cancion {
 			}
 			//}
 		}
-		
+
 		unElemento=(!sePaso&&LlegoAlElemento)?unElemento:null;
+		
 		return unElemento;
 	}
 	
