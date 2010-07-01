@@ -8,6 +8,10 @@ import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.tecla.*;
 import algo3c1g2.persistencia.PersistidorCancion;
 
+/*
+ * Este documento no es en realidad un Test, sino un ejemplo de como
+ * se usa la persistencia.
+ */
 
 @SuppressWarnings("unused")
 public class PersistenciaCancionTest {

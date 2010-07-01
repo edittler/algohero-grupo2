@@ -64,11 +64,11 @@ public class CancionTest {
 	}
 	
 	@Test(expected=CompasInvalidoExcepcion.class)
-	public void testAgregarCompas() {
+	public void testAgregarCompasIncompleto() {
 		Cancion unaCancion = new Cancion("pa' lante");
 		Compas unCompas = new Compas();//por default se crea 4/4
 		
-		//agregamos solo una blanca e intentamos introducir el compas imcompleto
+		//agregamos solo una blanca e intentamos introducir el compas incompleto
 		unCompas.agregarElemento(new Do(new Blanca())); 
 		unaCancion.agregarCompas(unCompas);
 		fail("Permite agregar un compas incompleto a la cancion");
@@ -204,6 +204,36 @@ public class CancionTest {
 		assertEquals(unaCancion.getElemento(2.66666,0.001),new Mi());
 		assertEquals(unaCancion.getElemento(4,0.001),new Mi());
 		assertEquals(unaCancion.getElemento(4.66666,0.001),new LaSostenido());
+	}
+	
+	@Test
+	public void testGetElementoFueraDeRango1(){
+		Cancion unaCancion = new Cancion("Palomitas de Maiz");
+		Compas unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Blanca()));
+		unCompas.agregarElemento(new La(new Negra()));
+		unCompas.agregarElemento(new Si(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		
+		@SuppressWarnings("unused")
+		ElementoDeCompas unElemento = unaCancion.getElemento(-1, 0.1);
+		fail("Intento buscar un elemento en un instante negativo");
+	
+	}
+	
+	@Test
+	public void testGetElementoFueraDeRango2(){
+		Cancion unaCancion = new Cancion("Palomitas de Maiz");
+		Compas unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Blanca()));
+		unCompas.agregarElemento(new La(new Negra()));
+		unCompas.agregarElemento(new Si(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		
+		@SuppressWarnings("unused")
+		ElementoDeCompas unElemento = unaCancion.getElemento(300, 0.1);
+		fail("Intento buscar un elemento en un instante que no alcanza la cancion");
+	
 	}
 	
 }
