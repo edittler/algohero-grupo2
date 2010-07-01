@@ -39,7 +39,7 @@ public class Guitarra implements ObjetoVivo {
 	private static double PRESICION_SIMULACION = 0.5;
 	
 	//Intervalo de tiempo en el que transcurre la simulacion
-	private static final double TIEMPO_INTERVALO_SIMULACION = 0.015;
+	private static double TIEMPO_INTERVALO_SIMULACION = 0.015;
 	
 	private Cancion cancion;
 	private double instanteActual;
@@ -60,13 +60,14 @@ public class Guitarra implements ObjetoVivo {
 		this.cuerdas.add(new Cuerda(Guitarra.UBICACION_CUERDA_4,5));
 		this.cuerdas.add(new Cuerda(Guitarra.UBICACION_CUERDA_5,5));
 		this.cuerdas.add(new Cuerda(Guitarra.UBICACION_CUERDA_6,5));
-		
+		TIEMPO_INTERVALO_SIMULACION=this.cancion.getTempo()*(0.015/90);
+		PRESICION_ELEMENTO=TIEMPO_INTERVALO_SIMULACION/2;
 		this.controlador=controlador;
 		this.controlador.setIntervaloSimulacion((int)(TIEMPO_INTERVALO_SIMULACION*1000));
 		this.agregarCirculosAControlador();
 		this.crearTablaDePuntos();
 		
-		Circulito.pixelesPorCiclo=(int)(this.cancion.getTempo()/60.00)*(4/3)+1;
+		Circulito.pixelesPorCiclo=2;
 		
 		
 		//esto no es necesario lo agrege para q termine el juego despues hay q cambiarlo TODO
@@ -102,7 +103,7 @@ public class Guitarra implements ObjetoVivo {
 		else//TODO cambiar esto!
 		{
 			this.elementosNulos++;
-			if(this.elementosNulos==1000){
+			if(this.elementosNulos==100000){
 				this.controlador.detenerJuego();
 				System.out.print("SE TERMINO EL JUEGO");
 			}
@@ -195,7 +196,8 @@ public class Guitarra implements ObjetoVivo {
 	
 	/*Obtiene el instante de reproduccion de la musica*/
 	private double getInstanteDeCancion(){
-		return this.instanteActual-(((int)(TablaDePuntos.PosicionCentralDelAreaHabilitada*this.TIEMPO_INTERVALO_SIMULACION/Circulito.pixelesPorCiclo))+1);//HARDCODEAR EL 4 
+		
+		return this.instanteActual-((int)((TablaDePuntos.PosicionCentralDelAreaHabilitada*(TIEMPO_INTERVALO_SIMULACION/Circulito.pixelesPorCiclo)))+1);
 	}
 
 	

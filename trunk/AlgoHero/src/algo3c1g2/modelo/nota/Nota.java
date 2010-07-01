@@ -1,13 +1,8 @@
 package algo3c1g2.modelo.nota;
 
-import java.util.Iterator;
-
 import algo3c1g2.modelo.ElementoDeCompas;
 import algo3c1g2.modelo.figura.Figura;
 import algo3c1g2.modelo.figura.Negra;
-import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
-import algo3c1g2.modelo.tecla.MapaDeTeclas;
-import algo3c1g2.modelo.tecla.Tecla;
 
 
 public abstract class Nota extends ElementoDeCompas {
@@ -69,16 +64,7 @@ public abstract class Nota extends ElementoDeCompas {
 	}
 
 	
-	//devuelve true si las teclas presionadas se corresponden a las teclas asociadas a la nota en el mapeo
-	public boolean chequear(CombinacionDeTeclas teclasDelMapeo,	CombinacionDeTeclas teclasPresionadas){
-		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
-		boolean resultado= true;
-		while(itTeclasPresionadas.hasNext()&&resultado){
-			Tecla unaTeclaPresionada = itTeclasPresionadas.next();
-			resultado = (teclasDelMapeo.contains(unaTeclaPresionada));
-		}
-		return resultado;
-	}
+
 	
 	
 	public boolean isNota(){
