@@ -24,6 +24,8 @@
   
   <!-- tarea de ejecucion-->
   <target name="ejecutar" depends="compilar">
-    <java classname="algo3c1g2.controlador.IniciarAlgoHero" classpath="${destino}"/>
+    <java classname="algo3c1g2.controlador.IniciarAlgoHero"
+		  classpath="${destino}"
+		  fork = "true" />
   </target>
 </project>
