@@ -131,6 +131,11 @@ public class Cancion {
 		return resultado;
 	}
 	
+	public String getMapaDeTeclasEnString(Nota unaNota){
+		CombinacionDeTeclas unaCombinacionDeTeclas=mapeo.obtenerCombinacion(unaNota);
+		return unaCombinacionDeTeclas.getTeclasTexto();
+	}
+	
 	
 	/***
 	 *  METODOS AUXILIARES INTERNOS

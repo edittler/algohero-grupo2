@@ -10,7 +10,7 @@ import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 public abstract class Figura implements Dibujable, MouseClickObservador {
 
 	private Color color;
-	private Posicionable posicionable;
+	protected Posicionable posicionable;
 	
 	public abstract void dibujar(SuperficieDeDibujo superfice) ;
 

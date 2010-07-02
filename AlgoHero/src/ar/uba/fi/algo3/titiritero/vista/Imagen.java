@@ -52,7 +52,7 @@ public class Imagen implements Dibujable{
 	}
 	
 	private String nombreArchivoImagen;
-    private BufferedImage imagen;
-    private Posicionable posicionable;
+    protected BufferedImage imagen;
+    protected Posicionable posicionable;
 
 }
