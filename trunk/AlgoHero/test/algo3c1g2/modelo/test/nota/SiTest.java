@@ -15,8 +15,8 @@ public class SiTest {
 		// Se crea la nota Si usando su constructor sin parametros 
 		Nota unaNota = new Si();
 		
-		//Frecuencia caracteristica del tono Si en la octava 3 es de 493 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 493, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Si en la octava 3 es de 493 Hz (71 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 71, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class SiTest {
 		// Se crea la nota Si estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new Si(new Negra());
 		
-		//Frecuencia caracteristica del tono Si en la octava 3 es de 493 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 493, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Si en la octava 3 es de 493 Hz (71 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 71, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

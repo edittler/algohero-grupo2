@@ -15,8 +15,8 @@ public class FaTest {
 		// Se crea la nota Fa usando su constructor sin parametros 
 		Nota unaNota = new Fa();
 		
-		//Frecuencia caracteristica del tono Fa en la octava 3 es de 349 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 349, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Fa en la octava 3 es de 349 Hz (65 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 65, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class FaTest {
 		// Se crea la nota Fa estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new Fa(new Negra());
 		
-		//Frecuencia caracteristica del tono Fa en la octava 3 es de 349 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 349, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Fa en la octava 3 es de 349 Hz (65 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 65, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

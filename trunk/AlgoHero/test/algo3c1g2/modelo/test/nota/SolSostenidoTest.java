@@ -15,8 +15,8 @@ public class SolSostenidoTest {
 		// Se crea la nota SolSostenido usando su constructor sin parametros 
 		Nota unaNota = new SolSostenido();
 		
-		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 415, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz (68 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 68, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class SolSostenidoTest {
 		// Se crea la nota SolSostenido estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new SolSostenido(new Negra());
 		
-		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 415, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Sol Sostenido en la octava 3 es de 415 Hz (68 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 68, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

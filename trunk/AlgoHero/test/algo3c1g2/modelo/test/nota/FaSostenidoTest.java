@@ -15,8 +15,8 @@ public class FaSostenidoTest {
 		// Se crea la nota FaSostenido usando su constructor sin parametros 
 		Nota unaNota = new FaSostenido();
 		
-		//Frecuencia caracteristica del tono Fa Sostenido en la octava 3 es de 369 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 369, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Fa Sostenido en la octava 3 es de 369 Hz (66 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 66, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class FaSostenidoTest {
 		// Se crea la nota FaSostenido estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new FaSostenido(new Negra());
 		
-		//Frecuencia caracteristica del tono Fa Sostenido en la octava 3 es de 369 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 369, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Fa Sostenido en la octava 3 es de 369 Hz (66 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 66, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

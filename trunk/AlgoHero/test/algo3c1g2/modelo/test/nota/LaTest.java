@@ -15,8 +15,8 @@ public class LaTest {
 		// Se crea la nota La usando su constructor sin parametros 
 		Nota unaNota = new La();
 		
-		//Frecuencia caracteristica del tono La en la octava 3 es de 440 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 440, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono La en la octava 3 es de 440 Hz (69 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 69, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class LaTest {
 		Nota unaNota = new La(new Negra());
 		
 		//Frecuencia caracteristica del tono La en la octava 3 es de 440 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 440, unaNota.getFrecuencia(), 0.001);
+		assertEquals("Frecuencia inicializada incorrectamente", 69, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

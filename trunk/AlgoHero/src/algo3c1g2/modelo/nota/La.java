@@ -5,7 +5,7 @@ import algo3c1g2.modelo.figura.Figura;
 public class La extends Nota {
 
 	//Frecuencia caracteristica del tono La en la octava 3
-	private final static float FRECUENCIA_LA = 69;
+	private final static int FRECUENCIA_LA = 69;
 	private final static int CUERDA = 5;
 	
 	public La(){

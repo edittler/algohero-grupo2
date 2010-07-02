@@ -15,8 +15,8 @@ public class MiTest {
 		// Se crea la nota Mi usando su constructor sin parametros 
 		Nota unaNota = new Mi();
 		
-		//Frecuencia caracteristica del tono Mi en la octava 3 es de 329 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 329, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Mi en la octava 3 es de 329 Hz (64 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 64, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class MiTest {
 		Nota unaNota = new Mi(new Negra());
 		
 		//Frecuencia caracteristica del tono Mi en la octava 3 es de 329 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 329, unaNota.getFrecuencia(), 0.001);
+		assertEquals("Frecuencia inicializada incorrectamente", 64, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
