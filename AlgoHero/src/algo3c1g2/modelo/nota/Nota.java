@@ -7,13 +7,13 @@ import algo3c1g2.modelo.figura.Negra;
 
 public abstract class Nota extends ElementoDeCompas {
 
-	private float frecuencia;
+	private int frecuencia;
 	protected int cuerda;
 	
 	/*
 	 * Poscondicion: Asigna la frecuencia pasada por parametro y la Figura Negra por default
 	 */
-	public Nota(float frecuencia){
+	public Nota(int frecuencia){
 		this.setFrecuencia(frecuencia);
 		this.setFigura(new Negra());
 	}
@@ -22,13 +22,13 @@ public abstract class Nota extends ElementoDeCompas {
 	/*
 	 * Poscondicion: Asigna la frecuencia y Figura pasadas por parametro
 	 */
-	public Nota(float frecuencia, Figura unaFigura){
+	public Nota(int frecuencia, Figura unaFigura){
 		this.setFrecuencia(frecuencia);
 		this.setFigura(unaFigura);
 	}
 	
 	
-	protected void setFrecuencia(float frecuencia) {
+	protected void setFrecuencia(int frecuencia) {
 		this.frecuencia = frecuencia;
 	}
 

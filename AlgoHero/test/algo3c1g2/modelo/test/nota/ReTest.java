@@ -15,8 +15,8 @@ public class ReTest {
 		// Se crea la nota Re usando su constructor sin parametros 
 		Nota unaNota = new Re();
 		
-		//Frecuencia caracteristica del tono Re en la octava 3 es de 293 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 293, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Re en la octava 3 es de 293 Hz (62 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 62, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class ReTest {
 		// Se crea la nota Re estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new Re(new Negra());
 		
-		//Frecuencia caracteristica del tono Re en la octava 3 es de 293 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 293, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Re en la octava 3 es de 293 Hz (62 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 62, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

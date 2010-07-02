@@ -15,8 +15,8 @@ public class DoTest {
 		// Se crea la nota Do usando su constructor sin parametros 
 		Nota unaNota = new Do();
 		
-		//Frecuencia caracteristica del tono Do en la octava 3 es de 261 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 261, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Do en la octava 3 es de 261 Hz (60 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 60, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class DoTest {
 		// Se crea la nota Do estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new Do(new Negra());
 		
-		//Frecuencia caracteristica del tono Do en la octava 3 es de 261 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 261, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Do en la octava 3 es de 261 Hz (60 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 60, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

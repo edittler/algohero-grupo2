@@ -15,8 +15,8 @@ public class ReSostenidoTest {
 		// Se crea la nota ReSostenido usando su constructor sin parametros 
 		Nota unaNota = new ReSostenido();
 		
-		//Frecuencia caracteristica del tono Re Sostenido en la octava 3 es de 311 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 311, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Re Sostenido en la octava 3 es de 311 Hz (63 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 63, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test
@@ -24,8 +24,8 @@ public class ReSostenidoTest {
 		// Se crea la nota ReSostenido estableciendo cualquier figura (en este caso Negra) 
 		Nota unaNota = new ReSostenido(new Negra());
 		
-		//Frecuencia caracteristica del tono Re Sostenido en la octava 3 es de 311 Hz
-		assertEquals("Frecuencia inicializada incorrectamente", 311, unaNota.getFrecuencia(), 0.001);
+		//Frecuencia caracteristica del tono Re Sostenido en la octava 3 es de 311 Hz (63 en la aplicacion utilizada)
+		assertEquals("Frecuencia inicializada incorrectamente", 63, unaNota.getFrecuencia(), 0.1);
 	}
 	
 	@Test

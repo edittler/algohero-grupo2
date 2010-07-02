@@ -5,7 +5,7 @@ import algo3c1g2.modelo.figura.Figura;
 public class SolSostenido extends Nota {
 
 	//Frecuencia caracteristica del tono Sol Sostenido en la octava 3
-	private final static float FRECUENCIA_SOL_SOSTENIDO = 68;
+	private final static int FRECUENCIA_SOL_SOSTENIDO = 68;
 	private final static int CUERDA = 5;
 	
 	public SolSostenido(){
