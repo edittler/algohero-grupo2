@@ -1,4 +1,4 @@
-package algo3c1g2.vista;
+package algo3c1g2.modelo;
 
 import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.vista.images.ImageCirculito;
@@ -12,17 +12,19 @@ public class Circulito implements ObjetoVivo, Posicionable {
 
 	private int x;
 	private int y;
-	private ImageCirculito vista;
-	private Nota nota;
 	private boolean habilitado;
 	private boolean fueReproducido;
+	private double instanteASerReproducido;
 	public static int pixelesPorCiclo;
+	private int numeroDeCuerda;
+	private String teclas;
 
-	public Circulito(int ubicacionEnX) {
-		this.x = ubicacionEnX;
+	public Circulito(int numeroDeCuerda) {
+		this.setNumeroDeCuerda(numeroDeCuerda);
 		this.y = POSICION_INICIAL_Y;
 		this.habilitado = false;
 		this.fueReproducido = false;
+		this.teclas="";
 	}
 
 	public boolean estaHabilitado() {
@@ -36,14 +38,13 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	public void reiniciar() {
 		this.y = POSICION_INICIAL_Y;
 		this.habilitado = false;
-		this.vista.establecerImagenOriginal();
 		this.fueReproducido = false;
 	}
 
 	@Override
 	public void vivir() {
 		if (habilitado) {
-			this.y = this.y + Circulito.pixelesPorCiclo;
+			this.y = this.y + 2;
 		}
 		if (this.y > VentanaPrincipal.TAMAÑO_VERTICAL) {
 			this.reiniciar();
@@ -60,25 +61,38 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		return this.y;
 	}
 
-	public void setDibujable(ImageCirculito imageCirculito) {
-		this.vista = imageCirculito;
-	}
-
-	public void setNota(Nota nota) {
-		this.nota = nota;
-	}
-
-	public Nota getNota() {
-		return nota;
-	}
 
 	public void establecerQueFueReproducido() {
-		this.vista.establecerImagenDeReproducido();
 		this.fueReproducido = true;
 	}
 
 	public boolean fueReproducido() {
 		return fueReproducido;
 	}
+
+	private void setNumeroDeCuerda(int numeroDeCuerda) {
+		this.numeroDeCuerda = numeroDeCuerda;
+	}
+
+	public int getNumeroDeCuerda() {
+		return numeroDeCuerda;
+	}
+
+	public void setTeclas(String teclas) {
+		this.teclas = teclas;
+	}
+
+	public String getTeclas() {
+		return teclas;
+	}
+
+	public void setInstanteASerReproducido(double instanteASerReproducido) {
+		this.instanteASerReproducido = instanteASerReproducido;
+	}
+
+	public double getInstanteASerReproducido() {
+		return instanteASerReproducido;
+	}
+
 
 }
