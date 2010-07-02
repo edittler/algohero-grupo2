@@ -1,4 +1,4 @@
-package algo3c1g2;
+package algo3c1g2.generadorcanciones;
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.persistencia.PersistidorCancion;

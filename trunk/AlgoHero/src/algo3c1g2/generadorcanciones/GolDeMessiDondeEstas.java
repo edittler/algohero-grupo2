@@ -1,4 +1,4 @@
-package algo3c1g2;
+package algo3c1g2.generadorcanciones;
 
 import algo3c1g2.modelo.*;
 import algo3c1g2.modelo.figura.*;
