@@ -14,7 +14,7 @@
   <target name="compilar" description="Compila el codigo fuente">
     <javac srcdir="${fuente}"
 		   destdir="${destino}"
-		   debug="on"
+		   
 		   deprecation="off"
 		   optimize="on"
 		   failonerror="on" >

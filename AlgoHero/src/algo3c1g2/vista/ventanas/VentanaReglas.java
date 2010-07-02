@@ -1,11 +1,12 @@
-package algo3c1g2.vista;
+package algo3c1g2.vista.ventanas;
 
 import java.awt.Component;
 
-public class VistaRegla extends VistaMensaje{
+
+public class VentanaReglas extends VentanaMensaje{
 
 
-	public VistaRegla(Component ventana){
+	public VentanaReglas(Component ventana){
 		super(ventana);
 	}
 
