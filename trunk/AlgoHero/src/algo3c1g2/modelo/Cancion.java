@@ -124,11 +124,12 @@ public class Cancion {
 	 */
 	public boolean verificarTeclas(CombinacionDeTeclas teclasPresionadas, double instante,double presicion) {
 		ElementoDeCompas unElemento=this.getElemento(instante,presicion);
-	
-		
-		boolean resultado=(unElemento.isNota())? 
-				this.chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas)
-				:false;
+		boolean resultado;
+		if (unElemento.isNota()){
+			resultado = this.chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas);
+		} else {
+			resultado = false;
+		}
 		return resultado;
 	}
 	
