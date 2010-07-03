@@ -2,19 +2,20 @@
 
 <project name="AlgoHero" default="ejecutar" basedir=".">
 
-  <!-- propiedades globales del proyecto -->
-  <property name="fuente" value="src" />
-  <property name="destino" value="bin" />
+  <!-- Propiedades globales del proyecto -->
+  <property name="compilacion.fuente"		value="src" />
+  <property name="compilacion.destino"		value="bin" />
+  <property name="documentacion.destino"	value="doc" />
+  
   <path id="path.compilacion">
 	<pathelement location="lib\jdom.jar"/>
   </path>
 
-  
-  <!-- tarea de compilacion -->
+  <!-- Objetivo de compilacion -->
   <target name="compilar" description="Compila el codigo fuente">
-    <javac srcdir="${fuente}"
-		   destdir="${destino}"
-		   
+    <javac srcdir="${compilacion.fuente}"
+		   destdir="${compilacion.destino}"
+		   debug="off"
 		   deprecation="off"
 		   optimize="on"
 		   failonerror="on" >
@@ -22,10 +23,21 @@
 	</javac>
   </target>
   
-  <!-- tarea de ejecucion-->
+  <!-- Objetivo de documentacion -->
+  <target name="documentar" description="Genera la documentacion del codigo fuente">
+    <delete dir="${documentacion.destino}" />
+	<mkdir dir="${documentacion.destino}" />
+	<javadoc sourcepath="${compilacion.fuente}"
+		     destdir="${documentacion.destino}"
+		     packagenames="*"
+			 excludepackagenames="tests" >
+	</javadoc>
+  </target>
+  
+  <!-- Objetivo de ejecucion-->
   <target name="ejecutar" depends="compilar">
-    <java classname="algo3c1g2.controlador.IniciarAlgoHero"
-		  classpath="${destino}"
+    <java classname="algo3c1g2.controlador.InicioAlgoHero"
+		  classpath="${compilacion.destino}"
 		  fork = "true" />
   </target>
 </project>
