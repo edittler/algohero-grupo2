@@ -2,8 +2,6 @@ package algo3c1g2.modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import algo3c1g2.modelo.nota.Nota;
-import algo3c1g2.vista.images.ImageCirculito;
 
 public class Cuerda {
 

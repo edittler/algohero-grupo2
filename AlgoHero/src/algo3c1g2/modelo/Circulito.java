@@ -1,7 +1,6 @@
 package algo3c1g2.modelo;
 
-import algo3c1g2.modelo.nota.Nota;
-import algo3c1g2.vista.images.ImageCirculito;
+
 import algo3c1g2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;

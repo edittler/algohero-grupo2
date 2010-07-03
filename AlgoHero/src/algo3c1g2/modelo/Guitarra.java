@@ -1,30 +1,18 @@
 package algo3c1g2.modelo;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import algo3c1g2.modelo.nota.Nota;
-import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
-import algo3c1g2.modelo.tecla.Tecla;
-import algo3c1g2.vista.ObjetoTexto;
-import algo3c1g2.vista.images.ImageCirculito;
-import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.audio.Elemento;
 import ar.uba.fi.algo3.titiritero.audio.Reproductor;
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
-import ar.uba.fi.algo3.titiritero.vista.TextoDinamico;
-import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
 
 public class Guitarra implements ObjetoVivo {
 
 
 	// Presicion con la que se obtiene un elemento
 	private static double PRESICION_ELEMENTO = 0.0074;
-
-	// Presicion admitida por la simulacion del juego
-	private static double PRESICION_SIMULACION = 0.5;
 
 	// Intervalo de tiempo en el que transcurre la simulacion
 	private static double TIEMPO_INTERVALO_SIMULACION = 0.015;
@@ -35,7 +23,6 @@ public class Guitarra implements ObjetoVivo {
 	private Cancion cancion;
 	private double instanteActual;
 	private ArrayList<Cuerda> cuerdas;
-	private Puntaje puntaje;
 	private Reproductor reproductor;
 
 	public Guitarra(Cancion unaCancion,Reproductor reproductor) {
@@ -54,6 +41,8 @@ public class Guitarra implements ObjetoVivo {
 	public void agregarCirculito(Circulito unCirculito){
 		this.cuerdas.get(unCirculito.getNumeroDeCuerda()-1).agregarCirculito(unCirculito);
 	}
+	
+
 	
 	
 	
@@ -88,6 +77,7 @@ public class Guitarra implements ObjetoVivo {
 				Circulito unCirculito = itCir.next();
 				//Si no fue reproducido, si las teclas a tocar son las mismas y si el instante a ser reproducido es el mismo entonces lo cuenta
 					if (!unCirculito.fueReproducido()&&(unCirculito.getTeclas()==teclas)&&(unCirculito.getInstanteASerReproducido()==instante)) {
+						System.out.println("ENTRE ACA");
 						conto = true;
 						this.reproductor.reproducir(new Elemento(frecuencia, duracion));
 						unCirculito.establecerQueFueReproducido();
