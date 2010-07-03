@@ -11,6 +11,7 @@ public class Escuchador implements KeyPressedObservador {
 	private Guitarra guitarra;
 	private Puntaje puntaje;
 	private boolean estaPresionado;
+	
 
 	public Escuchador(Guitarra guitarra) {
 		this.guitarra = guitarra;
@@ -20,14 +21,13 @@ public class Escuchador implements KeyPressedObservador {
 	public void keyPressed(KeyEvent event) {
 		if (!this.estaPresionado) {
 			this.estaPresionado = true;
-			double instante=this.guitarra.getInstanteDeCancion();
-			char tecla=(char) event.getKeyCode();
-			boolean acerto=this.puntaje.contarPuntos(instante, tecla);
+			boolean acerto=this.puntaje.contarPuntos(this.guitarra.getInstanteDeCancion(),((char) event.getKeyCode()));
 			if(acerto){
-			this.guitarra.reproducir(instante);
+			this.guitarra.reproducir(this.guitarra.getInstanteDeCancion());
 			}
 			
 		} else {
+			  
 			this.estaPresionado = false;
 		}
 	}

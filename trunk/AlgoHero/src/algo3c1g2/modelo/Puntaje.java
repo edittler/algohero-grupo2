@@ -11,7 +11,7 @@ public class Puntaje implements Posicionable {
 	private static final double PRESICION_DEL_JUEGO=0.5; //segundos
 	
 	public Puntaje(){
-		this.puntos=0;
+		this.puntos= 0;
 	}
 	
 	@Override
@@ -31,13 +31,23 @@ public class Puntaje implements Posicionable {
 	public boolean contarPuntos(double instante, char tecla){
 		CombinacionDeTeclas TeclasPresionadas=new CombinacionDeTeclas();
 		Tecla unaTecla=new Tecla(tecla);
-		TeclasPresionadas.agregarTecla(unaTecla);
-		boolean acerto=this.cancion.verificarTeclas(TeclasPresionadas, instante, PRESICION_DEL_JUEGO);
-		this.puntos=(acerto)?
-				this.puntos+=1000
-				:this.puntos;
-		return acerto;
-	}
+		boolean acerto=false;
 	
+		TeclasPresionadas.agregarTecla(unaTecla);
+		acerto= this.cancion.verificarTeclas(TeclasPresionadas, instante, PRESICION_DEL_JUEGO);
+			this.puntos=(acerto)?
+					this.puntos+=1000
+					:this.puntos;
+			return true;
+		}
+		
+
+		
+
+	
+	
+	
+					
+					
 	
 }
