@@ -6,7 +6,7 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import algo3c1g2.modelo.Circulito;
+import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.vista.VistaCuerda;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
