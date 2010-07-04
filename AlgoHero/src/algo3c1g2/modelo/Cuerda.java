@@ -10,7 +10,7 @@ public class Cuerda {
 
 	public Cuerda() {
 		this.circulitos=new ArrayList<Circulito>();
-		
+
 	}
 
 	public Iterator<Circulito> iterator() {
@@ -27,7 +27,7 @@ public class Cuerda {
 
 		Circulito unCirculito = null;
 		boolean habilito = false;
-		
+
 		// Recorro los circulitos de la cuerda
 		while (itCir.hasNext() && (!habilito)) { 
 			unCirculito = itCir.next();
@@ -45,7 +45,7 @@ public class Cuerda {
 
 	public void agregarCirculito(Circulito unCirculito) {
 		this.circulitos.add(unCirculito);
-		
+
 	}
 
 }
