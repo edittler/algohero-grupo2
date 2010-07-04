@@ -104,7 +104,7 @@ public class GolDeMessiDondeEstas extends GeneradorCancion {
 		cancion.mapear(new Mi(), teclas);
 		
 		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('F'));
+		teclas.agregarTecla(new Tecla('D'));
 		cancion.mapear(new Fa(),teclas);
 		
 		teclas = new CombinacionDeTeclas();
@@ -112,7 +112,7 @@ public class GolDeMessiDondeEstas extends GeneradorCancion {
 		cancion.mapear(new FaSostenido(),teclas);
 		
 		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('G'));
+		teclas.agregarTecla(new Tecla('F'));
 		cancion.mapear(new Sol(), teclas);
 		
 		teclas = new CombinacionDeTeclas();
@@ -120,7 +120,7 @@ public class GolDeMessiDondeEstas extends GeneradorCancion {
 		cancion.mapear(new SolSostenido(), teclas);
 		
 		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('H'));
+		teclas.agregarTecla(new Tecla('G'));
 		cancion.mapear(new La(), teclas);
 		
 		teclas = new CombinacionDeTeclas();
@@ -128,14 +128,9 @@ public class GolDeMessiDondeEstas extends GeneradorCancion {
 		cancion.mapear(new LaSostenido(), teclas);
 		
 		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('J'));
+		teclas.agregarTecla(new Tecla('H'));
 		cancion.mapear(new Si(), teclas);
 		
-
-		
-		teclas = new CombinacionDeTeclas();
-		teclas.agregarTecla(new Tecla('G'));
-		cancion.mapear(new La(), teclas);
 	}
 
 }

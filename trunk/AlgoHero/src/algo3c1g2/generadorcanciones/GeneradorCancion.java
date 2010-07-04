@@ -12,5 +12,9 @@ public abstract class GeneradorCancion {
 		unPersistidor.persistirYGuardar(cancion, rutaArchivo);
 		return rutaArchivo;
 	}
+	
+	public Cancion getCancion(){
+		return this.cancion;
+	}
 
 }

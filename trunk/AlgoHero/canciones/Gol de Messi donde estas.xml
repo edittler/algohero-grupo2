@@ -22,7 +22,7 @@
     <Clave>
       algo3c1g2.modelo.nota.Fa
       <Valor>
-        <Tecla codigoASCII="70" />
+        <Tecla codigoASCII="68" />
       </Valor>
     </Clave>
     <Clave>
@@ -40,7 +40,7 @@
     <Clave>
       algo3c1g2.modelo.nota.Si
       <Valor>
-        <Tecla codigoASCII="74" />
+        <Tecla codigoASCII="72" />
       </Valor>
     </Clave>
     <Clave>
@@ -58,7 +58,7 @@
     <Clave>
       algo3c1g2.modelo.nota.Sol
       <Valor>
-        <Tecla codigoASCII="71" />
+        <Tecla codigoASCII="70" />
       </Valor>
     </Clave>
     <Clave>
