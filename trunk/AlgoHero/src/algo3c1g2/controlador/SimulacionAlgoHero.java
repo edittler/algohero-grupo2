@@ -1,7 +1,5 @@
 package algo3c1g2.controlador;
 
-import algo3c1g2.generadorcanciones.GeneradorCancion;
-import algo3c1g2.generadorcanciones.RezoPorVos;
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Circulito;
 import algo3c1g2.modelo.Guitarra;
@@ -13,20 +11,14 @@ import algo3c1g2.vista.images.ImageCirculito;
 import algo3c1g2.vista.images.ImageFondoGuitarra;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
-public class InicioAlgoHero {
+public class SimulacionAlgoHero {
 	private ControladorJuego controlador;
 	
-	public InicioAlgoHero(ControladorJuego unControlador){
+	public SimulacionAlgoHero(ControladorJuego unControlador,String cancionAReproducir){
 		this.controlador=unControlador;
 	
-
-
-		/************ CREAMOS UNA CANCION ********************/
-		GeneradorCancion unGenerador = new RezoPorVos();
-		String rutaArchivo = unGenerador.obtenerArchivoCancion();
-
 		PersistidorCancion unPersistidor = new PersistidorCancion();
-		Cancion unaCancion = unPersistidor.cargarCancion(rutaArchivo);
+		Cancion unaCancion = unPersistidor.cargarCancion(cancionAReproducir);
 		/************************************************/
 	
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
@@ -77,8 +69,6 @@ public class InicioAlgoHero {
 		}
 	}
 		
-		
-
   public void comenzar(){
 	  controlador.comenzarJuegoAsyn();
   }

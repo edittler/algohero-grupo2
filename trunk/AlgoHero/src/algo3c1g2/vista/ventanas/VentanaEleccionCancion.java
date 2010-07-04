@@ -1,6 +1,6 @@
 package algo3c1g2.vista.ventanas;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
@@ -12,11 +12,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import algo3c1g2.controlador.InicioAlgoHero;
+import algo3c1g2.controlador.SimulacionAlgoHero;
 import algo3c1g2.generadorcanciones.GeneradorCancion;
-import algo3c1g2.generadorcanciones.GolDeMessiDondeEstas;
-import algo3c1g2.modelo.Cancion;
-import algo3c1g2.persistencia.PersistidorCancion;
+import algo3c1g2.generadorcanciones.*;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
@@ -29,17 +27,19 @@ private static final long serialVersionUID = 1L;
 	public static final int TAMAÑO_HORIZONTAL=800;
 	
 	private ControladorJuego controladorJuego;
+	private String nombreCancion;
 	private Panel panel;
 	private JPanel panelSuperior = new JPanel(new GridLayout(1, 5));
-	private JPanel panelEleccion = new JPanel(new GridLayout (1,5));
+	private JPanel panelEleccion = new JPanel(new GridLayout(10,5));
 	private JPanel panelJuego= new JPanel(new GridLayout (1,5));
 	private JButton botonJugar = new JButton("JUGAR");
 	private JButton botonPausar = new JButton("PAUSA");
 	private JButton botonSalir = new JButton("SALIR");
-	private JButton cancion1 = new JButton("CANCION 1");
-	private JButton cancion2 = new JButton("CANCION 2");
-	private JButton cancion3 = new JButton("CANCION 3");
-	private JButton cancion4 = new JButton("CANCION 4");
+	//Botones cancion
+	private JButton cancion1 = new JButton("Gol de Messi donde estas");
+	private JButton cancion2 = new JButton("Rezo por vos");
+	private JButton cancion3 = new JButton("Sweet Child O Mine");
+	
 
 
 	public VentanaEleccionCancion(ControladorJuego unControladorJuego) {
@@ -54,6 +54,12 @@ private static final long serialVersionUID = 1L;
 		panel = new Panel(666, 726, controladorJuego);
 		panel.setBackground(Color.black);
 		this.add(panel);
+		
+		
+		//Creo la cancion por Default
+		GeneradorCancion unGenerador = new GolDeMessiDondeEstas();
+		String rutaArchivoDefault = unGenerador.obtenerArchivoCancion();
+		ObtenerNombreCancion(rutaArchivoDefault);
 
 		// Se crea la barra de menus.
 		JMenuBar barraMenu = new JMenuBar();
@@ -63,35 +69,35 @@ private static final long serialVersionUID = 1L;
 		panelSuperior.add(panelEleccion);
 		panelSuperior.add(panelJuego);
 
-		
+		//Agrego colores de letra y botones
 		botonJugar.setBackground(Color.BLACK);
 		botonJugar.setForeground(Color.WHITE);
 		botonPausar.setBackground(Color.BLACK);
 		botonPausar.setForeground(Color.WHITE);
 		botonSalir.setBackground(Color.BLACK);
 		botonSalir.setForeground(Color.WHITE);
+		cancion1.setBackground(Color.ORANGE);
+		cancion1.setForeground(Color.BLACK);
+		cancion2.setBackground(Color.ORANGE);
+		cancion2.setForeground(Color.BLACK);
+		cancion3.setBackground(Color.ORANGE);
+		cancion3.setForeground(Color.BLACK);
+	
 		
+		//Agrego los botones a los paneles
 		panelJuego.add(botonJugar);
 		panelJuego.add(botonSalir);
-		
 		panelEleccion.add(cancion1);
 		panelEleccion.add(cancion2);
 		panelEleccion.add(cancion3);
-		panelEleccion.add(cancion4);
+		panel.add(panelEleccion);
 		
-		cancion1.setBackground(Color.BLACK);
-		cancion1.setForeground(Color.WHITE);
-		cancion2.setBackground(Color.BLACK);
-		cancion2.setForeground(Color.WHITE);
-		cancion3.setBackground(Color.BLACK);
-		cancion3.setForeground(Color.WHITE);
-		cancion4.setBackground(Color.BLACK);
-		cancion4.setForeground(Color.WHITE);
-		
-		
-
+		//Agrego a la barra de menu el panel
 		setJMenuBar(barraMenu);
 		barraMenu.add(panelSuperior);
+
+		
+		// ASIGNACION DE ACCIONES A LOS BOTONES
 
 		// Se asigna la accion al boton JUGAR-CONTINUAR
 		botonJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,10 +105,10 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				if (!controladorJuego.estaEnEjecucion())
 				{
-					comenzar();
+					comenzar(nombreCancion);
 					botonJugar.setLabel("CONTINUAR");
-					 panelSuperior.remove(panelEleccion);
-					 panelJuego.add(botonPausar);
+					panel.remove(panelEleccion);
+					panelJuego.add(botonPausar);
 				}
 			}
 		});
@@ -125,19 +131,46 @@ private static final long serialVersionUID = 1L;
 			}
 		});
 		
-		// Se asigna la accion al boton SALIR
+		// Se asigna la accion al boton CANCION 1
 		cancion1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
 				/************ CREAMOS UNA CANCION ********************/
 				GeneradorCancion unGenerador = new GolDeMessiDondeEstas();
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
-
-				PersistidorCancion unPersistidor = new PersistidorCancion();
-				Cancion unaCancion = unPersistidor.cargarCancion(rutaArchivo);
-				/************************************************/
+				ObtenerNombreCancion(rutaArchivo);
+				cancion1.setBackground(Color.GREEN);
+				cancion1.setForeground(Color.BLACK);
+			}
+		});
+		
+		// Se asigna la accion al boton CANCION 2
+		cancion2.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				/************ CREAMOS UNA CANCION ********************/
+				GeneradorCancion unGenerador = new RezoPorVos();
+				String rutaArchivo = unGenerador.obtenerArchivoCancion();
+				ObtenerNombreCancion(rutaArchivo);
+				cancion2.setBackground(Color.GREEN);
+				cancion2.setForeground(Color.BLACK);
+			}
+		});
+		
+		// Se asigna la accion al boton CANCION 3
+		cancion3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				/************ CREAMOS UNA CANCION ********************/
+				GeneradorCancion unGenerador = new SweetChildOMine();
+				String rutaArchivo = unGenerador.obtenerArchivoCancion();
+				ObtenerNombreCancion(rutaArchivo);
+				cancion3.setBackground(Color.GREEN);
+				cancion3.setForeground(Color.BLACK);
 			}
 		});
 
+		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				dispose();
@@ -154,10 +187,15 @@ private static final long serialVersionUID = 1L;
 		dispose();
 		System.exit(0);
 	}
-    private void comenzar(){
-		   InicioAlgoHero inicio = new InicioAlgoHero(controladorJuego);
+	
+    private void comenzar(String cancionAreproducir){
+		   SimulacionAlgoHero inicio = new SimulacionAlgoHero(controladorJuego,cancionAreproducir);
 		   inicio.comenzar();
 	   }
+    
+    private void ObtenerNombreCancion(String nombreCancion){
+    	this.nombreCancion = nombreCancion;
+    }
 
 
 }
