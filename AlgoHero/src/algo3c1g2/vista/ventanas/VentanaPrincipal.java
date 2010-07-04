@@ -11,7 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import algo3c1g2.controlador.InicioAlgoHero;
+import algo3c1g2.controlador.SimulacionAlgoHero;
+import algo3c1g2.generadorcanciones.GeneradorCancion;
+import algo3c1g2.generadorcanciones.GolDeMessiDondeEstas;
 import algo3c1g2.vista.images.ImageFondoInicio;
 import algo3c1g2.vista.images.ImageFondoIntermedio;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -28,6 +30,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	private ControladorJuego controladorJuego;
 	private Panel panel;
+	private String nombreCancion;
 	private JPanel panelSuperior = new JPanel(new GridLayout(1, 1));
 	private JButton botonJugar = new JButton("JUGAR");
 	private JButton botonElegirCanciones = new JButton("ELEGIR CANCION");
@@ -47,6 +50,13 @@ public class VentanaPrincipal extends JFrame {
 		panel = new Panel(666, 726, controladorJuego);
 		panel.setBackground(Color.black);
 		this.add(panel);
+		
+		//Creo la cancion por Default
+		GeneradorCancion unGenerador = new GolDeMessiDondeEstas();
+		String rutaArchivoDefault = unGenerador.obtenerArchivoCancion();
+		ObtenerNombreCancion(rutaArchivoDefault);
+		this.nombreCancion = rutaArchivoDefault;
+
 
 		// Se crea la barra de menus.
 		JMenuBar barraMenu = new JMenuBar();
@@ -150,9 +160,15 @@ public class VentanaPrincipal extends JFrame {
 		dispose();
 		System.exit(0);
 	}
+	
     private void comenzar(){
-		   InicioAlgoHero inicio = new InicioAlgoHero(controladorJuego);
+		   SimulacionAlgoHero inicio = new SimulacionAlgoHero(controladorJuego,nombreCancion);
 		   inicio.comenzar();
 	   }
+    
+    private void ObtenerNombreCancion(String nombreCancion){
+    	this.nombreCancion = nombreCancion;
+    }
+
 
 }
