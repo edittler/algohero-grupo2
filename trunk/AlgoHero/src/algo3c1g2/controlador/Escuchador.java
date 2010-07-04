@@ -2,8 +2,8 @@ package algo3c1g2.controlador;
 
 import java.awt.event.KeyEvent;
 
-import algo3c1g2.modelo.Guitarra;
-import algo3c1g2.modelo.Puntaje;
+import algo3c1g2.modelo.simulador.Guitarra;
+import algo3c1g2.modelo.simulador.Puntaje;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 public class Escuchador implements KeyPressedObservador {

@@ -2,7 +2,7 @@ package algo3c1g2.vista;
 
 import java.awt.Graphics;
 
-import algo3c1g2.modelo.Puntaje;
+import algo3c1g2.modelo.simulador.Puntaje;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
 

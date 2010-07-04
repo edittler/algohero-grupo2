@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import algo3c1g2.controlador.SimulacionAlgoHero;
 import algo3c1g2.generadorcanciones.GeneradorCancion;
 import algo3c1g2.generadorcanciones.GolDeMessiDondeEstas;
-import algo3c1g2.vista.images.ImageFondoInicio;
 import algo3c1g2.vista.images.ImageFondoIntermedio;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
