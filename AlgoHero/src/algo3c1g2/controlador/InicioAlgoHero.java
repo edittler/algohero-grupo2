@@ -1,7 +1,7 @@
 package algo3c1g2.controlador;
 
 import algo3c1g2.generadorcanciones.GeneradorCancion;
-import algo3c1g2.generadorcanciones.GolDeMessiDondeEstas;
+import algo3c1g2.generadorcanciones.RezoPorVos;
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Circulito;
 import algo3c1g2.modelo.Guitarra;
@@ -22,7 +22,7 @@ public class InicioAlgoHero {
 
 
 		/************ CREAMOS UNA CANCION ********************/
-		GeneradorCancion unGenerador = new GolDeMessiDondeEstas();
+		GeneradorCancion unGenerador = new RezoPorVos();
 		String rutaArchivo = unGenerador.obtenerArchivoCancion();
 
 		PersistidorCancion unPersistidor = new PersistidorCancion();
