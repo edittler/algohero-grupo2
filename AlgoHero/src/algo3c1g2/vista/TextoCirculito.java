@@ -1,8 +1,11 @@
 package algo3c1g2.vista;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import algo3c1g2.modelo.simulador.Circulito;
+import algo3c1g2.vista.images.ImageCirculito;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.TextoEstatico;
@@ -13,17 +16,16 @@ public class TextoCirculito extends TextoEstatico {
 	
 	public TextoCirculito(String texto) {
 		super(texto);
-
+		this.setColor(Color.BLACK);
+		this.setFuente(Font.SANS_SERIF, 24);
 	}
 
 	public void dibujar(SuperficieDeDibujo superfice) {
 		this.setTexto(((Circulito)this.getPosicionable()).getTeclas());
 		Graphics grafico = (Graphics)superfice.getBuffer();
-		if (grafico!=null){
-			grafico.setColor(this.getColor());
-			grafico.setFont(fuente);
-			grafico.drawString(getTexto(), this.posicionCuerda, this.getPosicionable().getY());
-		}
+		grafico.setColor(this.getColor());
+		grafico.setFont(fuente);
+		grafico.drawString(getTexto(), this.posicionCuerda+34, (ImageCirculito.PIXELES_POR_CICLO*this.getPosicionable().getY())+ImageCirculito.POSICION_INICIAL_Y+51);
 	}
 	
 	public void setPosicionable(Posicionable posicionable) {
