@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public abstract class VentanaMensaje {
 
 	public VentanaMensaje(Component ventana) {
+		
 
 		JOptionPane.showMessageDialog(ventana, this.getTexto(), this
 				.getTitulo(), JOptionPane.INFORMATION_MESSAGE);
