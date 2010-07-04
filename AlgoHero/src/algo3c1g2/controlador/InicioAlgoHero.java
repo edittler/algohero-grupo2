@@ -11,25 +11,15 @@ import algo3c1g2.vista.TextoCirculito;
 import algo3c1g2.vista.VistaPuntaje;
 import algo3c1g2.vista.images.ImageCirculito;
 import algo3c1g2.vista.images.ImageFondoGuitarra;
-import algo3c1g2.vista.images.ImageFondoInicio;
-import algo3c1g2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class InicioAlgoHero {
+	private ControladorJuego controlador;
+	
+	public InicioAlgoHero(ControladorJuego unControlador){
+		this.controlador=unControlador;
+	
 
-	public static void main(String[] args) {
-
-		ControladorJuego controlador = new ControladorJuego(true);
-
-		// PANTALLA DE BIENVENIDA
-		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
-		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
-		ventana.setVisible(true);
-
-		ImageFondoInicio principal = new ImageFondoInicio();
-		controlador.agregarDibujable(principal);
-		controlador.comenzarJuego(1);
-		controlador.detenerJuego();
 
 		/************ CREAMOS UNA CANCION ********************/
 		GeneradorCancion unGenerador = new GolDeMessiDondeEstas();
@@ -38,7 +28,7 @@ public class InicioAlgoHero {
 		PersistidorCancion unPersistidor = new PersistidorCancion();
 		Cancion unaCancion = unPersistidor.cargarCancion(rutaArchivo);
 		/************************************************/
-
+	
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
         controlador.agregarDibujable(vistaMesa);
         
@@ -51,6 +41,7 @@ public class InicioAlgoHero {
         controlador.agregarObjetoVivo(unaGuitarra);
 		
 	}
+
 
 	private static void configuracionInicial(ControladorJuego controlador,Guitarra unaGuitarra,Puntaje puntaje,int cuerdas, int circulitosPorCuerda) {
 		Circulito unCirculito = null;
@@ -85,5 +76,12 @@ public class InicioAlgoHero {
 						
 		}
 	}
+		
+		
 
+  public void comenzar(){
+	  controlador.comenzarJuegoAsyn();
+  }
+	
 }
+
