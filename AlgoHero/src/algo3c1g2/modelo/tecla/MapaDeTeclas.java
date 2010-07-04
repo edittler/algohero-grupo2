@@ -3,6 +3,8 @@ package algo3c1g2.modelo.tecla;
 
 
 import java.util.Hashtable;
+
+import algo3c1g2.modelo.excepciones.NoHayTeclasHabilitadasExcepcion;
 import algo3c1g2.modelo.nota.Nota;
 
 public class MapaDeTeclas {
@@ -18,7 +20,9 @@ public class MapaDeTeclas {
 	}
 	
 	public CombinacionDeTeclas obtenerCombinacion(Nota nota){
-		return this.mapa.get(nota.getClass().getName());
+		CombinacionDeTeclas unaCombi = this.mapa.get(nota.getClass().getName());
+		if (unaCombi==null) throw new NoHayTeclasHabilitadasExcepcion();
+		return unaCombi;
 	}
 	
 	public Hashtable<String, CombinacionDeTeclas> getMapa(){
