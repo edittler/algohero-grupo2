@@ -11,6 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import algo3c1g2.controlador.InicioAlgoHero;
+import algo3c1g2.vista.images.ImageFondoInicio;
+import algo3c1g2.vista.images.ImageFondoIntermedio;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
@@ -25,9 +28,9 @@ public class VentanaPrincipal extends JFrame {
 	
 	private ControladorJuego controladorJuego;
 	private Panel panel;
-	private JPanel panelSuperior = new JPanel(new GridLayout(1, 0));
+	private JPanel panelSuperior = new JPanel(new GridLayout(1, 1));
 	private JButton botonJugar = new JButton("JUGAR");
-	private JButton botonPausar = new JButton("PAUSA");
+	private JButton botonElegirCanciones = new JButton("ELEGIR CANCION");
 	private JButton botonSalir = new JButton("SALIR");
 	private JButton botonReglas = new JButton("REGLAS");
 	private JButton botonAcercaDe = new JButton("ACERCA DE...");
@@ -47,32 +50,59 @@ public class VentanaPrincipal extends JFrame {
 
 		// Se crea la barra de menus.
 		JMenuBar barraMenu = new JMenuBar();
+		
 
 		// Se agregan los botones al panel
+		panelSuperior.setBackground(Color.BLACK);
 		panelSuperior.add(botonJugar);
-		panelSuperior.add(botonPausar);
+		panelSuperior.add(botonElegirCanciones);
 		panelSuperior.add(botonSalir);
 		panelSuperior.add(botonReglas);
 		panelSuperior.add(botonAcercaDe);
-
+		
+		
+		//colores de letras y botones
+		botonJugar.setBackground(Color.BLACK);
+		botonJugar.setForeground(Color.WHITE);
+		botonElegirCanciones.setBackground(Color.BLACK);
+		botonElegirCanciones.setForeground(Color.WHITE);
+		botonSalir.setBackground(Color.BLACK);
+		botonSalir.setForeground(Color.WHITE);
+		botonAcercaDe.setBackground(Color.BLACK);
+		botonAcercaDe.setForeground(Color.WHITE);
+		botonReglas.setBackground(Color.BLACK);
+		botonReglas.setForeground(Color.WHITE);
+		
+	    barraMenu.setBackground(Color.BLACK);
 		setJMenuBar(barraMenu);
 		barraMenu.add(panelSuperior);
 
 		// Se asigna la accion al boton JUGAR-CONTINUAR
 		botonJugar.addActionListener(new java.awt.event.ActionListener() {
+			
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				if (!controladorJuego.estaEnEjecucion()) {
-					controladorJuego.comenzarJuegoAsyn();
-					botonJugar.setLabel("CONTINUAR");
-				}
+			if (!controladorJuego.estaEnEjecucion())
+			{
+				comenzar();
+				botonJugar.setLabel("CONTINUAR");
+			}
+			
 			}
 		});
 
 		// Se asigna la accion al boton PAUSAR
-		botonPausar.addActionListener(new java.awt.event.ActionListener() {
+		botonElegirCanciones.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
+				VentanaEleccionCancion ventana = new VentanaEleccionCancion(controladorJuego);
+				controladorJuego.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
+				ventana.setVisible(true);
+				ImageFondoIntermedio principal = new ImageFondoIntermedio();
+				controladorJuego.agregarDibujable(principal);
+				controladorJuego.comenzarJuego(1);
 				controladorJuego.detenerJuego();
+			
+				
 			}
 		});
 
@@ -120,5 +150,9 @@ public class VentanaPrincipal extends JFrame {
 		dispose();
 		System.exit(0);
 	}
+    private void comenzar(){
+		   InicioAlgoHero inicio = new InicioAlgoHero(controladorJuego);
+		   inicio.comenzar();
+	   }
 
 }
