@@ -101,8 +101,6 @@ public class Cancion {
 		while(!LlegoAlElemento && itCompaces.hasNext()&&!sePaso){
 			Compas unCompas = itCompaces.next();
 			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
-			//verificamos si el siguiente compas contiene el instante que buscamos, sino seguimos iterando los compaces.
-			//if(this.entraEnElRangoDePresicion(LineaDeTiempo+this.duracionDeUnCompasEnSegundos(unCompas), instante, this.duracionDeUnCompasEnSegundos(unCompas)+presicion)){
 			//Recorremos los elementos del compas 
 			while(itElementos.hasNext() && !LlegoAlElemento && !sePaso){
 				unElemento = itElementos.next();
@@ -110,7 +108,6 @@ public class Cancion {
 				sePaso = (LineaDeTiempo>(instante+presicion));
 				LineaDeTiempo += unElemento.getDuracionEnSegundos(this.getTempo()); 
 			}
-			//}
 		}
 
 		unElemento=(!sePaso&&LlegoAlElemento)?unElemento:null;
@@ -124,11 +121,13 @@ public class Cancion {
 	 */
 	public boolean verificarTeclas(CombinacionDeTeclas teclasPresionadas, double instante,double presicion) {
 		ElementoDeCompas unElemento=this.getElemento(instante,presicion);
-		boolean resultado;
+		boolean resultado=false;
+		if(unElemento!=null){
 		if (unElemento.isNota()){
 			resultado = this.chequear(this.getMapeo().obtenerCombinacion((Nota)unElemento), teclasPresionadas);
 		} else {
 			resultado = false;
+		}
 		}
 		return resultado;
 	}

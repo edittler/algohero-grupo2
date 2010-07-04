@@ -38,6 +38,7 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		this.y = POSICION_INICIAL_Y;
 		this.habilitado = false;
 		this.fueReproducido = false;
+		this.teclas="";
 	}
 
 	@Override
@@ -59,8 +60,15 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	public int getY() {
 		return this.y;
 	}
-
-
+	
+	/*Para ser reproducido debe cumplir con las siguientes condicciones*/
+	public boolean cumpleConLaCondiccionDeReproduccion(double instante, double presicion,String teclas){
+		return ((!this.fueReproducido()) //que no fue reproducido anteriormente 
+		&&(this.getTeclas().equals(teclas))//que tenga las mismas teclas
+		&&((this.getInstanteASerReproducido()+presicion)>=instante)//y que entre en el rango de presicion
+		&&(((this.getInstanteASerReproducido()-presicion)<=instante)));
+	}
+	
 	public void establecerQueFueReproducido() {
 		this.fueReproducido = true;
 	}

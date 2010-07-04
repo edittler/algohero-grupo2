@@ -1,6 +1,10 @@
 package algo3c1g2.vista.images;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 import algo3c1g2.modelo.Circulito;
 import algo3c1g2.vista.VistaCuerda;
@@ -13,10 +17,14 @@ public class ImageCirculito extends Imagen{
 	private static final String IMAGE_CIRCULITO = "ImageCirculito.png";
 	private static final String IMAGE_CIRCULITO_REPRODUCIDO = "ImageCirculitoReproducido.png";
 	private int posicionCuerda;
-	
-	
+	private String nombreArchivoImagen2; 
+    protected BufferedImage imagen2; 
+    
+    /*Nota: guardo una imagen2 para q no tenga q ir al disco cada vez q cambia de imagen*/
+
 	public ImageCirculito(){
 		this.setNombreArchivoImagen(IMAGE_CIRCULITO);
+		this.setNombreArchivoImagen2(IMAGE_CIRCULITO_REPRODUCIDO);
 	}
 	
 	public void establecerImagenOriginal(){
@@ -27,9 +35,29 @@ public class ImageCirculito extends Imagen{
 		this.setNombreArchivoImagen(IMAGE_CIRCULITO_REPRODUCIDO);
 	}
 	
+	
+	public void setNombreArchivoImagen2(String nombreArchivoImagen) {
+		this.nombreArchivoImagen2 = nombreArchivoImagen;
+		try{
+			URL u = this.getClass().getResource(this.nombreArchivoImagen2);
+			this.imagen2 = ImageIO.read(u);
+		}catch(Exception ex){
+
+		}			
+	}
+	
+	
+	
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
+		BufferedImage image = null;
+		if(((Circulito)this.posicionable).fueReproducido()){
+		   image=this.imagen2;
+		}
+		else{
+			image=this.imagen;
+		}
 		Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
-		grafico.drawImage(this.imagen, this.posicionCuerda, this.posicionable.getY(), null);
+		grafico.drawImage(image, this.posicionCuerda, this.posicionable.getY(), null);
 	}
 
 	public void setPosicionable(Posicionable posicionable) {

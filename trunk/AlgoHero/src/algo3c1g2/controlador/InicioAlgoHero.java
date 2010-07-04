@@ -39,34 +39,29 @@ public class InicioAlgoHero {
 		Cancion unaCancion = unPersistidor.cargarCancion(rutaArchivo);
 		/************************************************/
 
-//		unaCancion = new Cancion("unacancionsita");
-//		Compas unCompas = new Compas();
-//		unCompas.agregarElemento(new Do(new Blanca()));
-//		unCompas.agregarElemento(new Do(new Blanca()));
-//		unaCancion.agregarCompas(unCompas);
-//		
-//		CombinacionDeTeclas unaCombinacion= new CombinacionDeTeclas();
-//		unaCombinacion.agregarTecla(new Tecla('A'));
-//		unaCancion.mapear(new Do(), unaCombinacion);
-		
-	
-		ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
-		controlador.agregarDibujable(vistaMesa);
-		
-		Guitarra unaGuitarra = new Guitarra(unaCancion,controlador.getReproductorDeAudio());
-		
-		configuracionInicial(controlador,unaGuitarra,6,5);
-		
-		controlador.setIntervaloSimulacion(15);
-		controlador.agregarObjetoVivo(unaGuitarra);
+        ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
+        controlador.agregarDibujable(vistaMesa);
+        
+		Puntaje puntaje = new Puntaje(unaCancion);
+        Guitarra unaGuitarra = new Guitarra(unaCancion,controlador.getReproductorDeAudio());
+        
+        configuracionInicial(controlador,unaGuitarra,puntaje,6,5);
+
+        controlador.setIntervaloSimulacion(11);
+        controlador.agregarObjetoVivo(unaGuitarra);
 		
 	}
 
-	private static void configuracionInicial(ControladorJuego controlador,Guitarra unaGuitarra,int cuerdas, int circulitosPorCuerda) {
+	private static void configuracionInicial(ControladorJuego controlador,Guitarra unaGuitarra,Puntaje puntaje,int cuerdas, int circulitosPorCuerda) {
 		Circulito unCirculito = null;
 		ImageCirculito unaImageCirculito = null;
 		TextoCirculito unTextoCirculito = null;
-		Escuchador escu = new Escuchador(unaGuitarra);
+
+		VistaPuntaje vistaPuntaje = new VistaPuntaje("");
+		vistaPuntaje.setPosicionable(puntaje);
+		controlador.agregarDibujable(vistaPuntaje);
+		
+		Escuchador escu = new Escuchador(unaGuitarra,puntaje);
 		controlador.agregarKeyPressObservador(escu);
 	
 		
@@ -82,13 +77,11 @@ public class InicioAlgoHero {
 			controlador.agregarObjetoVivo(unCirculito);//Se agregan al controlador
 			controlador.agregarDibujable(unaImageCirculito);
 			controlador.agregarDibujable(unTextoCirculito);
+
 			//Y por ultimo se agregan a la guitarra
 			unaGuitarra.agregarCirculito(unCirculito);
 			}
-			Puntaje puntaje = new Puntaje();
-			VistaPuntaje vistaPuntaje = new VistaPuntaje("");
-			vistaPuntaje.setPosicionable(puntaje);
-			controlador.agregarDibujable(vistaPuntaje);
+
 						
 		}
 	}

@@ -51,7 +51,7 @@ public class Imagen implements Dibujable{
 		this.posicionable = posicionable;
 	}
 	
-	private String nombreArchivoImagen;
+	protected String nombreArchivoImagen;
     protected BufferedImage imagen;
     protected Posicionable posicionable;
 
