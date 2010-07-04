@@ -28,9 +28,11 @@ private static final long serialVersionUID = 1L;
 	
 	private ControladorJuego controladorJuego;
 	private String nombreCancion;
+	private Boolean estadoJuego;
 	private Panel panel;
 	private JPanel panelSuperior = new JPanel(new GridLayout(1, 5));
 	private JPanel panelEleccion = new JPanel(new GridLayout(10,5));
+	private JPanel panelEspacios = new JPanel(new GridLayout(1,5));
 	private JPanel panelJuego= new JPanel(new GridLayout (1,5));
 	private JButton botonJugar = new JButton("JUGAR");
 	private JButton botonPausar = new JButton("PAUSA");
@@ -45,6 +47,8 @@ private static final long serialVersionUID = 1L;
 	public VentanaEleccionCancion(ControladorJuego unControladorJuego) {
 
 		this.controladorJuego = unControladorJuego;
+		//Indica que el juego no fue Iniciado
+		this.estadoJuego = false;
 		this.addKeyListener(new KeyPressedController(controladorJuego));
 		this.setTitle("ALGO-HERO GAME");
 		this.setSize(TAMAÑO_HORIZONTAL, TAMAÑO_VERTICAL);
@@ -87,6 +91,7 @@ private static final long serialVersionUID = 1L;
 		//Agrego los botones a los paneles
 		panelJuego.add(botonJugar);
 		panelJuego.add(botonSalir);
+		panelEleccion.add(panelEspacios);
 		panelEleccion.add(cancion1);
 		panelEleccion.add(cancion2);
 		panelEleccion.add(cancion3);
@@ -105,11 +110,18 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				if (!controladorJuego.estaEnEjecucion())
 				{
-					comenzar(nombreCancion);
-					botonJugar.setLabel("CONTINUAR");
-					panel.remove(panelEleccion);
-					panelJuego.add(botonPausar);
+					if (!estadoJuego){
+						comenzar(nombreCancion);
+						botonJugar.setLabel("CONTINUAR");
+						panel.remove(panelEleccion);
+						panelJuego.add(botonPausar);
+					}
+					else{
+						controladorJuego.comenzarJuegoAsyn();
+					}
 				}
+				
+			
 			}
 		});
 
@@ -117,6 +129,7 @@ private static final long serialVersionUID = 1L;
 		botonPausar.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				controladorJuego.detenerJuego();
+				estadoJuego=true;
 			}
 		});
 
@@ -140,7 +153,6 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion1.setBackground(Color.GREEN);
-				cancion1.setForeground(Color.BLACK);
 			}
 		});
 		
@@ -153,7 +165,6 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion2.setBackground(Color.GREEN);
-				cancion2.setForeground(Color.BLACK);
 			}
 		});
 		
@@ -166,7 +177,6 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion3.setBackground(Color.GREEN);
-				cancion3.setForeground(Color.BLACK);
 			}
 		});
 
@@ -191,10 +201,12 @@ private static final long serialVersionUID = 1L;
     private void comenzar(String cancionAreproducir){
 		   SimulacionAlgoHero inicio = new SimulacionAlgoHero(controladorJuego,cancionAreproducir);
 		   inicio.comenzar();
+		 
 	   }
     
     private void ObtenerNombreCancion(String nombreCancion){
     	this.nombreCancion = nombreCancion;
+    	
     }
 
 

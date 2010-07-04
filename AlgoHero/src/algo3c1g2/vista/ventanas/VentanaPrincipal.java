@@ -30,8 +30,10 @@ public class VentanaPrincipal extends JFrame {
 	private ControladorJuego controladorJuego;
 	private Panel panel;
 	private String nombreCancion;
+	private Boolean estadoJuego;
 	private JPanel panelSuperior = new JPanel(new GridLayout(1, 1));
 	private JButton botonJugar = new JButton("JUGAR");
+	private JButton botonPausar = new JButton("PAUSA");
 	private JButton botonElegirCanciones = new JButton("ELEGIR CANCION");
 	private JButton botonSalir = new JButton("SALIR");
 	private JButton botonReglas = new JButton("REGLAS");
@@ -40,6 +42,8 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 
 		this.controladorJuego = unControladorJuego;
+		//Indica si el juego esta iniciado o se inicio en algun momento
+		this.estadoJuego=false;
 		this.addKeyListener(new KeyPressedController(controladorJuego));
 		this.setTitle("ALGO-HERO GAME");
 		this.setSize(TAMAÑO_HORIZONTAL, TAMAÑO_VERTICAL);
@@ -81,6 +85,8 @@ public class VentanaPrincipal extends JFrame {
 		botonAcercaDe.setForeground(Color.WHITE);
 		botonReglas.setBackground(Color.BLACK);
 		botonReglas.setForeground(Color.WHITE);
+		botonPausar.setBackground(Color.BLACK);
+		botonPausar.setForeground(Color.WHITE);
 		
 	    barraMenu.setBackground(Color.BLACK);
 		setJMenuBar(barraMenu);
@@ -91,14 +97,31 @@ public class VentanaPrincipal extends JFrame {
 			
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-			if (!controladorJuego.estaEnEjecucion())
+			if (!estadoJuego)
 			{
 				comenzar();
 				botonJugar.setLabel("CONTINUAR");
+				panelSuperior.remove(botonElegirCanciones);
+				panelSuperior.remove(botonAcercaDe);
+				panelSuperior.remove(botonReglas);
+				panelSuperior.add(botonPausar);
+				
+			}
+			else{
+				controladorJuego.comenzarJuegoAsyn();
 			}
 			
 			}
 		});
+		
+		// Se asigna la accion al boton PAUSAR
+		botonPausar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				controladorJuego.detenerJuego();
+				estadoJuego=true;
+			}
+		});
+
 
 		// Se asigna la accion al boton PAUSAR
 		botonElegirCanciones.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +153,8 @@ public class VentanaPrincipal extends JFrame {
 				// Solo se crea la instancia mostrando en pantalla.
 				@SuppressWarnings("unused")
 				VentanaAcercaDe acercaDe = new VentanaAcercaDe(panel);
+
+			
 			}
 		});
 
