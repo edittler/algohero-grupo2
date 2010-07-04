@@ -60,8 +60,9 @@ public class Puntaje implements Posicionable {
 		return acerto;
 	}
 
-	private boolean yaFueContado(double instante) {
-		return (this.instanteAnterior >= instante - 2 * PRESICION_DEL_JUEGO);
+	private boolean yaFueContado(double instante){
+		return (this.instanteAnterior>=(instante-(2*PRESICION_DEL_JUEGO)));
+
 	}
 
 	public Nota getElementoAReproducir(double instante) {

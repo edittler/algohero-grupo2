@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.vista.VistaCuerda;
+import algo3c1g2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
@@ -19,6 +20,8 @@ public class ImageCirculito extends Imagen{
 	private int posicionCuerda;
 	private String nombreArchivoImagen2; 
     protected BufferedImage imagen2; 
+    public static final int POSICION_INICIAL_Y = -85;
+    public static final int PIXELES_POR_CICLO = 2;
     
     /*Nota: guardo una imagen2 para q no tenga q ir al disco cada vez q cambia de imagen*/
 
@@ -56,8 +59,11 @@ public class ImageCirculito extends Imagen{
 		else{
 			image=this.imagen;
 		}
+		if(((Circulito)this.posicionable).getY()>VentanaPrincipal.TAMAÑO_VERTICAL){
+			((Circulito)this.posicionable).reiniciar();
+		}
 		Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
-		grafico.drawImage(image, this.posicionCuerda, this.posicionable.getY(), null);
+		grafico.drawImage(image, this.posicionCuerda, (PIXELES_POR_CICLO*this.posicionable.getY())+POSICION_INICIAL_Y, null);
 	}
 
 	public void setPosicionable(Posicionable posicionable) {
