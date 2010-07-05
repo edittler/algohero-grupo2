@@ -66,8 +66,11 @@ public class Puntaje implements Posicionable {
 	}
 
 	public Nota getElementoAReproducir(double instante) {
-		Nota unaNota = (Nota) this.cancion.getElemento(instante, PRESICION_DEL_JUEGO);
-		return unaNota;
+		if (this.cancion != null) {
+			Nota unaNota = (Nota) this.cancion.getElemento(instante, PRESICION_DEL_JUEGO);
+			return unaNota;
+		}
+		return null;
 	}
 
 }

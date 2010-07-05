@@ -115,7 +115,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -161,7 +165,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -207,7 +215,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -253,7 +265,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -299,7 +315,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa

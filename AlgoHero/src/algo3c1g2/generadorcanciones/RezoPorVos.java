@@ -26,7 +26,8 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Negra()));;
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
@@ -40,7 +41,8 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Negra()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
@@ -54,7 +56,8 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Negra()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
@@ -68,7 +71,8 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Negra()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
@@ -82,7 +86,8 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Negra()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Negra()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
 		unCompas.agregarElemento(new LaSostenido(new Negra()));
