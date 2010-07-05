@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import algo3c1g2.modelo.IteradorCliente;
+import algo3c1g2.modelo.nota.Nota;
 
 public class Cuerda {
 
@@ -24,7 +25,7 @@ public class Cuerda {
 	}
 	
 	/* Habilita el 1er circulito que encuentra deshabilitado en la cuerda */
-	public Circulito habilitarUnCirculito(String TeclasEnString) {
+	public Circulito habilitarUnCirculito(String TeclasEnString,int frecuencia,int duracion,double instanteASerReproducido) {
 		Iterator<Circulito> itCir = this.iteradorCirculitos();
 
 		Circulito unCirculito = null;
@@ -39,6 +40,9 @@ public class Cuerda {
 				unCirculito.habilitar();
 				habilito = true;
 				unCirculito.setTeclas(TeclasEnString);
+				unCirculito.setFrecuencia(frecuencia);
+				unCirculito.setDuracion(duracion);
+				unCirculito.setInstanteASerReproducido(instanteASerReproducido);
 			}
 		}
 		return unCirculito; // Devuelvo el Circulito habilitado

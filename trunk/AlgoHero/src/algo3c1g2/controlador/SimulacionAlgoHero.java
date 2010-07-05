@@ -1,9 +1,15 @@
 package algo3c1g2.controlador;
 
 import algo3c1g2.modelo.Cancion;
+import algo3c1g2.modelo.Compas;
+import algo3c1g2.modelo.Silencio;
+import algo3c1g2.modelo.figura.*;
+import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Guitarra;
 import algo3c1g2.modelo.simulador.Puntaje;
+import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
+import algo3c1g2.modelo.tecla.Tecla;
 import algo3c1g2.persistencia.PersistidorCancion;
 import algo3c1g2.vista.TextoCirculito;
 import algo3c1g2.vista.VistaPuntaje;
@@ -19,6 +25,30 @@ public class SimulacionAlgoHero {
 	
 		PersistidorCancion unPersistidor = new PersistidorCancion();
 		Cancion unaCancion = unPersistidor.cargarCancion(cancionAReproducir);
+//      unaCancion = new Cancion("unacancionsita");
+//      Compas unCompas = new Compas();
+//      unCompas.agregarElemento(new FaSostenido(new Corchea()));
+//      unCompas.agregarElemento(new FaSostenido(new Semicorchea()));
+//      unCompas.agregarElemento(new Re(new Semicorchea()));
+//      unCompas.agregarElemento(new FaSostenido(new Semicorchea()));
+//      unCompas.agregarElemento(new Si(new Semicorchea()));
+//      unCompas.agregarElemento(new Si(new Corchea()));
+//      unCompas.agregarElemento(new Silencio(new Blanca()));
+//
+//      unaCancion.agregarCompas(unCompas);
+//      
+//      CombinacionDeTeclas unaCombinacion= new CombinacionDeTeclas();
+//      unaCombinacion.agregarTecla(new Tecla('A'));
+//      unaCancion.mapear(new FaSostenido(), unaCombinacion);
+//      
+//       unaCombinacion= new CombinacionDeTeclas();
+//      unaCombinacion.agregarTecla(new Tecla('A'));
+//      unaCancion.mapear(new Re(), unaCombinacion);
+//      
+//       unaCombinacion= new CombinacionDeTeclas();
+//      unaCombinacion.agregarTecla(new Tecla('A'));
+//      unaCancion.mapear(new Si(), unaCombinacion);
+		unaCancion.setTempo(100);
 		/************************************************/
 	
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
@@ -29,8 +59,8 @@ public class SimulacionAlgoHero {
         
         configuracionInicial(controlador,unaGuitarra,puntaje,6,12);
         
-
-        controlador.setIntervaloSimulacion(11);
+        int intervalo =(int) (1000*(60.00/unaCancion.getTempo())/32);
+        controlador.setIntervaloSimulacion(intervalo);
         controlador.agregarObjetoVivo(unaGuitarra);
 		
 	}

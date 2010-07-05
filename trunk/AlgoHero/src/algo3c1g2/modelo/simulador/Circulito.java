@@ -1,6 +1,7 @@
 package algo3c1g2.modelo.simulador;
 
 
+import algo3c1g2.modelo.nota.Nota;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
@@ -14,9 +15,11 @@ public class Circulito implements ObjetoVivo, Posicionable {
 	private double instanteASerReproducido;
 	private int numeroDeCuerda;
 	private String teclas;
+	private int frecuencia;
+	private int duracion;
 
 	public Circulito(int numeroDeCuerda) {
-		this.setNumeroDeCuerda(numeroDeCuerda);
+		this.numeroDeCuerda=numeroDeCuerda;
 		this.y = 0;
 		this.habilitado = false;
 		this.fueReproducido = false;
@@ -66,12 +69,9 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		return fueReproducido;
 	}
 
-	private void setNumeroDeCuerda(int numeroDeCuerda) {
-		this.numeroDeCuerda = numeroDeCuerda;
-	}
 
 	public int getNumeroDeCuerda() {
-		return numeroDeCuerda;
+		return this.numeroDeCuerda;
 	}
 
 	public void setTeclas(String teclas) {
@@ -104,6 +104,22 @@ public class Circulito implements ObjetoVivo, Posicionable {
 		&&(this.getTeclas().equals(teclas))//que tenga las mismas teclas
 		&&((this.getInstanteASerReproducido()+presicion)>=instante)//y que entre en el rango de presicion
 		&&(((this.getInstanteASerReproducido()-presicion)<=instante)));
+	}
+
+	public void setFrecuencia(int frecuencia) {
+		this.frecuencia = frecuencia;
+	}
+
+	public int getFrecuencia() {
+		return frecuencia;
+	}
+
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
+
+	public int getDuracion() {
+		return duracion;
 	}
 
 

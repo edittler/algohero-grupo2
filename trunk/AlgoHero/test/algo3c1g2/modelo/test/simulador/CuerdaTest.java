@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
+import algo3c1g2.modelo.nota.Do;
+import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Cuerda;
 
@@ -43,7 +45,7 @@ public class CuerdaTest {
 	@Test
 	public void testHabilitarUnCirculitoCuandoNoSeAgregoNinguno() {
 		Cuerda unaCuerda = new Cuerda();
-		Circulito unCirculito = unaCuerda.habilitarUnCirculito("");
+		Circulito unCirculito = unaCuerda.habilitarUnCirculito("",1,1,1);
 		
 		assertTrue(unCirculito==null);
 	}
@@ -58,7 +60,7 @@ public class CuerdaTest {
 		/* Habilito un Circulito,
 		 * como la cuerda tiene uno solo, me debe debolver el mismo
 		 */
-		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("");
+		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("",1,1,1);
 		
 		assertTrue(unCirculito==otroCirculito);
 	}
@@ -72,7 +74,7 @@ public class CuerdaTest {
 		/* Habilito un Circulito,
 		 * como la cuerda tiene uno solo, me debe debolver el mismo
 		 */
-		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("A");
+		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("A",1,1,1);
 		assertTrue(unCirculito==otroCirculito);
 		
 		/* Ademas, voy a probar que el circulito se encuentre habilitado,
