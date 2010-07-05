@@ -5,6 +5,7 @@
   <!-- Propiedades globales del proyecto -->
   <property name="compilacion.fuente"		value="src" />
   <property name="compilacion.destino"		value="bin" />
+  <property name="ejecutable.destino"		value="build" />
   <property name="documentacion.destino"	value="doc" />
   
   <path id="path.compilacion">
@@ -15,10 +16,11 @@
   <target name="compilar" description="Compila el codigo fuente">
     <javac srcdir="${compilacion.fuente}"
 		   destdir="${compilacion.destino}"
-		   debug="false"
+		   debug="off"
 		   deprecation="off"
+		   nowarn="off"
 		   optimize="off"
-		   failonerror="on" >
+		   failonerror="off" >
 	  <classpath refid="path.compilacion"/>
 	</javac>
   </target>
@@ -34,10 +36,24 @@
 	</javadoc>
   </target>
   
+  <!-- Objetivo de generacion de ejecutable -->
+  <target name="generarjar" depends="compilar" description="Genera el ejecutable jar">
+    <delete dir="${ejecutable.destino}" />
+	<mkdir dir="${ejecutable.destino}" />
+	<jar destfile="${ejecutable.destino}\AlgoHero.jar"
+		 basedir="${compilacion.destino}" >
+		<manifest>
+			<attribute name="Main-Class" value="algo3c1g2.controlador.CorrerAlgoHero" />
+		</manifest>
+	</jar>
+  </target>
+  
   <!-- Objetivo de ejecucion-->
-  <target name="ejecutar" depends="compilar">
-    <java classname="algo3c1g2.controlador.InicioAlgoHero"
+  <target name="ejecutar" depends="compilar" description="Compila y ejecuta la aplicacion">
+    <java classname="algo3c1g2.controlador.CorrerAlgoHero"
 		  classpath="${compilacion.destino}"
-		  fork = "true" />
+		  fork = "true" >
+		<classpath refid="path.compilacion"/>
+	</java>
   </target>
 </project>
