@@ -32,7 +32,7 @@ public class GuitarraTest {
 	@Test
 	public void testReproducir() {
 		Guitarra oneGuitar = new Guitarra(null, null);
-		oneGuitar.reproducir(null, 0, 0);
+		oneGuitar.reproducir('A', 0, 0);
 	}
 
 }

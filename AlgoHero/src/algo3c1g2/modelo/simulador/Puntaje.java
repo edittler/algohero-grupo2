@@ -12,7 +12,7 @@ public class Puntaje implements Posicionable {
 	private Cancion cancion;
 	private double instanteAnterior;
 	public static final double PRESICION_DEL_JUEGO = 0.125; // segundos
-	public static final double TIEMPO_ENTRE_MENSAJE_Y_ACCION = 3; // segundos
+	public static final double TIEMPO_ENTRE_MENSAJE_Y_ACCION = 5.3333333333; // segundos
 	private static final int PUNTOS = 1000;
 
 	public Puntaje(Cancion unaCancion) {
@@ -54,14 +54,15 @@ public class Puntaje implements Posicionable {
 			 * Esto significa que si acerto le suma PUNTOS a this.puntos y
 			 * sino le suma 0
 			 */
-			this.puntos += (acerto) ? PUNTOS : 0;
+			this.puntos += (acerto) ? PUNTOS : -PUNTOS;
+
 		}
 		this.instanteAnterior = instante;
 		return acerto;
 	}
 
 	private boolean yaFueContado(double instante){
-		return (this.instanteAnterior>=(instante-(2*PRESICION_DEL_JUEGO)));
+		return (this.instanteAnterior>=(instante-(PRESICION_DEL_JUEGO)));
 
 	}
 
