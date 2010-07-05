@@ -43,8 +43,42 @@ public class PuntajeTest {
 	}
 
 	@Test
-	public void testContarPuntos() {
-		fail("Not yet implemented");
+	public void testContarPuntosConCancionNula() {
+		Cancion unaCancion = null;
+		Puntaje unPuntaje = new Puntaje(unaCancion);
+		
+		boolean contoPuntos = unPuntaje.contarPuntos(0, 'A');
+		
+		/* Como no tiene una cancion almacenada el puntaje, 
+		 * deberia devolver que no conto los puntos.
+		 */
+		assertFalse(contoPuntos);
+	}
+	
+	@Test
+	public void testContarPuntosConCancionSinNotas() {
+		Cancion unaCancion = new Cancion("MiCancion");
+		Puntaje unPuntaje = new Puntaje(unaCancion);
+		
+		boolean contoPuntos = unPuntaje.contarPuntos(0, 'A');
+		
+		/* Como Puntaje tiene almacenada una cancion sin notas, 
+		 * deberia devolver que no conto los puntos.
+		 */
+		assertFalse(contoPuntos);
+	}
+	
+	@Test
+	public void testContarPuntosConCancionSinNotasYEnInstanteNegativo() {
+		Cancion unaCancion = new Cancion("MiCancion");
+		Puntaje unPuntaje = new Puntaje(unaCancion);
+		
+		boolean contoPuntos = unPuntaje.contarPuntos(-3, 'A');
+		
+		/* Como Puntaje tiene almacenada una cancion sin notas, 
+		 * deberia devolver que no conto los puntos.
+		 */
+		assertFalse(contoPuntos);
 	}
 
 }

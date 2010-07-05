@@ -63,7 +63,7 @@ public class CancionTest {
 
 	}
 	
-	@Test(expected=CompasInvalidoExcepcion.class)
+	@Test(expected=CompasIncompletoExcepcion.class)
 	public void testAgregarCompasIncompleto() {
 		Cancion unaCancion = new Cancion("pa' lante");
 		Compas unCompas = new Compas();//por default se crea 4/4
@@ -75,7 +75,7 @@ public class CancionTest {
 	}
 	
 	@Test
-	public void testMapear(){
+	public void testMapearCorrecto(){
 		Cancion unaCancion = new Cancion("Una noche en la playa");
 		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
 		teclas.agregarTecla(new Tecla('A'));
@@ -90,7 +90,6 @@ public class CancionTest {
 	
 		unaCancion.mapear(new LaSostenido(), teclas);
 		
-		assertTrue(unaCancion.getMapeo().obtenerCombinacion(new Do())==null);
 		Iterator<Tecla> itTeclasMi = unaCancion.getMapeo().obtenerCombinacion(new Mi()).getIteradorTeclas();
 		assertTrue("Error al mapear tecla A",itTeclasMi.next().getCodigoASCII()=='A');
 		assertTrue("Error al mapear tecla C",itTeclasMi.next().getCodigoASCII()=='C');
@@ -101,6 +100,17 @@ public class CancionTest {
 		assertTrue("Error al mapear tecla L",itTeclasMi.next().getCodigoASCII()=='L');
 	}
 
+	@Test(expected=NoHayTeclasHabilitadasExcepcion.class)
+	public void testMapearIncorrecto(){
+		Cancion unaCancion = new Cancion("Una noche en la playa");
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('A'));
+		teclas.agregarTecla(new Tecla('C'));
+
+		unaCancion.mapear(new Mi(),teclas);
+		
+		unaCancion.getMapeo().obtenerCombinacion(new Do());
+	}
 	
 	@Test
 	public void testChequear(){

@@ -27,7 +27,7 @@ public class SimulacionAlgoHero {
 		Puntaje puntaje = new Puntaje(unaCancion);
         Guitarra unaGuitarra = new Guitarra(unaCancion,controlador.getReproductorDeAudio());
         
-        configuracionInicial(controlador,unaGuitarra,puntaje,6,5);
+        configuracionInicial(controlador,unaGuitarra,puntaje,6,12);
         
 
         controlador.setIntervaloSimulacion(11);
