@@ -28,6 +28,7 @@ public class Compas {
 	}
 	
 	
+	
 	public void setNumerador(int numerador){
 		if(numerador<=0){
 			throw new CompasInvalidoExcepcion();
@@ -103,7 +104,7 @@ public class Compas {
 	/*
 	 * Post-condicion: devuelve la duracion medido en Negras
 	 */
-	private double getDuracionTotal(){ 
+	public double getDuracionTotal(){ 
 		double aux=((double)this.getNumerador()/(double)this.getDenominador());
 		return 	(aux*4);
 	}

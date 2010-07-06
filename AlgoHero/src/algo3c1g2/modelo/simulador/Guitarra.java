@@ -11,6 +11,7 @@ import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
 
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.audio.Elemento;
 import ar.uba.fi.algo3.titiritero.audio.Reproductor;
 
@@ -20,7 +21,7 @@ import ar.uba.fi.algo3.titiritero.audio.Reproductor;
  * @author Juan Igancio Badano
  */
 
-public class Guitarra implements ObjetoVivo {
+public class Guitarra implements ObjetoVivo,Posicionable {
 
 	// Presicion con la que se obtiene un elemento.
 	// Es una cota del error cometido al almacenar numeros en punto flotante en la PC
@@ -154,6 +155,22 @@ public class Guitarra implements ObjetoVivo {
 		 */
 		int duracion = (int) (1000 * (nota.getDuracionEnSegundos(this.cancion.getTempo())));
 		this.cuerdas.get(cuerda - 1).habilitarUnCirculito(TeclasEnString,frecuencia,duracion,this.getInstanteActual());
+	}
+	
+	public boolean termino(){
+		return this.cancion.getDuracionTotal()+1<this.getInstanteActual();
+	}
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
