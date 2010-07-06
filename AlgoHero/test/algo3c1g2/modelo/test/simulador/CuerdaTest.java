@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
+import algo3c1g2.modelo.excepciones.*;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Cuerda;
 
@@ -25,6 +26,12 @@ public class CuerdaTest {
 		assertFalse(unIt.hasNext());
 	}
 	
+	@Test (expected=ParametroNuloExcepcion.class)
+	public void testAgregarCirculitoNulo() {
+		Cuerda unaCuerda = new Cuerda();
+		unaCuerda.agregarCirculito(null);
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testAgregarCirculito() {
@@ -40,12 +47,10 @@ public class CuerdaTest {
 		assertFalse(unIt.hasNext());
 	}
 
-	@Test
+	@Test (expected=SinElementoParaHabilitarExcepcion.class)
 	public void testHabilitarUnCirculitoCuandoNoSeAgregoNinguno() {
 		Cuerda unaCuerda = new Cuerda();
-		Circulito unCirculito = unaCuerda.habilitarUnCirculito("",1,1,1);
-		
-		assertTrue(unCirculito==null);
+		unaCuerda.habilitarUnCirculito("",1,1,1);
 	}
 	
 	@Test
@@ -58,30 +63,7 @@ public class CuerdaTest {
 		/* Habilito un Circulito,
 		 * como la cuerda tiene uno solo, me debe debolver el mismo
 		 */
-		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("",1,1,1);
-		
-		assertTrue(unCirculito==otroCirculito);
+		unaCuerda.habilitarUnCirculito("",1,1,1);
 	}
-	
-	@Test
-	public void testHabilitarUnCirculitoCorrectoIntegral() {
-		Cuerda unaCuerda = new Cuerda();
-		// Agrego un Circulito a la Cuerda
-		Circulito unCirculito = new Circulito(1);
-		unaCuerda.agregarCirculito(unCirculito);
-		/* Habilito un Circulito,
-		 * como la cuerda tiene uno solo, me debe debolver el mismo
-		 */
-		Circulito otroCirculito = unaCuerda.habilitarUnCirculito("A",1,1,1);
-		assertTrue(unCirculito==otroCirculito);
-		
-		/* Ademas, voy a probar que el circulito se encuentre habilitado,
-		 * y se le haya asignado la tecla correctamente.
-		 */
-		assertTrue(otroCirculito.estaHabilitado());
-		assertTrue(otroCirculito.getTeclas()=="A");
-	}
-
-	
 
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import algo3c1g2.modelo.IteradorCliente;
+import algo3c1g2.modelo.excepciones.ParametroNuloExcepcion;
+import algo3c1g2.modelo.excepciones.SinElementoParaHabilitarExcepcion;
 
 public class Cuerda {
 
@@ -20,20 +22,22 @@ public class Cuerda {
 	}
 
 	public void agregarCirculito(Circulito unCirculito) {
+		if (unCirculito==null) throw new ParametroNuloExcepcion();
 		this.circulitos.add(unCirculito);
 	}
 	
 	/* Habilita el 1er circulito que encuentra deshabilitado en la cuerda */
-	public Circulito habilitarUnCirculito(String TeclasEnString,int frecuencia,int duracion,double instanteASerReproducido) {
+	public void habilitarUnCirculito(String TeclasEnString,int frecuencia,int duracion,double instanteASerReproducido) {
 		Iterator<Circulito> itCir = this.iteradorCirculitos();
-
+		if (!itCir.hasNext()) throw new SinElementoParaHabilitarExcepcion();
+		
 		Circulito unCirculito = null;
 		boolean habilito = false;
 
 		// Recorro los circulitos de la cuerda
 		while (itCir.hasNext() && (!habilito)) {
 			unCirculito = itCir.next();
-
+		
 			// Si no esta habilitado lo habilito y termino el while
 			if (!unCirculito.estaHabilitado()) {
 				unCirculito.habilitar();
@@ -44,7 +48,8 @@ public class Cuerda {
 				unCirculito.setInstanteASerReproducido(instanteASerReproducido);
 			}
 		}
-		return unCirculito; // Devuelvo el Circulito habilitado
+		
+		if (!habilito) throw new SinElementoParaHabilitarExcepcion();
 	}
 	
 }
