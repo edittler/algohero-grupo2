@@ -48,7 +48,7 @@ public class SimulacionAlgoHero {
 //       unaCombinacion= new CombinacionDeTeclas();
 //      unaCombinacion.agregarTecla(new Tecla('A'));
 //      unaCancion.mapear(new Si(), unaCombinacion);
-		unaCancion.setTempo(100);
+		unaCancion.setTempo(130);
 		/************************************************/
 	
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
@@ -59,7 +59,7 @@ public class SimulacionAlgoHero {
         
         configuracionInicial(controlador,unaGuitarra,puntaje,6,12);
         
-        int intervalo =(int) (1000*(60.00/unaCancion.getTempo())/32);
+        int intervalo =(int) (1000*(60.00/unaCancion.getTempo())/64);
         controlador.setIntervaloSimulacion(intervalo);
         controlador.agregarObjetoVivo(unaGuitarra);
 		
