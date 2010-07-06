@@ -25,11 +25,11 @@ public class Guitarra implements ObjetoVivo {
 	// Presicion con la que se obtiene un elemento.
 	// Es una cota del error cometido al almacenar numeros en punto flotante en la PC
 	private static double PRESICION_ELEMENTO = 0.0005;
-
-	// Intervalo de tiempo entre actualizaciones de la simulacion en segundos
-	private static double TIEMPO_INTERVALO_SIMULACION = 0.01875;//0.0104166666666;
-
+	
 	private static int CANTIDAD_DE_CUERDAS = 6;
+	
+	// Intervalo de tiempo entre actualizaciones de la simulacion en segundos
+	private double tiempoIntervaloSimulacion;
 
 	private Cancion cancion;
 	private double instanteActual;
@@ -37,13 +37,17 @@ public class Guitarra implements ObjetoVivo {
 	private Reproductor reproductor;
 
 	/**
-	 * Constructor de la clase Cancion. Si se pasan parametros nulos,
-	 * los metodos del objeto cancion devolveran nulos en algunos casos.
+	 * Constructor de la clase Cancion.
 	 * 
-	 * @param unaCancion Cancion que se va a reproducir
-	 * @param reproductor Reproductor a usar
+	 * @param unaCancion Cancion que se va a reproducir con mapeo completo.
+	 * @param unReproductor Reproductor a usar.
+	 * @throws ParametroNuloExcepcion Si los parametros son nulos.
 	 */
-	public Guitarra(Cancion unaCancion, Reproductor reproductor) {
+	public Guitarra(Cancion unaCancion, Reproductor unReproductor) {
+		/* Los parametros no deben ser nulos, sino lanza excepcion
+		 */
+		if ((unaCancion==null)||(unReproductor==null)) throw new ParametroNuloExcepcion();
+		
 		this.cuerdas = new ArrayList<Cuerda>();
 
 		for (int i = 0; i < Guitarra.CANTIDAD_DE_CUERDAS; i++) {
@@ -53,10 +57,8 @@ public class Guitarra implements ObjetoVivo {
 
 		this.cancion = unaCancion;
 		this.instanteActual = 0.00;
-		this.reproductor = reproductor;
-		if (this.cancion!=null){
-			TIEMPO_INTERVALO_SIMULACION=(60.00/this.cancion.getTempo())/64;
-		}
+		this.reproductor = unReproductor;
+		tiempoIntervaloSimulacion=(60.00/this.cancion.getTempo())/64;
 	}
 	
 	/**
@@ -77,17 +79,14 @@ public class Guitarra implements ObjetoVivo {
 	 */
 	@Override
 	public void vivir() {
-		if (this.cancion!=null){
-			//Obtiene el elemento asociado al instanteActual de la simulacion
-			ElementoDeCompas elementoActual = cancion.getElemento(this.instanteActual, Guitarra.PRESICION_ELEMENTO);
-			if (elementoActual != null) {
-				if (elementoActual.isNota()) { //Si es de tipo Nota habilita un Circulito con los datos de esa nota 
-					this.habilitarUnNuevoCirculito((Nota) elementoActual);
-					
-				}
+		//Obtiene el elemento asociado al instanteActual de la simulacion
+		ElementoDeCompas elementoActual = cancion.getElemento(this.instanteActual, Guitarra.PRESICION_ELEMENTO);
+		if (elementoActual != null) {
+			if (elementoActual.isNota()) { //Si es de tipo Nota habilita un Circulito con los datos de esa nota 
+				this.habilitarUnNuevoCirculito((Nota) elementoActual);
 			}
 		}
-		this.instanteActual += TIEMPO_INTERVALO_SIMULACION;
+		this.instanteActual += tiempoIntervaloSimulacion;
 	}
 	
 	/**
@@ -145,7 +144,7 @@ public class Guitarra implements ObjetoVivo {
 	 ********************** /
 
 	/* Busca y habilita un Circulito en la cuerda indicada */
-	private Circulito habilitarUnNuevoCirculito(Nota nota) {
+	private void habilitarUnNuevoCirculito(Nota nota) {
 		String TeclasEnString = this.cancion.getMapaDeTeclasEnString(nota);
 		int cuerda = nota.getCuerda();
 		int frecuencia = (int) nota.getFrecuencia();
@@ -154,7 +153,7 @@ public class Guitarra implements ObjetoVivo {
 		 * Lo multimpico por 1000 para obtenerlo en milisegundos
 		 */
 		int duracion = (int) (1000 * (nota.getDuracionEnSegundos(this.cancion.getTempo())));
-		return this.cuerdas.get(cuerda - 1).habilitarUnCirculito(TeclasEnString,frecuencia,duracion,this.getInstanteActual());
+		this.cuerdas.get(cuerda - 1).habilitarUnCirculito(TeclasEnString,frecuencia,duracion,this.getInstanteActual());
 	}
 
 }
