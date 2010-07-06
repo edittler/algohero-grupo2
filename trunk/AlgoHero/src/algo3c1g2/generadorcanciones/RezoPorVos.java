@@ -12,12 +12,15 @@ public class RezoPorVos extends GeneradorCancion {
 		/* el tempo de esta cancion, para que se asemeje a la real
 		 * deberia ser por lo menos 115. 
 		 */
+		this.cancion.setTempo(120);
 		
 		Compas unCompas = new Compas();
 		unCompas.agregarElemento(new Silencio(new Corchea()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);
@@ -30,9 +33,11 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);
@@ -45,9 +50,11 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);
@@ -60,9 +67,11 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);
@@ -75,9 +84,11 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);
@@ -90,9 +101,11 @@ public class RezoPorVos extends GeneradorCancion {
 		unCompas.agregarElemento(new Mi(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Negra()));
-		unCompas.agregarElemento(new LaSostenido(new Negra()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
 		unCompas.agregarElemento(new Fa(new Corchea()));
 		unCompas.agregarElemento(new Do(new Corchea()));
 		cancion.agregarCompas(unCompas);

@@ -6,8 +6,6 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-import algo3c1g2.modelo.nota.Do;
-import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Cuerda;
 

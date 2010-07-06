@@ -1,7 +1,6 @@
 package algo3c1g2.modelo.simulador;
 
 
-import algo3c1g2.modelo.nota.Nota;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 

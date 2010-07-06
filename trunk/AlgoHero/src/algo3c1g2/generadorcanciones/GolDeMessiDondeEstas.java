@@ -10,6 +10,7 @@ public class GolDeMessiDondeEstas extends GeneradorCancion {
 
 	public GolDeMessiDondeEstas() {
 		this.cancion = new Cancion("Gol de Messi donde estas");
+		this.cancion.setTempo(130);
 		
 		Compas unCompas = new Compas();
 		unCompas.agregarElemento(new Silencio(new Blanca()));
