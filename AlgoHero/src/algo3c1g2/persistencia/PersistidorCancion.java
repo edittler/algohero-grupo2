@@ -19,9 +19,20 @@ import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.Compas;
 import algo3c1g2.modelo.excepciones.CompasInvalidoExcepcion;
 
+/**
+ * Clase de persistencia externa de la {@code Cancion}.
+ * Utiliza las librerias JDOM.
+ * 
+ * @author Ezequiel Pérez Dittler
+ */
 public class PersistidorCancion {
-
 	
+	/**
+	 * Persiste la cancion, sus compaces, notas y el mapeo asociado.
+	 * 
+	 * @param unaCancion {@code Cancion} a persistir.
+	 * @return Retorna el {@code Element} correspondiente a un nodo XML.
+	 */
 	@SuppressWarnings({ "unchecked" })
 	public Element persistir(Cancion unaCancion){
 		//Nombra al elemento raiz con el nombre de la clase
@@ -52,8 +63,10 @@ public class PersistidorCancion {
 	}
 	
 	/**
+	 * Persiste la cancion, sus compaces, notas, el mapeo asociado
+	 * y la almacena en la ruta especificada.
 	 * 
-	 * @param unaCancion Cancion a persistir
+	 * @param unaCancion Cancion a persistir.
 	 * @param rutaArchivo Ruta del archivo que se debe ingresar con el siguiente formato: "archivo.xml"
 	 */
 	public void persistirYGuardar(Cancion unaCancion, String rutaArchivo){
@@ -69,8 +82,17 @@ public class PersistidorCancion {
 		}
 	}
 	
+	/**
+	 * Carga {@code Cancion} a partir de un archivo XML.
+	 * 
+	 * @param rutaArchivo Ruta del archivo XML donde se encuentra almacenada
+	 * 					  la {@code Cancion} almacenada.
+	 * 					  El formato debe ser: "archivo.xml"
+	 * @return Si no hubo errores, devuelve la {@code Cancion}, sino retorna un elemento nulo.
+	 * @throws FileNotFoundException En caso que no encuentre el archivo especificado.
+	 */
 	@SuppressWarnings("unchecked")
-	public Cancion cargarCancion(String rutaArchivo){
+	public Cancion cargarCancion(String rutaArchivo) throws FileNotFoundException{
 		try {
 			// Obtengo el Documento del Archivo y lo proceso
 			SAXBuilder builder = new SAXBuilder();
@@ -106,23 +128,23 @@ public class PersistidorCancion {
 			 */
 			return unaCancion;
 		
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (DataConversionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		} catch (CompasInvalidoExcepcion e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		} catch (JDOMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 	
 	
