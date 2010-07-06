@@ -8,6 +8,7 @@ import algo3c1g2.modelo.simulador.Guitarra;
 import algo3c1g2.modelo.simulador.Puntaje;
 import algo3c1g2.persistencia.PersistidorCancion;
 import algo3c1g2.vista.TextoCirculito;
+import algo3c1g2.vista.VistaGuitarra;
 import algo3c1g2.vista.VistaPuntaje;
 import algo3c1g2.vista.images.ImageCirculito;
 import algo3c1g2.vista.images.ImageFondoGuitarra;
@@ -41,6 +42,10 @@ public class SimulacionAlgoHero {
         int intervalo =(int) (1000*(60.00/unaCancion.getTempo())/64);
         controlador.setIntervaloSimulacion(intervalo);
         controlador.agregarObjetoVivo(unaGuitarra);
+        
+        VistaGuitarra vGuitarra= new VistaGuitarra();
+        vGuitarra.setPosicionable(unaGuitarra);
+        controlador.agregarDibujable(vGuitarra);
 		
 	}
 

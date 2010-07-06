@@ -19,6 +19,7 @@ public class Cancion {
 	private String nombre;
 	private int tempo; // [negras/minuto]
 	private ArrayList<Compas> compaces;
+	private double duracionTotal;
 
 	/*
 	 * mapeo: almacanena correspondencias entre un tono (diferenciado por su
@@ -35,8 +36,13 @@ public class Cancion {
 		this.tempo = TEMPO_DEFAULT;
 		this.compaces = new ArrayList<Compas>();
 		this.mapeo = new MapaDeTeclas();
+		this.duracionTotal=0.00;
 	}
 
+	public double getDuracionTotal(){
+		return this.duracionTotal*(60.00/(double)(this.getTempo()));
+	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -72,6 +78,7 @@ public class Cancion {
 		if (unCompas.estaInconcluso()) {
 			throw new CompasIncompletoExcepcion();
 		}
+		this.duracionTotal+=unCompas.getDuracionTotal();
 		this.compaces.add(unCompas);
 	}
 
