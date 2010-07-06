@@ -12,14 +12,18 @@ public class Puntaje implements Posicionable {
 	private Cancion cancion;
 	private double instanteAnterior;
 	public static final double PRESICION_DEL_JUEGO = 0.125; // segundos
-	public static final double TIEMPO_ENTRE_MENSAJE_Y_ACCION = 5.3333333333; // segundos
+	public static double TIEMPO_ENTRE_MENSAJE_Y_ACCION = 5.3333333333; // segundos
 	private static final int PUNTOS = 1000;
 
 	public Puntaje(Cancion unaCancion) {
 		this.puntos = 0;
 		this.cancion = unaCancion;
 		this.instanteAnterior = 0.00;
+		double tempo = (double)(this.cancion.getTempo());
+		Puntaje.TIEMPO_ENTRE_MENSAJE_Y_ACCION = (0.000155952381*(tempo*tempo) - (0.057297619*(tempo)) + 6.8857143);
+//3.3;//((-0.03)*((double)(this.cancion.getTempo())))+5.7;
 	}
+	
 
 	@Override
 	public int getX() {

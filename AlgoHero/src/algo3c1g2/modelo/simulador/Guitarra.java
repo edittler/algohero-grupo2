@@ -42,7 +42,7 @@ public class Guitarra implements ObjetoVivo {
 		this.cancion = unaCancion;
 		this.instanteActual = 0.00;
 		this.reproductor = reproductor;
-		TIEMPO_INTERVALO_SIMULACION=(60.00/this.cancion.getTempo())/32;
+		TIEMPO_INTERVALO_SIMULACION=(60.00/this.cancion.getTempo())/64;
 	}
 
 	public void agregarCirculito(Circulito unCirculito) {
