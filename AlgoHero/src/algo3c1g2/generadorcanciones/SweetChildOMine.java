@@ -12,95 +12,116 @@ public class SweetChildOMine extends GeneradorCancion {
 		/* el tempo de esta cancion, para que se asemeje a la real
 		 * deberia ser por lo menos 120. 
 		 */
+		this.cancion.setTempo(130);
 		
 		Compas unCompas = new Compas();
-		unCompas.agregarElemento(new Re(new Corchea()));
-		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Do(new Corchea()));
 		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		cancion.agregarCompas(unCompas);
-		
-		unCompas = new Compas();
-		unCompas.agregarElemento(new ReSostenido(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
 		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new LaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		unCompas = new Compas();
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new SolSostenido(new Corchea()));
-		unCompas.agregarElemento(new LaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		cancion.agregarCompas(unCompas);
-		
-		unCompas = new Compas();
-		unCompas.agregarElemento(new DoSostenido(new Corchea()));
-		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new La(new Corchea()));
-		unCompas.agregarElemento(new FaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		cancion.agregarCompas(unCompas);
-		
-		unCompas = new Compas();
-		unCompas.agregarElemento(new ReSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
 		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new LaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		unCompas = new Compas();
 		unCompas.agregarElemento(new Re(new Corchea()));
-		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		unCompas = new Compas();
-		unCompas.agregarElemento(new ReSostenido(new Corchea()));
+		unCompas.agregarElemento(new Re(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
 		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		cancion.agregarCompas(unCompas);
+		
+		unCompas = new Compas();
 		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		cancion.agregarCompas(unCompas);
+		
+		unCompas = new Compas();
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		unCompas = new Compas();
 		unCompas.agregarElemento(new Do(new Corchea()));
-		unCompas.agregarElemento(new SolSostenido(new Corchea()));
-		unCompas.agregarElemento(new LaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		cancion.agregarCompas(unCompas);
-		
-		unCompas = new Compas();
-		unCompas.agregarElemento(new DoSostenido(new Corchea()));
-		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new La(new Corchea()));
-		unCompas.agregarElemento(new FaSostenido(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		unCompas = new Compas();
-		unCompas.agregarElemento(new ReSostenido(new Corchea()));
+		unCompas.agregarElemento(new Do(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
 		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		cancion.agregarCompas(unCompas);
+		
+		unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		unCompas.agregarElemento(new Mi(new Corchea()));
-		unCompas.agregarElemento(new Si(new Negra()));
-		unCompas.agregarElemento(new Si(new Negra()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		cancion.agregarCompas(unCompas);
+		
+		unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Corchea()));
+		unCompas.agregarElemento(new La(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new Mi(new Corchea()));
+		unCompas.agregarElemento(new Si(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
+		unCompas.agregarElemento(new LaSostenido(new Corchea()));
+		unCompas.agregarElemento(new Sol(new Corchea()));
 		cancion.agregarCompas(unCompas);
 		
 		CombinacionDeTeclas teclas = new CombinacionDeTeclas();

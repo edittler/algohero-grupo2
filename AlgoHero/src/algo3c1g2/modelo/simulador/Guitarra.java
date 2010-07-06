@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.ElementoDeCompas;
+import algo3c1g2.modelo.excepciones.ParametroNuloExcepcion;
 import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
@@ -12,6 +13,12 @@ import algo3c1g2.modelo.tecla.Tecla;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.audio.Elemento;
 import ar.uba.fi.algo3.titiritero.audio.Reproductor;
+
+/**
+ * Esta clase simula un instrumento guitarra que reproduce canciones
+ * 
+ * @author Juan Igancio Badano
+ */
 
 public class Guitarra implements ObjetoVivo {
 
@@ -29,9 +36,14 @@ public class Guitarra implements ObjetoVivo {
 	private ArrayList<Cuerda> cuerdas;
 	private Reproductor reproductor;
 
-
+	/**
+	 * Constructor de la clase Cancion. Si se pasan parametros nulos,
+	 * los metodos del objeto cancion devolveran nulos en algunos casos.
+	 * 
+	 * @param unaCancion Cancion que se va a reproducir
+	 * @param reproductor Reproductor a usar
+	 */
 	public Guitarra(Cancion unaCancion, Reproductor reproductor) {
-
 		this.cuerdas = new ArrayList<Cuerda>();
 
 		for (int i = 0; i < Guitarra.CANTIDAD_DE_CUERDAS; i++) {
@@ -42,14 +54,27 @@ public class Guitarra implements ObjetoVivo {
 		this.cancion = unaCancion;
 		this.instanteActual = 0.00;
 		this.reproductor = reproductor;
-		TIEMPO_INTERVALO_SIMULACION=(60.00/this.cancion.getTempo())/64;
+		if (this.cancion!=null){
+			TIEMPO_INTERVALO_SIMULACION=(60.00/this.cancion.getTempo())/64;
+		}
 	}
-
+	
+	/**
+	 * Metodo para agregar un {@code Circulito} (representacion de nota en
+	 * la guitarra) a la guitarra. 
+	 * @param unCirculito El {@code Circulito} a agregar.
+	 * @throws ParametroNuloExcepcion Si se para un parametro nulo.
+	 */
 	public void agregarCirculito(Circulito unCirculito) {
-		int cuerda =unCirculito.getNumeroDeCuerda() - 1;
+		if (unCirculito == null) throw new ParametroNuloExcepcion();
+		int cuerda = unCirculito.getNumeroDeCuerda() - 1;
 		this.cuerdas.get(cuerda).agregarCirculito(unCirculito);
 	}
-
+	
+	/**
+	 * Metodo que hace "vivir" a la guitarra incrementando el tiempo
+	 * de reproduccion de la cancion.
+	 */
 	@Override
 	public void vivir() {
 		if (this.cancion!=null){
@@ -64,20 +89,32 @@ public class Guitarra implements ObjetoVivo {
 		}
 		this.instanteActual += TIEMPO_INTERVALO_SIMULACION;
 	}
+	
+	/**
+	 * Metodo para conocer el instante en que que se encuentra reproduciendo
+	 * la cancion.
+	 * @return Devuelve el instante actual de reproduccion de la cancion.
+	 */
+	public double getInstanteActual() {
+		return this.instanteActual;
+	}
 
-	/*
-	 * Recibe un instante y una presicion reproduce la nota asociada al instante
-	 * y modifica el estado del Circulito para que la vista cambie
+	/**
+	 * Reproduce la nota asociada al instante si concuerda la tecla
+	 * precionada segun el mapeo de la cancion.
+	 * @param tecla Tecla presionada
+	 * @param instante Intante de la cancion que se quiere reproducir
+	 * @param presicion Presicion con la que se quiere obtener la nota
+	 * a reproducir
 	 */
 	public void reproducir(char tecla,double instante, double presicion) {
 		CombinacionDeTeclas TeclasPresionadas = new CombinacionDeTeclas();
 		Tecla unaTecla = new Tecla(tecla);
 		TeclasPresionadas.agregarTecla(unaTecla);
 		
-		
-			boolean conto = false;
-			Iterator<Cuerda> itCuer=this.cuerdas.iterator();
-			while(itCuer.hasNext()){
+		boolean conto = false;
+		Iterator<Cuerda> itCuer=this.cuerdas.iterator();
+		while(itCuer.hasNext()){
 			Iterator<Circulito> itCir = itCuer.next().iteradorCirculitos();
 			
 			/* Iteramos los circulitos de la cuerda asociada a la nota
@@ -93,12 +130,19 @@ public class Guitarra implements ObjetoVivo {
 					unCirculito.establecerQueFueReproducido();
 				}
 			}
-			}
 		}
+	}
 	
+	/**
+	 * Reproduce una nota de error.
+	 */
+	public void reproducirError() {
+		this.reproductor.reproducir(new Elemento(44, 17));
+	}
 
-
-	/****** Métodos Auxiliares *******/
+	/* ********************
+	/* METODOS AUXILIARES *
+	 ********************** /
 
 	/* Busca y habilita un Circulito en la cuerda indicada */
 	private Circulito habilitarUnNuevoCirculito(Nota nota) {
@@ -111,14 +155,6 @@ public class Guitarra implements ObjetoVivo {
 		 */
 		int duracion = (int) (1000 * (nota.getDuracionEnSegundos(this.cancion.getTempo())));
 		return this.cuerdas.get(cuerda - 1).habilitarUnCirculito(TeclasEnString,frecuencia,duracion,this.getInstanteActual());
-	}
-
-	public double getInstanteActual() {
-		return this.instanteActual;
-	}
-
-	public void reproducirError() {
-		this.reproductor.reproducir(new Elemento(44, 17));
 	}
 
 }

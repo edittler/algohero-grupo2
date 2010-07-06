@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import algo3c1g2.modelo.IteradorCliente;
-import algo3c1g2.modelo.nota.Nota;
 
 public class Cuerda {
 

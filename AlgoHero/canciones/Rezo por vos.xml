@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Cancion nombre="Rezo por vos" tempo="90">
+<Cancion nombre="Rezo por vos" tempo="120">
   <MapaDeTeclas>
     <Clave>
       algo3c1g2.modelo.nota.DoSostenido
@@ -81,7 +81,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -89,7 +93,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -131,7 +139,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -139,7 +151,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -181,7 +197,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -189,7 +209,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -231,7 +255,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -239,7 +267,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -281,7 +313,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -289,7 +325,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa
@@ -331,7 +371,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Fa
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Do
@@ -339,7 +383,11 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Fa

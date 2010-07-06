@@ -1,15 +1,9 @@
 package algo3c1g2.controlador;
 
 import algo3c1g2.modelo.Cancion;
-import algo3c1g2.modelo.Compas;
-import algo3c1g2.modelo.Silencio;
-import algo3c1g2.modelo.figura.*;
-import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Guitarra;
 import algo3c1g2.modelo.simulador.Puntaje;
-import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
-import algo3c1g2.modelo.tecla.Tecla;
 import algo3c1g2.persistencia.PersistidorCancion;
 import algo3c1g2.vista.TextoCirculito;
 import algo3c1g2.vista.VistaPuntaje;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Cancion nombre="Sweet Child O Mine" tempo="90">
+<Cancion nombre="Sweet Child O Mine" tempo="130">
   <MapaDeTeclas>
     <Clave>
       algo3c1g2.modelo.nota.DoSostenido
@@ -76,15 +76,15 @@
   </MapaDeTeclas>
   <Compas numerador="4" denominador="4">
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Re
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Sol
+      algo3c1g2.modelo.nota.Do
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -93,16 +93,6 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.ReSostenido
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -114,16 +104,8 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Mi
+      algo3c1g2.modelo.nota.Sol
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
     </ElementoDeCompas>
   </Compas>
   <Compas numerador="4" denominador="4">
@@ -132,55 +114,19 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.SolSostenido
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.LaSostenido
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Mi
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.DoSostenido
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Sol
-      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
       algo3c1g2.modelo.nota.La
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.FaSostenido
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.ReSostenido
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -192,16 +138,8 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Mi
+      algo3c1g2.modelo.nota.Sol
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
     </ElementoDeCompas>
   </Compas>
   <Compas numerador="4" denominador="4">
@@ -210,11 +148,11 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Sol
+      algo3c1g2.modelo.nota.La
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.La
+      algo3c1g2.modelo.nota.Sol
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -223,16 +161,6 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.ReSostenido
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -244,16 +172,110 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Re
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Si
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
   </Compas>
   <Compas numerador="4" denominador="4">
@@ -262,11 +284,11 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.SolSostenido
+      algo3c1g2.modelo.nota.La
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.LaSostenido
+      algo3c1g2.modelo.nota.Sol
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -275,20 +297,24 @@
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.DoSostenido
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Do
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -296,21 +322,15 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
-      algo3c1g2.modelo.nota.FaSostenido
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
-    </ElementoDeCompas>
-  </Compas>
-  <Compas numerador="4" denominador="4">
-    <ElementoDeCompas>
-      algo3c1g2.modelo.nota.ReSostenido
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
@@ -322,16 +342,76 @@
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Do
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
       algo3c1g2.modelo.nota.Mi
       <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+  </Compas>
+  <Compas numerador="4" denominador="4">
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Do
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.La
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Mi
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
     <ElementoDeCompas>
       algo3c1g2.modelo.nota.Si
-      <Figura>algo3c1g2.modelo.figura.Negra</Figura>
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.LaSostenido
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
+    </ElementoDeCompas>
+    <ElementoDeCompas>
+      algo3c1g2.modelo.nota.Sol
+      <Figura>algo3c1g2.modelo.figura.Corchea</Figura>
     </ElementoDeCompas>
   </Compas>
 </Cancion>
