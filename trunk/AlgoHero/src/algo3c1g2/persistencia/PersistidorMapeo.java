@@ -12,14 +12,26 @@ import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.nota.*;
 import algo3c1g2.modelo.tecla.*;
 
+/**
+ * Clase de persistencia externa del {@code Mapeo}.
+ * Utiliza las librerias JDOM.
+ * 
+ * @author Ezequiel Pérez Dittler
+ */
 public class PersistidorMapeo {
 
-	public Element persistir(MapaDeTeclas mapeo) {
-		Element root = new Element(mapeo.getClass().getSimpleName());
+	/**
+	 * Persiste el {@code MapaDeTeclas} junto con sus claves y valores.
+	 * 
+	 * @param unMapeo {@code MapaDeTeclas} a persistir.
+	 * @return Retorna el {@code Element} correspondiente a un nodo XML.
+	 */
+	public Element persistir(MapaDeTeclas unMapeo) {
+		Element root = new Element(unMapeo.getClass().getSimpleName());
 		
 		//Obtengo el mapeo.
 		Hashtable<String, CombinacionDeTeclas> mapa = new Hashtable<String, CombinacionDeTeclas>();
-		mapa = (Hashtable<String, CombinacionDeTeclas>) mapeo.getMapa();
+		mapa = (Hashtable<String, CombinacionDeTeclas>) unMapeo.getMapa();
 		
 		//Obtengo las claves del mapeo
 		Set<String> claves = mapa.keySet();
@@ -40,11 +52,17 @@ public class PersistidorMapeo {
 		return root;
 	}
 	
+	/**
+	 * Carga el {@code MapaDeTeclas} en la {@code Cancion} dada.
+	 * 
+	 * @param unaCancion {@code Cancion} en la que se desea cargar el {@code MapaDeTeclas}.
+	 * @param root Nodo raiz que deberia contener el {@code MapaDeTeclas}.
+	 */
 	@SuppressWarnings("unchecked")
-	public void cargarMapeo(Cancion unaCancion, Element unElementoMapa) {
+	public void cargarMapeo(Cancion unaCancion, Element root) {
 		try {
 			//Obtengo las claves y valores del Elemento y los cargo al mapeo
-			List elementosClaves = unElementoMapa.getChildren("Clave");
+			List elementosClaves = root.getChildren("Clave");
 			Iterator itElementosClaves = elementosClaves.iterator();
 					
 			while (itElementosClaves.hasNext()){

@@ -9,8 +9,20 @@ import org.jdom.Element;
 import algo3c1g2.modelo.Compas;
 import algo3c1g2.modelo.ElementoDeCompas;
 
+/**
+ * Clase de persistencia externa del {@code Compas}.
+ * Utiliza las librerias JDOM.
+ * 
+ * @author Ezequiel Pérez Dittler
+ */
 public class PersistidorCompas {
 
+	/**
+	 * Persiste el {@code Compas}, sus atributos y sus notas.
+	 * 
+	 * @param unCompas {@code Compas} a persistir.
+	 * @return Retorna el {@code Element} correspondiente a un nodo XML.
+	 */
 	@SuppressWarnings("unchecked")
 	public Element persistir(Compas unCompas) {
 		Element root = new Element(unCompas.getClass().getSimpleName());
@@ -35,6 +47,13 @@ public class PersistidorCompas {
 		return root;
 	}
 
+	/**
+	 * Obtiene el {@code Compas} a traves de un {@code Element}.
+	 * 
+	 * @param root Nodo raiz que deberia contener el {@code Compas}.
+	 * @return Devuelve el {@code Compas} obtenido.
+	 * @throws DataConversionException Si el elemento no tiene {@code Compas}.
+	 */
 	@SuppressWarnings("unchecked")
 	public Compas obtenerCompas(Element root) throws DataConversionException {
 		//creo el compas a devolver

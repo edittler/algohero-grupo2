@@ -1,5 +1,7 @@
 package algo3c1g2.controlador;
 
+import java.io.FileNotFoundException;
+
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.simulador.Circulito;
 import algo3c1g2.modelo.simulador.Guitarra;
@@ -18,32 +20,15 @@ public class SimulacionAlgoHero {
 		this.controlador=unControlador;
 	
 		PersistidorCancion unPersistidor = new PersistidorCancion();
-		Cancion unaCancion = unPersistidor.cargarCancion(cancionAReproducir);
-//      unaCancion = new Cancion("unacancionsita");
-//      Compas unCompas = new Compas();
-//      unCompas.agregarElemento(new FaSostenido(new Corchea()));
-//      unCompas.agregarElemento(new FaSostenido(new Semicorchea()));
-//      unCompas.agregarElemento(new Re(new Semicorchea()));
-//      unCompas.agregarElemento(new FaSostenido(new Semicorchea()));
-//      unCompas.agregarElemento(new Si(new Semicorchea()));
-//      unCompas.agregarElemento(new Si(new Corchea()));
-//      unCompas.agregarElemento(new Silencio(new Blanca()));
-//
-//      unaCancion.agregarCompas(unCompas);
-//      
-//      CombinacionDeTeclas unaCombinacion= new CombinacionDeTeclas();
-//      unaCombinacion.agregarTecla(new Tecla('A'));
-//      unaCancion.mapear(new FaSostenido(), unaCombinacion);
-//      
-//       unaCombinacion= new CombinacionDeTeclas();
-//      unaCombinacion.agregarTecla(new Tecla('A'));
-//      unaCancion.mapear(new Re(), unaCombinacion);
-//      
-//       unaCombinacion= new CombinacionDeTeclas();
-//      unaCombinacion.agregarTecla(new Tecla('A'));
-//      unaCancion.mapear(new Si(), unaCombinacion);
-		unaCancion.setTempo(130);
-		/************************************************/
+		Cancion unaCancion = null;
+		try {
+			unaCancion = unPersistidor.cargarCancion(cancionAReproducir);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		/* ***********************************************/
 	
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
         controlador.agregarDibujable(vistaMesa);
@@ -59,6 +44,9 @@ public class SimulacionAlgoHero {
 		
 	}
 
+	public void comenzar(){
+		controlador.comenzarJuegoAsyn();
+	}
 
 	private static void configuracionInicial(ControladorJuego controlador,Guitarra unaGuitarra,Puntaje puntaje,int cuerdas, int circulitosPorCuerda) {
 		Circulito unCirculito = null;
@@ -72,31 +60,24 @@ public class SimulacionAlgoHero {
 		Escuchador escu = new Escuchador(unaGuitarra,puntaje);
 		controlador.agregarKeyPressObservador(escu);
 	
-		
 		for(int i=1;i<=cuerdas;i++){    //TODO PRUEBAS que no permita agregar en la cuerda 7
 			for(int j=0;j<circulitosPorCuerda;j++){
-			unCirculito=new Circulito(i); //se crea el ciculito para la cuerda i
-			
-			unaImageCirculito = new ImageCirculito(); //se crean las vistas y se les asigna el posicionable unCirculito
-			unaImageCirculito.setPosicionable(unCirculito);
-			unTextoCirculito = new TextoCirculito("");
-			unTextoCirculito.setPosicionable(unCirculito);
-			
-			controlador.agregarObjetoVivo(unCirculito);//Se agregan al controlador
-			controlador.agregarDibujable(unaImageCirculito);
-			controlador.agregarDibujable(unTextoCirculito);
-
-			//Y por ultimo se agregan a la guitarra
-			unaGuitarra.agregarCirculito(unCirculito);
-			}
-
-						
+				// Se crea el ciculito para la cuerda i
+				unCirculito=new Circulito(i);
+				//Se crea la vista y se le asigna el posicionable unCirculito
+				unaImageCirculito = new ImageCirculito();
+				unaImageCirculito.setPosicionable(unCirculito);
+				unTextoCirculito = new TextoCirculito("");
+				unTextoCirculito.setPosicionable(unCirculito);
+				//Se agregan al controlador
+				controlador.agregarObjetoVivo(unCirculito);
+				controlador.agregarDibujable(unaImageCirculito);
+				controlador.agregarDibujable(unTextoCirculito);
+				//Y por ultimo se agregan a la guitarra
+				unaGuitarra.agregarCirculito(unCirculito);
+			}				
 		}
 	}
-		
-  public void comenzar(){
-	  controlador.comenzarJuegoAsyn();
-  }
 	
 }
 
