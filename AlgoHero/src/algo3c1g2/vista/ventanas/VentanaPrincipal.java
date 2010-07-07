@@ -129,6 +129,7 @@ public class VentanaPrincipal extends JFrame {
 				VentanaEleccionCancion ventana = new VentanaEleccionCancion(controladorJuego);
 				controladorJuego.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 				ventana.setVisible(true);
+				DesabilitarVentana();
 				ImageFondoIntermedio principal = new ImageFondoIntermedio();
 				controladorJuego.agregarDibujable(principal);
 				controladorJuego.comenzarJuego(1);
@@ -193,6 +194,11 @@ public class VentanaPrincipal extends JFrame {
     private void ObtenerNombreCancion(String nombreCancion){
     	this.nombreCancion = nombreCancion;
     }
+    
+   private void DesabilitarVentana(){
+	   this.setVisible(false);
+	   
+   }
 
 
 }

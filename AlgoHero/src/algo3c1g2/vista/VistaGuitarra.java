@@ -9,13 +9,13 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 public class VistaGuitarra extends Imagen {
 
 	public VistaGuitarra(){
-		this.setNombreArchivoImagen("gameover.jpg");
+		this.setNombreArchivoImagen("gameover.png");
 	}
 	
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		if(((Guitarra)this.posicionable).termino()){
 			Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
-			grafico.drawImage(this.imagen, 240, 160, null);
+			grafico.drawImage(this.imagen,0, 0, null);
 		}
 		
 	}

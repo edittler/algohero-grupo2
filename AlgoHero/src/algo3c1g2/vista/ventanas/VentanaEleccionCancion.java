@@ -153,6 +153,8 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion1.setBackground(Color.GREEN);
+				cancion2.setBackground(Color.ORANGE);
+				cancion3.setBackground(Color.ORANGE);
 			}
 		});
 		
@@ -165,6 +167,8 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion2.setBackground(Color.GREEN);
+				cancion1.setBackground(Color.ORANGE);
+				cancion3.setBackground(Color.ORANGE);
 			}
 		});
 		
@@ -177,6 +181,9 @@ private static final long serialVersionUID = 1L;
 				String rutaArchivo = unGenerador.obtenerArchivoCancion();
 				ObtenerNombreCancion(rutaArchivo);
 				cancion3.setBackground(Color.GREEN);
+				cancion2.setBackground(Color.ORANGE);
+				cancion1.setBackground(Color.ORANGE);
+				
 			}
 		});
 
