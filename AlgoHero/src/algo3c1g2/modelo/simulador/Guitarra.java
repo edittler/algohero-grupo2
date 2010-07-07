@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import algo3c1g2.modelo.Cancion;
 import algo3c1g2.modelo.ElementoDeCompas;
+import algo3c1g2.modelo.excepciones.MapeoIncompletoExcepcion;
 import algo3c1g2.modelo.excepciones.ParametroNuloExcepcion;
 import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
@@ -48,7 +49,7 @@ public class Guitarra implements ObjetoVivo,Posicionable {
 		/* Los parametros no deben ser nulos, sino lanza excepcion
 		 */
 		if ((unaCancion==null)||(unReproductor==null)) throw new ParametroNuloExcepcion();
-		
+		if(!unaCancion.mapeoCompleto()) throw new MapeoIncompletoExcepcion();
 		this.cuerdas = new ArrayList<Cuerda>();
 
 		for (int i = 0; i < Guitarra.CANTIDAD_DE_CUERDAS; i++) {
@@ -158,18 +159,16 @@ public class Guitarra implements ObjetoVivo,Posicionable {
 	}
 	
 	public boolean termino(){
-		return this.cancion.getDuracionTotal()+1<this.getInstanteActual();
+		return (this.cancion.getDuracionTotal()+3)<this.getInstanteActual();
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

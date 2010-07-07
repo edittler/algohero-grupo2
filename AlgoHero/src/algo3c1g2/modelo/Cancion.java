@@ -38,8 +38,10 @@ public class Cancion {
 		this.mapeo = new MapaDeTeclas();
 		this.duracionTotal=0.00;
 	}
-
-	public double getDuracionTotal(){
+	/*obtiene la duracion total en segundos, multiplica la duracion total en negras,
+	 * por 60.00segundos y lo divide por el tempo. una regla de 3 simple
+	 */
+	public double getDuracionTotal(){ 
 		return this.duracionTotal*(60.00/(double)(this.getTempo()));
 	}
 	
@@ -83,7 +85,9 @@ public class Cancion {
 	}
 
 	public void mapear(Nota nota, CombinacionDeTeclas combinacion) {
-		this.mapeo.agregarMapeo(nota, combinacion);
+		if(!this.mapeo.contieneNota(nota)){
+			this.mapeo.agregarMapeo(nota, combinacion);
+		}
 	}
 
 	/*
@@ -94,6 +98,7 @@ public class Cancion {
 		if (instante < 0) {
 			throw new TiempoNegativoExcepcion();
 		}
+		
 		Iterator<Compas> itCompaces = this.getIteratorCompaces();
 
 		// Contador del tiempo transcurrido total a medida que se recorre la
@@ -158,8 +163,7 @@ public class Cancion {
 	// asociadas a la nota en el mapeo
 	private boolean chequear(CombinacionDeTeclas teclasDelMapeo,
 			CombinacionDeTeclas teclasPresionadas) {
-		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas
-				.getIteradorTeclas();
+		Iterator<Tecla> itTeclasPresionadas = teclasPresionadas.getIteradorTeclas();
 		boolean resultado = true;
 		while (itTeclasPresionadas.hasNext() && resultado) {
 			Tecla unaTeclaPresionada = itTeclasPresionadas.next();
@@ -183,5 +187,22 @@ public class Cancion {
 	private boolean entraEnElRangoDePresicion(double valor, double entorno,
 			double presicion) {
 		return ((valor <= (entorno + presicion)) && (valor >= (entorno - presicion)));
+	}
+	
+	public boolean mapeoCompleto(){
+		Iterator<Compas> itCompaces = this.getIteratorCompaces();
+		boolean resultado=true;
+		resultado=(!this.compaces.isEmpty());
+		// Recorro los compaces hasta llegar al instante ingresado
+		while (itCompaces.hasNext()&&resultado) {
+			Compas unCompas = itCompaces.next();
+			Iterator<ElementoDeCompas> itElementos = unCompas.getIteratorElementos();
+			while (itElementos.hasNext()&&resultado) {
+				ElementoDeCompas elemento = itElementos.next();
+				if(elemento.isNota())
+				resultado=this.getMapeo().contieneNota((Nota)elemento);
+			}
+		}
+		return resultado;
 	}
 }

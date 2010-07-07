@@ -28,5 +28,8 @@ public class MapaDeTeclas {
 	public Hashtable<String, CombinacionDeTeclas> getMapa(){
 		return this.mapa;
 	}
+	public boolean contieneNota(Nota unaNota){
+		return this.mapa.containsKey(unaNota.getClass().getName());
+	}
 
 }
