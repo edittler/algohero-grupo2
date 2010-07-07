@@ -30,7 +30,7 @@ public class SimulacionAlgoHero {
 		}
 
 		/* ***********************************************/
-	
+		unaCancion.setTempo(150);
         ImageFondoGuitarra vistaMesa = new ImageFondoGuitarra();
         controlador.agregarDibujable(vistaMesa);
         
@@ -65,7 +65,7 @@ public class SimulacionAlgoHero {
 		Escuchador escu = new Escuchador(unaGuitarra,puntaje);
 		controlador.agregarKeyPressObservador(escu);
 	
-		for(int i=1;i<=cuerdas;i++){    //TODO PRUEBAS que no permita agregar en la cuerda 7
+		for(int i=1;i<=cuerdas;i++){   
 			for(int j=0;j<circulitosPorCuerda;j++){
 				// Se crea el ciculito para la cuerda i
 				unCirculito=new Circulito(i);

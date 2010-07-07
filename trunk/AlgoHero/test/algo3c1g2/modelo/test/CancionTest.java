@@ -245,4 +245,45 @@ public class CancionTest {
 	
 	}
 	
+	@Test
+	public void testMapeoIncompleto(){
+		Cancion unaCancion = new Cancion("Palomitas de Maiz");
+		Compas unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Blanca()));
+		unCompas.agregarElemento(new La(new Negra()));
+		unCompas.agregarElemento(new Si(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('A'));
+		teclas.agregarTecla(new Tecla('C'));
+		unaCancion.mapear(new Do(),teclas);
+		
+		assertFalse(unaCancion.mapeoCompleto());
+	}
+	
+	@Test
+	public void testMapeoCompleto(){
+		Cancion unaCancion = new Cancion("Palomitas de Maiz");
+		Compas unCompas = new Compas();
+		unCompas.agregarElemento(new Do(new Blanca()));
+		unCompas.agregarElemento(new La(new Negra()));
+		unCompas.agregarElemento(new Si(new Negra()));
+		unaCancion.agregarCompas(unCompas);
+		CombinacionDeTeclas teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('A'));
+		teclas.agregarTecla(new Tecla('C'));
+		unaCancion.mapear(new Do(),teclas);
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('X'));
+		teclas.agregarTecla(new Tecla('H'));
+		unaCancion.mapear(new Si(),teclas);
+		teclas = new CombinacionDeTeclas();
+		teclas.agregarTecla(new Tecla('G'));
+		teclas.agregarTecla(new Tecla('E'));
+		unaCancion.mapear(new La(),teclas);
+		
+		assertTrue(unaCancion.mapeoCompleto());
+	}
+	
+	
 }
