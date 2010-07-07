@@ -13,7 +13,7 @@ public class VistaGuitarra extends Imagen {
 	}
 	
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
-		if(((Guitarra)this.posicionable).termino()){
+		if(((Guitarra)this.posicionable).terminoLaCancion()){
 			Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
 			grafico.drawImage(this.imagen,0, 0, null);
 		}

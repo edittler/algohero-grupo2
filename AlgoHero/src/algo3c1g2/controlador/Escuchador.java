@@ -20,7 +20,7 @@ public class Escuchador implements KeyPressedObservador {
         @Override
         public void keyPressed(KeyEvent event) {
         	 char tecla=(char) event.getKeyCode();
-        	 if (((tecla>='a')&&(tecla<='z'))||((tecla>='A')&&(tecla<='Z'))){
+        	 if (esUnaTeclaAceptada(tecla)){
                 if (!this.estaPresionado) { //no le hagan caso a este if
                         this.estaPresionado = true;
                         double instante=this.guitarra.getInstanteActual();
@@ -39,4 +39,9 @@ public class Escuchador implements KeyPressedObservador {
         	 }
         }
 
+        private boolean esUnaTeclaAceptada(char tecla){
+        	return (((tecla>='a')&&(tecla<='z'))||((tecla>='A')&&(tecla<='Z')));
+        }
+        
+        
 }

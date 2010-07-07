@@ -101,8 +101,7 @@ public class Guitarra implements ObjetoVivo,Posicionable {
 	}
 
 	/**
-	 * Reproduce la nota asociada al instante si concuerda la tecla
-	 * precionada segun el mapeo de la cancion.
+	 * Reproduce la nota asociada al circulito con tecla y con instanteASeRPresionado instante
 	 * @param tecla Tecla presionada
 	 * @param instante Intante de la cancion que se quiere reproducir
 	 * @param presicion Presicion con la que se quiere obtener la nota
@@ -158,7 +157,7 @@ public class Guitarra implements ObjetoVivo,Posicionable {
 		this.cuerdas.get(cuerda - 1).habilitarUnCirculito(TeclasEnString,frecuencia,duracion,this.getInstanteActual());
 	}
 	
-	public boolean termino(){
+	public boolean terminoLaCancion(){
 		return (this.cancion.getDuracionTotal()+3)<this.getInstanteActual();
 	}
 

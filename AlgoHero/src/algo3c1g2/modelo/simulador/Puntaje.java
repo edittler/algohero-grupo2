@@ -1,7 +1,6 @@
 package algo3c1g2.modelo.simulador;
 
 import algo3c1g2.modelo.Cancion;
-import algo3c1g2.modelo.nota.Nota;
 import algo3c1g2.modelo.tecla.CombinacionDeTeclas;
 import algo3c1g2.modelo.tecla.Tecla;
 import ar.uba.fi.algo3.titiritero.Posicionable;
@@ -21,11 +20,16 @@ public class Puntaje implements Posicionable {
 		this.instanteAnterior = 0.00;
 		if (this.cancion != null){
 			double tempo = (double)(this.cancion.getTempo());
-			Puntaje.TIEMPO_ENTRE_MENSAJE_Y_ACCION = (0.000155952381*(tempo*tempo) - (0.057297619*(tempo)) + 6.8857143);
+			Puntaje.TIEMPO_ENTRE_MENSAJE_Y_ACCION = Retardo(tempo);
 		}
 
 	}
 	
+
+	private double Retardo(double tempo) {
+		return (0.000155952381*(tempo*tempo) - (0.057297619*(tempo)) + 6.8857143);
+	}
+
 
 	@Override
 	public int getX() {
@@ -72,12 +76,5 @@ public class Puntaje implements Posicionable {
 
 	}
 
-	public Nota getElementoAReproducir(double instante) {
-		if (this.cancion != null) {
-			Nota unaNota = (Nota) this.cancion.getElemento(instante, PRESICION_DEL_JUEGO);
-			return unaNota;
-		}
-		return null;
-	}
 
 }
