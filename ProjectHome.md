@@ -1,0 +1,1 @@
+Este es el proyecto de Algo Hero para la materia Algoritmos y programacion III de FIUBA realizada por el Grupo 2 del turno Jueves a la tarde.
